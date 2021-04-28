@@ -11,7 +11,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 -   Basic routing in `/routes/api` with Express Router
--   Configure
+-   Configure basic route middleware on `server.js`
 
 ### Fixed
 
