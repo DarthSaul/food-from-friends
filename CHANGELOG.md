@@ -6,6 +6,23 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## backend1/router <> 2021-04-28
+
+### Added
+
+-   Basic routing in `/routes/api` with Express Router
+-   Configure
+
+### Fixed
+
+-   Uploaded MongoURI -- removed file from repo, changed password (credentials comprised)
+
+## backend1/mongo <> 2021-04-28
+
+### Added
+
+-   Connect to Mongo Atlas with Mongoose
+
 ## init <> 2021-04-28
 
 ### Added
