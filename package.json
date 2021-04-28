@@ -1,0 +1,34 @@
+{
+    "name": "food-from-friends",
+    "version": "1.0.0",
+    "description": "Food recommendations for friends to share",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server",
+        "server": "nodemon server"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DarthSaul/food-from-friends.git"
+    },
+    "author": "Saul Graves",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/DarthSaul/food-from-friends/issues"
+    },
+    "homepage": "https://github.com/DarthSaul/food-from-friends#readme",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "bcryptjs": "^2.4.3",
+        "config": "^3.3.6",
+        "express": "^4.17.1",
+        "express-validator": "^6.10.1",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.12.6",
+        "request": "^2.88.2"
+    },
+    "devDependencies": {
+        "concurrently": "^6.0.2",
+        "nodemon": "^2.0.7"
+    }
+}
