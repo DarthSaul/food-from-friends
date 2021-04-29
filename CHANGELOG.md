@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Added
+
+-   Mongoose models for `User.js`
+
 ---
 
 ## backend1/router <> 2021-04-28
