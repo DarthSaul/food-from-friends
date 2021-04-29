@@ -6,11 +6,23 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
--   Mongoose models for `User.js`
-
 ---
 
-## backend1/router <> 2021-04-28
+## backend2/validation <> 2021-04-29
+
+### Added
+
+-   Body parser
+-   Basic Express Validator middlewares
+-   Error handling, custom error messages
+
+## backend2/mongoose-models <> 2021-04-29
+
+### Added
+
+-   `User` model with Mongoose
+
+## backend1/express-router <> 2021-04-28
 
 ### Added
 
