@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+<!-- ## backend2/auth-middleware <> 2021-04-29 -->
+
+### Added
+
 ---
 
 ## backend2/registration <> 2021-04-29
