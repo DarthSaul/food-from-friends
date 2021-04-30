@@ -53,7 +53,7 @@ router.post(
             // Return jwt
             const payload = {
                 user: {
-                    id: user.id
+                    id: newUser.id
                 }
             };
 
