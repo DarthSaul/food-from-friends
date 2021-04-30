@@ -4,7 +4,21 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+---
+
+## backend2/registration <> 2021-04-29
+
 ### Added
+
+-   Create new `User` document (register)
+-   Connect to gravatar, hash password, save User
+-   Error handling with try/catch
+-   JSON Web Token
+
+### Fixed
+
+-   MongoDB `useCreateIndex` warning
+-   Fixed Atlas DB link, wrong database name
 
 ---
 
