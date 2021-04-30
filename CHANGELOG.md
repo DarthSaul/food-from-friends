@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 -   Create new `User` document (register)
 -   Connect to gravatar, hash password, save User
 -   Error handling with try/catch
+-   JSON Web Token
 
 ### Fixed
 
