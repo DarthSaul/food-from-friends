@@ -9,6 +9,16 @@ All notable changes to this project will be documented in this file.
 ## Added
 
 -   Get current user profile
+-   Create a new profile
+-   Update existing profile
+
+## Fixed
+
+-   Moved validation chain on `users.js` router file into array
+
+## Changed
+
+-   Updated `Profile` model to have `favoriteDishes` field
 
 ---
 

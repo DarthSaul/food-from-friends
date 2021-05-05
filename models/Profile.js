@@ -16,6 +16,9 @@ const profileSchema = new Schema({
     favoriteCuisines: {
         type: [String]
     },
+    favoriteDishes: {
+        type: [String]
+    },
     favoriteRestaurants: [
         {
             name: {
