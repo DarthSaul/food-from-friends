@@ -4,7 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Added
+
 ---
+
+## backend2/auth-middleware <> 2021-04-29
+
+### Added
+
+-   Auth middleware, route protection
+-   Return user data from database
 
 ## backend2/registration <> 2021-04-29
 
