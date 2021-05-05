@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+---
+
+## backend3/profile-model <> 2021-05-05
+
 ### Added
+
+-   Profile model with Mongoose
 
 ---
 
