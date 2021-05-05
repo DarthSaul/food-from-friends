@@ -6,7 +6,13 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-## <!-- ## backend2/login <> 2021-05-05 -->
+---
+
+## backend2/login <> 2021-05-05
+
+### Added
+
+-   Login functionality
 
 ## backend2/auth-middleware <> 2021-04-29
 
