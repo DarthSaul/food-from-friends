@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+-   Auth middleware, route protection
+
 ---
 
 ## backend2/registration <> 2021-04-29
