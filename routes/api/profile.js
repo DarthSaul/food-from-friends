@@ -77,7 +77,7 @@ router.post(
                 // Update profile
                 profile = await Profile.findByIdAndUpdate(
                     profile.id,
-                    { profileFields },
+                    { ...profileFields },
                     { new: true }
                 );
                 return res.json(profile);
