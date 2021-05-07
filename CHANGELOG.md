@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 -   Get current user profile
 -   Create a new profile
 -   Update existing profile
+-   View all profiles (index)
 
 ## Fixed
 
