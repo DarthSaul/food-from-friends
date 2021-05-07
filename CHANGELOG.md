@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 -   Update existing profile
 -   View all profiles (index)
 -   View profile based on user id
+-   Delete profile & associated user
 
 ## Fixed
 
