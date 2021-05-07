@@ -12,10 +12,12 @@ All notable changes to this project will be documented in this file.
 -   Create a new profile
 -   Update existing profile
 -   View all profiles (index)
+-   View profile based on user id
 
 ## Fixed
 
 -   Moved validation chain on `users.js` router file into array
+-   Deprecation warning from Mongoose
 
 ## Changed
 
