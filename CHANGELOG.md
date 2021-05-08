@@ -4,7 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-<!-- backend3/profile-CRUD <> 2021-05-07 -->
+---
+
+## backend3/profile-CRUD <> 2021-05-08
 
 ## Added
 
@@ -25,8 +27,6 @@ All notable changes to this project will be documented in this file.
 ## Changed
 
 -   Updated `Profile` model to have `favoriteDishes` field
-
----
 
 ## backend3/profile-model <> 2021-05-05
 
