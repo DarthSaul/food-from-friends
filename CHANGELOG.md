@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+<!-- backend3/profile-CRUD <> 2021-05-07 -->
+
+## Added
+
+-   Get current user profile
+-   Create a new profile
+-   Update existing profile
+-   View all profiles (index)
+-   View profile based on user id
+-   Delete profile & associated user
+-   Add a favorite restaurant to profile, delete favorite restaurant from profile
+-   Add a favorite media to profile, delete favorite media from profile
+
+## Fixed
+
+-   Moved validation chain on `users.js` router file into array
+-   Deprecation warning from Mongoose
+
+## Changed
+
+-   Updated `Profile` model to have `favoriteDishes` field
+
 ---
 
 ## backend3/profile-model <> 2021-05-05

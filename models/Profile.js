@@ -16,6 +16,9 @@ const profileSchema = new Schema({
     favoriteCuisines: {
         type: [String]
     },
+    favoriteDishes: {
+        type: [String]
+    },
     favoriteRestaurants: [
         {
             name: {
@@ -31,6 +34,31 @@ const profileSchema = new Schema({
                 required: true
             },
             review: {
+                type: String,
+                required: true
+            }
+        }
+    ],
+    favoriteMedia: [
+        {
+            title: {
+                type: String,
+                required: true
+            },
+            type: {
+                type: String,
+                enum: [
+                    'movie',
+                    'series',
+                    'show',
+                    'book',
+                    'newspaper',
+                    'magazine',
+                    'column'
+                ],
+                required: true
+            },
+            description: {
                 type: String,
                 required: true
             }
