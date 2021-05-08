@@ -190,11 +190,64 @@ router.put(
 router.delete('/restaurants/:restaurant_id', auth, async (req, res) => {
     const { restaurant_id } = req.params;
     try {
-        const profile = await Profile.findOne({ user: req.user.id });
+        let profile = await Profile.findOne({ user: req.user.id });
         if (profile) {
             profile = await Profile.findByIdAndUpdate(
                 profile.id,
                 { $pull: { favoriteRestaurants: { _id: restaurant_id } } },
+                { new: true }
+            );
+            return res.json(profile);
+        }
+    } catch (err) {
+        console.error(err.message);
+        return res.status(500).send('Server error');
+    }
+});
+
+// @route     PUT api/profile/media
+// @desc      Add favorite media to profile
+// @access    Private
+router.put(
+    '/media',
+    auth,
+    check('title', 'Title is required').notEmpty(),
+    check('type', 'Type is required').notEmpty(),
+    check('description', 'Description is required').notEmpty(),
+    async (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        const { title, type, description } = req.body;
+        const newMedia = {
+            title,
+            type: type.toLowerCase(),
+            description
+        };
+        try {
+            const profile = await Profile.findOne({ user: req.user.id });
+            profile.favoriteMedia.push(newMedia);
+            await profile.save();
+            res.json(profile);
+        } catch (err) {
+            console.error(err.message);
+            return res.status(500).send('Server error');
+        }
+    }
+);
+
+// @route     DELETE api/profile/media/:media_id
+// @desc      Delete media from profile
+// @access    Private
+router.delete('/media/:media_id', auth, async (req, res) => {
+    const { media_id } = req.params;
+    try {
+        let profile = await Profile.findOne({ user: req.user.id });
+        if (profile) {
+            profile = await Profile.findByIdAndUpdate(
+                profile.id,
+                { $pull: { favoriteMedia: { _id: media_id } } },
                 { new: true }
             );
             return res.json(profile);

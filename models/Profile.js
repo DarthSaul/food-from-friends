@@ -39,6 +39,31 @@ const profileSchema = new Schema({
             }
         }
     ],
+    favoriteMedia: [
+        {
+            title: {
+                type: String,
+                required: true
+            },
+            type: {
+                type: String,
+                enum: [
+                    'movie',
+                    'series',
+                    'show',
+                    'book',
+                    'newspaper',
+                    'magazine',
+                    'column'
+                ],
+                required: true
+            },
+            description: {
+                type: String,
+                required: true
+            }
+        }
+    ],
     social: {
         instagram: {
             type: String

@@ -14,8 +14,8 @@ All notable changes to this project will be documented in this file.
 -   View all profiles (index)
 -   View profile based on user id
 -   Delete profile & associated user
--   Add a favorite restaurant to profile
--   Delete favorite restaurant from profile
+-   Add a favorite restaurant to profile, delete favorite restaurant from profile
+-   Add a favorite media to profile, delete favorite media from profile
 
 ## Fixed
 
