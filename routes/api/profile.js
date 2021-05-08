@@ -147,4 +147,62 @@ router.delete('/', auth, async (req, res) => {
     }
 });
 
+// @route     PUT api/profile/restaurants
+// @desc      Add favorite restaurants to profile
+// @access    Private
+router.put(
+    '/restaurants',
+    auth,
+    check('name', 'Name is required').notEmpty(),
+    check('location', 'Location is required').notEmpty(),
+    check('rating', 'Rating is required').notEmpty(),
+    check('review', 'Review is required').notEmpty(),
+    async (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        const { name, location, rating, review } = req.body;
+
+        const newRestaurant = {
+            name,
+            location,
+            rating,
+            review
+        };
+
+        try {
+            const profile = await Profile.findOne({ user: req.user.id });
+            profile.favoriteRestaurants.push(newRestaurant);
+            await profile.save();
+            res.json(profile);
+        } catch (err) {
+            console.error(err.message);
+            return res.status(500).send('Server error');
+        }
+    }
+);
+
+// @route     DELETE api/profile/restaurants/:restaurant_id
+// @desc      Delete favorite restaurant from profile
+// @access    Private
+router.delete('/restaurants/:restaurant_id', auth, async (req, res) => {
+    const { restaurant_id } = req.params;
+    try {
+        const profile = await Profile.findOne({ user: req.user.id });
+        if (profile) {
+            profile = await Profile.findByIdAndUpdate(
+                profile.id,
+                { $pull: { favoriteRestaurants: { _id: restaurant_id } } },
+                { new: true }
+            );
+            return res.json(profile);
+        }
+    } catch (err) {
+        console.error(err.message);
+        return res.status(500).send('Server error');
+    }
+});
+
 module.exports = router;
