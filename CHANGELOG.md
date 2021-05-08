@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## Added
+
+-   List model
+-   Comment model
+
 ---
 
 ## backend3/profile-CRUD <> 2021-05-08
