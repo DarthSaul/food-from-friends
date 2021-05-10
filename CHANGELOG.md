@@ -4,7 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-<!-- backend4/list-CRUD <> 2021-05-10 -->
+---
+
+## backend4/list-CRUD <> 2021-05-10
 
 ## Added
 
@@ -20,8 +22,6 @@ All notable changes to this project will be documented in this file.
 
 -   Added `likes` field to `List` model
 -   Changed PUT request for adding a new comment to POST request
-
----
 
 ## backend4/List-model <> 2021-05-08
 
@@ -58,8 +58,6 @@ All notable changes to this project will be documented in this file.
 
 -   Profile model with Mongoose
 
----
-
 ## backend2/login <> 2021-05-05
 
 ### Added
@@ -86,8 +84,6 @@ All notable changes to this project will be documented in this file.
 
 -   MongoDB `useCreateIndex` warning
 -   Fixed Atlas DB link, wrong database name
-
----
 
 ## backend2/validation <> 2021-04-29
 
