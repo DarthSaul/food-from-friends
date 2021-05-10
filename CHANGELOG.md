@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file.
 ## Changed
 
 -   Added `likes` field to `List` model
+-   Changed PUT request for adding a new comment to POST request
 
 ---
 

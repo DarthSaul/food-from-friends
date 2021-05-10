@@ -150,10 +150,10 @@ router.put('/unlike/:list_id', auth, async (req, res) => {
     }
 });
 
-// @route     PUT api/lists/:list_id/comment
+// @route     POST api/lists/:list_id/comment
 // @desc      Comment on a list
 // @access    Private
-router.put('/:list_id/comment', auth, async (req, res) => {
+router.post('/:list_id/comment', auth, async (req, res) => {
     try {
         const { list_id } = req.params;
         const list = await List.findById(list_id);
