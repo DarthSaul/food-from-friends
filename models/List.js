@@ -33,6 +33,14 @@ const listSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Comment'
         }
+    ],
+    likes: [
+        {
+            user: {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        }
     ]
 });
 

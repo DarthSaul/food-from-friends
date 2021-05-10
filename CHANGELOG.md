@@ -4,16 +4,35 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-## Added
+---
+
+## backend4/list-CRUD <> 2021-05-10
+
+### Added
+
+-   Create a new list
+-   View all lists
+-   View single list by list id
+-   `isListOwner` permission middleware
+-   Delete a list
+-   Like a list, unlike a list
+-   Comment and delete comment. `isCommentOwner` custom middleware
+
+### Changed
+
+-   Added `likes` field to `List` model
+-   Changed PUT request for adding a new comment to POST request
+
+## backend4/List-model <> 2021-05-08
+
+### Added
 
 -   List model
 -   Comment model
 
----
-
 ## backend3/profile-CRUD <> 2021-05-08
 
-## Added
+### Added
 
 -   Get current user profile
 -   Create a new profile
@@ -24,12 +43,12 @@ All notable changes to this project will be documented in this file.
 -   Add a favorite restaurant to profile, delete favorite restaurant from profile
 -   Add a favorite media to profile, delete favorite media from profile
 
-## Fixed
+### Fixed
 
 -   Moved validation chain on `users.js` router file into array
 -   Deprecation warning from Mongoose
 
-## Changed
+### Changed
 
 -   Updated `Profile` model to have `favoriteDishes` field
 
@@ -38,8 +57,6 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 -   Profile model with Mongoose
-
----
 
 ## backend2/login <> 2021-05-05
 
@@ -67,8 +84,6 @@ All notable changes to this project will be documented in this file.
 
 -   MongoDB `useCreateIndex` warning
 -   Fixed Atlas DB link, wrong database name
-
----
 
 ## backend2/validation <> 2021-04-29
 
