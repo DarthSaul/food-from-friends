@@ -4,11 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-<!-- backend4/list-CRUD <> 2021-05-08 -->
+<!-- backend4/list-CRUD <> 2021-05-10 -->
 
 ## Added
 
 -   Create a new list
+-   View all lists
+-   View single list by list id
+-   `isListOwner` permission middleware
 
 ---
 
