@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 -   `isListOwner` permission middleware
 -   Delete a list
 -   Like a list, unlike a list
+-   Comment and delete comment. `isCommentOwner` custom middleware
 
 ## Changed
 

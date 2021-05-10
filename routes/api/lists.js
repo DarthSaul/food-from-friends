@@ -4,8 +4,9 @@ const { check, validationResult } = require('express-validator');
 
 const auth = require('../../middleware/auth');
 const isListOwner = require('../../middleware/isListOwner');
+const isCommentOwner = require('../../middleware/isCommentOwner');
 
-const Profile = require('../../models/Profile');
+const Comment = require('../../models/Comment');
 const User = require('../../models/User');
 const List = require('../../models/List');
 
@@ -43,7 +44,9 @@ router.post(
 // @access    Public
 router.get('/', async (req, res) => {
     try {
-        const lists = await List.find().populate('user', ['name', 'avatar']);
+        const lists = await List.find()
+            .populate('user', ['name', 'avatar'])
+            .populate('comments', ['user', 'avatar', 'text']);
         return res.json(lists);
     } catch (err) {
         console.error(err.message);
@@ -146,5 +149,56 @@ router.put('/unlike/:list_id', auth, async (req, res) => {
         return res.status(500).send('Server error');
     }
 });
+
+// @route     PUT api/lists/:list_id/comment
+// @desc      Comment on a list
+// @access    Private
+router.put('/:list_id/comment', auth, async (req, res) => {
+    try {
+        const { list_id } = req.params;
+        const list = await List.findById(list_id);
+        const user = await User.findById(req.user.id);
+        const comment = new Comment({
+            user: user.id,
+            avatar: user.avatar,
+            text: req.body.text
+        });
+        list.comments.push(comment);
+        await comment.save();
+        await list.save();
+        res.json(list);
+    } catch (err) {
+        console.error(err.message);
+        if (err.kind == 'ObjectId') {
+            return res.status(400).json({ msg: 'List not found' });
+        }
+        return res.status(500).send('Server error');
+    }
+});
+
+// @route     DELETE api/lists/:list_id/comment/:comment_id
+// @desc      Delete a comment from a list
+// @access    Private
+router.delete(
+    '/:list_id/comment/:comment_id',
+    auth,
+    isCommentOwner,
+    async (req, res) => {
+        try {
+            const { comment_id, list_id } = req.params;
+            const list = await List.findByIdAndUpdate(list_id, {
+                $pull: { comments: comment_id }
+            });
+            await Comment.findByIdAndDelete(comment_id);
+            res.json(list);
+        } catch (err) {
+            console.error(err.message);
+            if (err.kind == 'ObjectId') {
+                return res.status(400).json({ msg: 'List not found' });
+            }
+            return res.status(500).send('Server error');
+        }
+    }
+);
 
 module.exports = router;
