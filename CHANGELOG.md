@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file.
 
 <!-- backend4/list-CRUD <> 2021-05-08 -->
 
+## Added
+
+-   Create a new list
+
 ---
 
 ## backend4/List-model <> 2021-05-08
