@@ -74,7 +74,7 @@ router.get('/:list_id', async (req, res) => {
     }
 });
 
-// @route     DELETE api/list/:list_id
+// @route     DELETE api/lists/:list_id
 // @desc      Delete list by list id
 // @access    Private
 router.delete('/:list_id', auth, isListOwner, async (req, res) => {
@@ -85,6 +85,29 @@ router.delete('/:list_id', auth, isListOwner, async (req, res) => {
             return res.status(400).json({ msg: 'List not found' });
         }
         return res.json({ msg: 'List deleted' });
+    } catch (err) {
+        console.error(err.message);
+        if (err.kind == 'ObjectId') {
+            return res.status(400).json({ msg: 'List not found' });
+        }
+        return res.status(500).send('Server error');
+    }
+});
+
+// @route     PUT api/lists/like/:list_id
+// @desc      Like a list
+// @access    Private
+router.put('/like/:list_id', auth, async (req, res) => {
+    try {
+        const { list_id } = req.params;
+        const list = await List.findById(list_id);
+        const user = await User.findById(req.user.id);
+        if (list.likes.some(el => el.id === user.id)) {
+            return res.status(400).json({ msg: 'User already liked post' });
+        }
+        list.likes.push(user);
+        await list.save();
+        res.json(list.likes);
     } catch (err) {
         console.error(err.message);
         if (err.kind == 'ObjectId') {
