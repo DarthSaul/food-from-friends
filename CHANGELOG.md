@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 -   View all lists
 -   View single list by list id
 -   `isListOwner` permission middleware
+-   Delete a list
 
 ---
 
