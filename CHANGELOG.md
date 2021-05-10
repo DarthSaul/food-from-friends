@@ -13,8 +13,7 @@ All notable changes to this project will be documented in this file.
 -   View single list by list id
 -   `isListOwner` permission middleware
 -   Delete a list
--   Like a list
--
+-   Like a list, unlike a list
 
 ## Changed
 

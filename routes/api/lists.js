@@ -103,11 +103,41 @@ router.put('/like/:list_id', auth, async (req, res) => {
         const list = await List.findById(list_id);
         const user = await User.findById(req.user.id);
         if (list.likes.some(el => el.id === user.id)) {
-            return res.status(400).json({ msg: 'User already liked post' });
+            return res.status(400).json({ msg: 'User already liked list' });
         }
         list.likes.push(user);
         await list.save();
         res.json(list.likes);
+    } catch (err) {
+        console.error(err.message);
+        if (err.kind == 'ObjectId') {
+            return res.status(400).json({ msg: 'List not found' });
+        }
+        return res.status(500).send('Server error');
+    }
+});
+
+// @route     PUT api/lists/unlike/:list_id
+// @desc      Unlike a list
+// @access    Private
+router.put('/unlike/:list_id', auth, async (req, res) => {
+    try {
+        const { list_id } = req.params;
+        const list = await List.findById(list_id);
+        const liked =
+            list.likes.filter(el => el._id.toString() === req.user.id)
+                .length === 0;
+        if (liked) {
+            return res.status(400).json({
+                msg: 'Unable to unlike, user has not liked this list'
+            });
+        }
+        const updatedList = await List.findByIdAndUpdate(
+            list_id,
+            { $pull: { likes: { _id: req.user.id } } },
+            { new: true }
+        );
+        res.json(updatedList.likes);
     } catch (err) {
         console.error(err.message);
         if (err.kind == 'ObjectId') {
