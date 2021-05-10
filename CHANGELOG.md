@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 
 ## backend4/list-CRUD <> 2021-05-10
 
-## Added
+### Added
 
 -   Create a new list
 -   View all lists
@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file.
 -   Like a list, unlike a list
 -   Comment and delete comment. `isCommentOwner` custom middleware
 
-## Changed
+### Changed
 
 -   Added `likes` field to `List` model
 -   Changed PUT request for adding a new comment to POST request
