@@ -3,8 +3,6 @@ const List = require('../models/List');
 module.exports = async (req, res, next) => {
     const { list_id } = req.params;
     const list = await List.findById(list_id);
-    console.log(req.user.id);
-    console.log(list);
     if (!list.user.equals(req.user.id)) {
         return res
             .status(401)
