@@ -81,10 +81,15 @@ router.delete('/:list_id', auth, isListOwner, async (req, res) => {
     const { list_id } = req.params;
     try {
         await List.findByIdAndDelete(list_id);
-
+        if (!list) {
+            return res.status(400).json({ msg: 'List not found' });
+        }
         return res.json({ msg: 'List deleted' });
     } catch (err) {
         console.error(err.message);
+        if (err.kind == 'ObjectId') {
+            return res.status(400).json({ msg: 'List not found' });
+        }
         return res.status(500).send('Server error');
     }
 });
