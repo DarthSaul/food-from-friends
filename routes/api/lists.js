@@ -189,7 +189,8 @@ router.delete(
             const list = await List.findByIdAndUpdate(list_id, {
                 $pull: { comments: comment_id }
             });
-            await Comment.findByIdAndDelete(comment_id);
+            const comment = await Comment.findByIdAndDelete(comment_id);
+            console.log(comment);
             res.json(list);
         } catch (err) {
             console.error(err.message);
