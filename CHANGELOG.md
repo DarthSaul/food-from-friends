@@ -8,7 +8,10 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
--
+-   Register form component
+-   useState for form data management
+-   `handleChange` and `handleSubmit` setup for register form
+-   Axios test on Register component (testing for later use in Context)
 
 ---
 
