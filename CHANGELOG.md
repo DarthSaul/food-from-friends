@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 -   React Router
+-   `Route`, `Switch`, and `Link` components
+-   Link buttons on landing page and in navbar
+-   Shells for `Register` and `Login` components
 
 ---
 
