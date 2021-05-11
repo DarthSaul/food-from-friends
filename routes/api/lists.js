@@ -97,10 +97,10 @@ router.delete('/:list_id', auth, isListOwner, async (req, res) => {
     }
 });
 
-// @route     PUT api/lists/like/:list_id
+// @route     PUT api/lists/:list_id/like
 // @desc      Like a list
 // @access    Private
-router.put('/like/:list_id', auth, async (req, res) => {
+router.put('/:list_id/like', auth, async (req, res) => {
     try {
         const { list_id } = req.params;
         const list = await List.findById(list_id);
@@ -120,17 +120,17 @@ router.put('/like/:list_id', auth, async (req, res) => {
     }
 });
 
-// @route     PUT api/lists/unlike/:list_id
+// @route     PUT api/lists/:list_id/unlike
 // @desc      Unlike a list
 // @access    Private
-router.put('/unlike/:list_id', auth, async (req, res) => {
+router.put('/:list_id/unlike', auth, async (req, res) => {
     try {
         const { list_id } = req.params;
         const list = await List.findById(list_id);
-        const liked =
+        const notLiked =
             list.likes.filter(el => el._id.toString() === req.user.id)
                 .length === 0;
-        if (liked) {
+        if (notLiked) {
             return res.status(400).json({
                 msg: 'Unable to unlike, user has not liked this list'
             });
