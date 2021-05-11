@@ -23,6 +23,10 @@ All notable changes to this project will be documented in this file.
 -   Added `likes` field to `List` model
 -   Changed PUT request for adding a new comment to POST request
 
+### Fixed
+
+-   Handle "Cast to ObjectId failed" error on `isCommentOwner` middleware
+
 ## backend4/List-model <> 2021-05-08
 
 ### Added
