@@ -4,14 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+---
+
+## frontend1/react-router <> 2021-05-11
+
 ### Added
 
 -   React Router
 -   `Route`, `Switch`, and `Link` components
 -   Link buttons on landing page and in navbar
 -   Shells for `Register` and `Login` components
-
----
 
 ## frontend1/initial-components <> 2021-05-11
 
