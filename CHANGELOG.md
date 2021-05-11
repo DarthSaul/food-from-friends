@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+<!-- frontend1/initial-components <> 2021-05-11 -->
+
+### Added
+
 ---
 
 ## backend4/list-CRUD <> 2021-05-10
