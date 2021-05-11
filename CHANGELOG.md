@@ -4,17 +4,21 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-<!-- frontend1/initial-components <> 2021-05-11 -->
+---
+
+## frontend1/initial-components <> 2021-05-11
 
 ### Added
 
 -   React App clean up
 -   New dependencies
 -   Font Awesome React dependencies
+-   Imported styles
+-   Setup basic App component, Navbar and Landing components
 
 ### Changed
 
----
+-   Global styles color palette
 
 ## backend4/list-CRUD <> 2021-05-10
 
