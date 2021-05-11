@@ -8,6 +8,12 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+-   React App clean up
+-   New dependencies
+-   Font Awesome React dependencies
+
+### Changed
+
 ---
 
 ## backend4/list-CRUD <> 2021-05-10
