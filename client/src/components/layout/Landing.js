@@ -6,7 +6,7 @@ const Landing = () => {
         <section className='landing'>
             <div className='dark-overlay'>
                 <div className='landing-inner'>
-                    <h1 className='x-large'>Food from Friends</h1>
+                    <h1 className='x-large'>Food From Friends</h1>
                     <p className='lead'>
                         Get a list of food recommendations, curated by those you
                         trust most &#8212; friends.
