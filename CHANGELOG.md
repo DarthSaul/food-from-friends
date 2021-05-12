@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-<!-- frontend1/register-form <> 2021-05-11 -->
+<!-- frontend1/register-form <> 2021-05-12 -->
 
 ### Added
 
@@ -12,6 +12,11 @@ All notable changes to this project will be documented in this file.
 -   useState for form data management
 -   `handleChange` and `handleSubmit` setup for register form
 -   Axios test on Register component (testing for later use in Context)
+
+### Changed
+
+-   "Food from Friends" to "Food From Friends"
+-   "Register" to "Sign Up"
 
 ---
 

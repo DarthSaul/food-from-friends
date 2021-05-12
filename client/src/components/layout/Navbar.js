@@ -8,7 +8,7 @@ const Navbar = () => {
         <nav className='navbar bg-dark'>
             <h1>
                 <Link to='/'>
-                    <FontAwesomeIcon icon={faHamburger} /> Food from Friends
+                    <FontAwesomeIcon icon={faHamburger} /> Food From Friends
                 </Link>
             </h1>
             <ul>
@@ -16,7 +16,7 @@ const Navbar = () => {
                     <Link to='/profiles'>Profiles</Link>
                 </li>
                 <li>
-                    <Link to='/register'>Register</Link>
+                    <Link to='/register'>Sign Up</Link>
                 </li>
                 <li>
                     <Link to='/login'>Login</Link>
