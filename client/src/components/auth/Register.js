@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 // import axios from 'axios';
 
 const Register = () => {
@@ -49,7 +52,7 @@ const Register = () => {
         <>
             <h1 className='large text-success'>Sign Up</h1>
             <p className='lead'>
-                <i className='fas fa-user'></i> Create Your Account
+                <FontAwesomeIcon icon={faUser} /> Create your account
             </p>
             <form className='form' onSubmit={handleSubmit}>
                 <div className='form-group'>
@@ -103,7 +106,7 @@ const Register = () => {
                 />
             </form>
             <p className='my-1'>
-                Already have an account? <a href='login.html'>Sign In</a>
+                Already have an account? <Link to='/login'>Sign In</Link>
             </p>
         </>
     );

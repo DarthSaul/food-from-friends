@@ -4,21 +4,22 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-<!-- frontend1/register-form <> 2021-05-12 -->
+---
+
+## frontend1/register-form <> 2021-05-12
 
 ### Added
 
 -   Register form component
--   useState for form data management
+-   `useState` for form data management
 -   `handleChange` and `handleSubmit` setup for register form
--   Axios test on Register component (testing for later use in Context)
+-   Axios test on `Register` component (testing for later use in Context)
+-   Login form
 
 ### Changed
 
 -   "Food from Friends" to "Food From Friends"
 -   "Register" to "Sign Up"
-
----
 
 ## frontend1/react-router <> 2021-05-11
 
