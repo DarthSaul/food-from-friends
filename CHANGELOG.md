@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+<!-- ## frontend2/context-setup <> 2021-05-12 -->
+
+### Added
+
+-   Introduced Context API
+-   `AlertContext.js` file with AlertProvider and AlertContext
+-   `Alert` component, placed in main `App` component tree
+-   `setAlert` & `removeAlert` functions for Alert Context
+
 ---
 
 ## frontend1/register-form <> 2021-05-12
