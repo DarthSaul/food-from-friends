@@ -16,8 +16,4 @@ const Alert = () => {
     return <div>{alertComponents}</div>;
 };
 
-// Alert.propTypes = {
-
-// }
-
 export default Alert;

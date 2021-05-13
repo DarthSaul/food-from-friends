@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 -   Introduced Context API
 -   `AlertContext.js` file with AlertProvider and AlertContext
 -   `Alert` component, placed in main `App` component tree
+-   `setAlert` & `removeAlert` functions for Alert Context
 
 ---
 

@@ -6,15 +6,19 @@ const AlertContext = React.createContext();
 function AlertProvider({ children }) {
     const [alerts, updateAlerts] = useState([]);
 
-    function setAlert(msg, type) {
+    function setAlert(msg, type, time = 5000) {
+        const id = uuidv4();
         updateAlerts(prevAlerts => [
             ...prevAlerts,
             {
-                id: uuidv4(),
+                id,
                 msg,
                 type
             }
         ]);
+        setTimeout(() => {
+            removeAlert(id);
+        }, time);
     }
 
     function removeAlert(id) {
