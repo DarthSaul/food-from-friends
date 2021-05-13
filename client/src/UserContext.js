@@ -22,12 +22,12 @@ function UserProvider({ children }) {
         }
         try {
             const res = await axios.get('/api/auth');
-            setUser(prevState => ({
-                ...prevState,
+            setUser({
+                token: localStorage.getItem('token'),
                 isAuthenticated: true,
                 loading: false,
                 user: res
-            }));
+            });
         } catch (err) {
             const errors = err.response.data.errors;
             authError(errors);
@@ -61,22 +61,13 @@ function UserProvider({ children }) {
         const body = JSON.stringify({ name, email, password });
         try {
             const res = await axios.post('/api/users', body, config);
-            registerSuccess(res.data.token);
+            localStorage.setItem('token', res.data.token);
+            loadUser();
             setAlert('You have successfully signed up!', 'success');
         } catch (err) {
             const errors = err.response.data.errors;
             authError(errors);
         }
-    }
-
-    function registerSuccess(token) {
-        localStorage.setItem('token', token);
-        setUser(prevState => ({
-            ...prevState,
-            token: localStorage.getItem('token'),
-            isAuthenticated: true,
-            loading: false
-        }));
     }
 
     function authError(errors) {
@@ -97,7 +88,6 @@ function UserProvider({ children }) {
             value={{
                 userObj,
                 register,
-                registerSuccess,
                 authError,
                 loadUser,
                 login
