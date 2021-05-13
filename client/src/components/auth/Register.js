@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 // import axios from 'axios';
+
+import { AlertContext } from '../../AlertContext';
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -11,6 +13,7 @@ const Register = () => {
         password: '',
         password2: ''
     });
+    const { setAlert } = useContext(AlertContext);
 
     const handleChange = event => {
         const { name, value } = event.target;
@@ -23,7 +26,7 @@ const Register = () => {
     const handleSubmit = async event => {
         event.preventDefault();
         if (password !== password2) {
-            console.log('Passwords do not match');
+            setAlert('Passwords do not match', 'danger');
         } else {
             console.log('SUCCESS');
             // const newUser = {
