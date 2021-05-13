@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-<!-- ## frontend2/context-setup <> 2021-05-12 -->
+## frontend2/context-setup <> 2021-05-12
 
 ### Added
 
