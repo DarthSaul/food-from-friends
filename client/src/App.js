@@ -8,30 +8,33 @@ import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 
 import { AlertProvider } from './AlertContext';
+import { UserProvider } from './UserContext';
 
 import './App.css';
 
 const App = () => (
     <AlertProvider>
-        <Router>
-            <>
-                <Navbar />
-                <Route exact path='/'>
-                    <Landing />
-                </Route>
-                <section className='container'>
-                    <Alert />
-                    <Switch>
-                        <Route exact path='/register'>
-                            <Register />
-                        </Route>
-                        <Route exact path='/login'>
-                            <Login />
-                        </Route>
-                    </Switch>
-                </section>
-            </>
-        </Router>
+        <UserProvider>
+            <Router>
+                <>
+                    <Navbar />
+                    <Route exact path='/'>
+                        <Landing />
+                    </Route>
+                    <section className='container'>
+                        <Alert />
+                        <Switch>
+                            <Route exact path='/register'>
+                                <Register />
+                            </Route>
+                            <Route exact path='/login'>
+                                <Login />
+                            </Route>
+                        </Switch>
+                    </section>
+                </>
+            </Router>
+        </UserProvider>
     </AlertProvider>
 );
 export default App;

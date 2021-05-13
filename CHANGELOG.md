@@ -4,9 +4,17 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-<!-- ## frontend2/context-setup <> 2021-05-13 -->
+<!-- ## frontend2/user-context <> 2021-05-13 -->
 
 ### Added
+
+-   Configured `UserContext` and registration auth functionality
+-   `register`, `registerSuccess`, and `registerFail` function in UserContext
+-   Configured `UserContext` to use the `AlertContext`
+
+### Changed
+
+-   Updated `Register` component to `UserContext` and `register` function on form submit
 
 ---
 
