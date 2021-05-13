@@ -11,6 +11,9 @@ All notable changes to this project will be documented in this file.
 -   Configured `UserContext` and registration auth functionality
 -   `register`, `registerSuccess`, and `registerFail` function in UserContext
 -   Configured `UserContext` to use the `AlertContext`
+-   Login functionality to `UserContext`
+-   Re-configure `Login` component to use new `login` function from context
+-   Check for existing token whenever app intially loads with `loadUser` and `useEffect`
 
 ### Changed
 

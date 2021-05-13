@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-// import axios from 'axios';
+
+import { UserContext } from '../../UserContext';
 
 const Login = () => {
     const [formData, setFormData] = useState({
         email: '',
         password: ''
     });
+
+    const { login } = useContext(UserContext);
 
     const handleChange = event => {
         const { name, value } = event.target;
@@ -20,7 +23,7 @@ const Login = () => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        console.log('SUCCESS');
+        login(email, password);
     };
 
     const { email, password } = formData;
