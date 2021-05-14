@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-// import axios from 'axios';
 
 import { AlertContext } from '../../AlertContext';
+import { UserContext } from '../../UserContext';
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -14,6 +14,7 @@ const Register = () => {
         password2: ''
     });
     const { setAlert } = useContext(AlertContext);
+    const { register, userObj } = useContext(UserContext);
 
     const handleChange = event => {
         const { name, value } = event.target;
@@ -26,28 +27,15 @@ const Register = () => {
     const handleSubmit = async event => {
         event.preventDefault();
         if (password !== password2) {
-            setAlert('Passwords do not match', 'danger', 5000);
+            setAlert('Passwords do not match', 'danger');
         } else {
-            console.log('SUCCESS');
-            // const newUser = {
-            //     name,
-            //     email,
-            //     password
-            // };
-            // try {
-            //     const config = {
-            //         headers: {
-            //             'Content-Type': 'application/json'
-            //         }
-            //     };
-            //     const body = JSON.stringify(newUser);
-            //     const res = await axios.post('/api/users', body, config);
-            //     console.log(res.data);
-            // } catch (err) {
-            //     console.error(err.response.data);
-            // }
+            register(name, email, password);
         }
     };
+
+    if (userObj.isAuthenticated) {
+        return <Redirect to='/dashboard' />;
+    }
 
     const { name, email, password, password2 } = formData;
 

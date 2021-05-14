@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-// import axios from 'axios';
+
+import { UserContext } from '../../UserContext';
 
 const Login = () => {
     const [formData, setFormData] = useState({
         email: '',
         password: ''
     });
+
+    const { login, userObj } = useContext(UserContext);
 
     const handleChange = event => {
         const { name, value } = event.target;
@@ -20,8 +23,12 @@ const Login = () => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        console.log('SUCCESS');
+        await login(email, password);
     };
+
+    if (userObj.isAuthenticated) {
+        return <Redirect to='/dashboard' />;
+    }
 
     const { email, password } = formData;
 

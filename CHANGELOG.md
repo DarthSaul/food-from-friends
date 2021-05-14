@@ -6,6 +6,24 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## frontend2/user-context <> 2021-05-13
+
+### Added
+
+-   Configured `UserContext` and registration auth functionality
+-   `register`, `registerSuccess`, and `registerFail` function in UserContext
+-   Configured `UserContext` to use the `AlertContext`
+-   Login functionality to `UserContext`
+-   Re-configure `Login` component to use new `login` function from context
+-   Check for existing token whenever app intially loads with `loadUser` and `useEffect`
+-   Redirect after login and/or register
+-   Logout link and conditional rendering based on user logged in or not
+
+### Changed
+
+-   Updated `Register` component to `UserContext` and `register` function on form submit
+-   Re-factored and consolidated code on `UserContext.js`. No need for `registerSuccess`.
+
 ## frontend2/context-setup <> 2021-05-12
 
 ### Added

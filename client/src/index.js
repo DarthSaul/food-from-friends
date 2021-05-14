@@ -3,4 +3,14 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { AlertProvider } from './AlertContext';
+import { UserProvider } from './UserContext';
+
+ReactDOM.render(
+    <AlertProvider>
+        <UserProvider>
+            <App />
+        </UserProvider>
+    </AlertProvider>,
+    document.getElementById('root')
+);
