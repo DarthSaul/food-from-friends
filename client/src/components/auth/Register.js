@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,7 +14,7 @@ const Register = () => {
         password2: ''
     });
     const { setAlert } = useContext(AlertContext);
-    const { register } = useContext(UserContext);
+    const { register, userObj } = useContext(UserContext);
 
     const handleChange = event => {
         const { name, value } = event.target;
@@ -32,6 +32,10 @@ const Register = () => {
             register(name, email, password);
         }
     };
+
+    if (userObj.isAuthenticated) {
+        return <Redirect to='/dashboard' />;
+    }
 
     const { name, email, password, password2 } = formData;
 

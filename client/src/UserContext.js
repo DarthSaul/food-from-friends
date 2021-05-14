@@ -72,12 +72,12 @@ function UserProvider({ children }) {
 
     function authError(errors) {
         localStorage.removeItem('token');
-        setUser(prevState => ({
-            ...prevState,
+        setUser({
             token: null,
             isAuthenticated: false,
-            loading: false
-        }));
+            loading: false,
+            user: null
+        });
         if (errors) {
             errors.forEach(error => setAlert(error.msg, 'danger'));
         }
