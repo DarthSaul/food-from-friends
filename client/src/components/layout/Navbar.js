@@ -7,7 +7,7 @@ import { UserContext } from '../../UserContext';
 
 const Navbar = () => {
     const {
-        userObj: { isAuthenticated },
+        userObj: { isAuthenticated, loading },
         authError
     } = useContext(UserContext);
     const handleClick = event => {
@@ -24,7 +24,7 @@ const Navbar = () => {
                 <li>
                     <Link to='/profiles'>Profiles</Link>
                 </li>
-                {!isAuthenticated ? (
+                {!isAuthenticated && !loading ? (
                     <>
                         <li>
                             <Link to='/register'>Sign Up</Link>
