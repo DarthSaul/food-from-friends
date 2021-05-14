@@ -12,6 +12,10 @@ All notable changes to this project will be documented in this file.
 -   Implement first frontend private route with /dashboard
 -   Dashboard UI
 
+### Changed
+
+-   Buttons on `Landing` page render conditionally
+
 ---
 
 ## frontend2/user-context <> 2021-05-14
