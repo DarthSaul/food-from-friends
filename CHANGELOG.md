@@ -12,11 +12,18 @@ All notable changes to this project will be documented in this file.
 -   Implement first frontend private route with /dashboard
 -   Dashboard UI
 -   `ProfileContext`, get current profile from JWT on Dashboard load
+-   Logout icon to Navbar
+-   Dashboard link to Navbar
+-   `Spinner` component, conditionally rendered if context is loading
 
 ### Changed
 
 -   Buttons on `Landing` page render conditionally
 -   Refactor file tree, added `/contexts/` folder
+
+### Fixed
+
+-   Reset `profile` in `ProfileContext` to null when no user is logged in
 
 ---
 

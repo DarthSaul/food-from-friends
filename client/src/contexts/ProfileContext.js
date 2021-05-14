@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 
 import { UserContext } from './UserContext';
-import { AlertContext } from './AlertContext';
+// import { AlertContext } from './AlertContext';
 
 const ProfileContext = React.createContext();
 
@@ -14,8 +14,20 @@ function ProfileProvider({ children }) {
         error: {}
     });
 
-    const { userObj } = useContext(UserContext);
-    const { setAlert } = useContext(AlertContext);
+    const {
+        userObj: { user }
+    } = useContext(UserContext);
+
+    useEffect(() => {
+        if (user === null) {
+            setProfileState(prevState => ({
+                ...prevState,
+                profile: null
+            }));
+        }
+    }, [user]);
+
+    // const { setAlert } = useContext(AlertContext);
 
     async function getProfile() {
         try {

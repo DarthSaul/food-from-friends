@@ -1,7 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHamburger } from '@fortawesome/free-solid-svg-icons';
+import {
+    faHamburger,
+    faSignOutAlt,
+    faUser
+} from '@fortawesome/free-solid-svg-icons';
 
 import { UserContext } from '../../contexts/UserContext';
 
@@ -36,12 +40,17 @@ const Navbar = () => {
                 ) : (
                     <>
                         <li>
+                            <Link to='/dashboard'>
+                                <FontAwesomeIcon icon={faUser} /> Dashboard
+                            </Link>
+                        </li>
+                        <li>
                             <a
                                 href='#!'
                                 onClick={handleClick}
                                 style={{ cursor: 'pointer' }}
                             >
-                                Logout
+                                <FontAwesomeIcon icon={faSignOutAlt} /> Logout
                             </a>
                         </li>
                     </>
