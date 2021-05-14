@@ -4,13 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-<!-- ## frontend3/dashboard <> 2021-05-14 -->
+<!-- ## frontend3/profiles-and-dashboard <> 2021-05-14 -->
 
 ### Added
 
 -   `PrivateRoute` component
 -   Implement first frontend private route with /dashboard
 -   Dashboard UI
+-   `ProfileContext`, get current profile from JWT on Dashboard load
 
 ### Changed
 
