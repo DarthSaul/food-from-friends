@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 
 import { AlertContext } from './AlertContext';
-import setAuthToken from './utils/setAuthToken';
+import setAuthToken from '../utils/setAuthToken';
 
 const UserContext = React.createContext();
 

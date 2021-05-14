@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 -   Buttons on `Landing` page render conditionally
+-   Refactor file tree, added `/contexts/` folder
 
 ---
 

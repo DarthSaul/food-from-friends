@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHamburger } from '@fortawesome/free-solid-svg-icons';
 
-import { UserContext } from '../../UserContext';
+import { UserContext } from '../../contexts/UserContext';
 
 const Navbar = () => {
     const {

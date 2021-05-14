@@ -3,8 +3,8 @@ import { Link, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
-import { AlertContext } from '../../AlertContext';
-import { UserContext } from '../../UserContext';
+import { AlertContext } from '../../contexts/AlertContext';
+import { UserContext } from '../../contexts/UserContext';
 
 const Register = () => {
     const [formData, setFormData] = useState({

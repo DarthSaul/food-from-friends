@@ -10,7 +10,7 @@ import Dashboard from './components/dashboard/Dashboard';
 
 import PrivateRoute from './components/routing/PrivateRoute';
 
-import { UserContext } from './UserContext';
+import { UserContext } from './contexts/UserContext';
 import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
