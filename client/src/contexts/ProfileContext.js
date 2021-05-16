@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 
 import { UserContext } from './UserContext';
-// import { AlertContext } from './AlertContext';
+import { AlertContext } from './AlertContext';
 
 const ProfileContext = React.createContext();
 
@@ -27,7 +27,7 @@ function ProfileProvider({ children }) {
         }
     }, [user]);
 
-    // const { setAlert } = useContext(AlertContext);
+    const { setAlert } = useContext(AlertContext);
 
     async function getProfile() {
         try {
@@ -49,8 +49,38 @@ function ProfileProvider({ children }) {
         }
     }
 
+    async function createProfile(formData, history, edit = false) {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        try {
+            await axios.post('api/profile', formData, config);
+            await getProfile();
+            setAlert(edit ? 'Profile updated!' : 'Profile created!', 'success');
+            if (!edit) {
+                history.push('/dashboard');
+            }
+        } catch (err) {
+            const errors = err.response.data.errors;
+            if (errors) {
+                errors.forEach(error => setAlert(error.msg, 'danger'));
+            }
+            setProfileState(prevState => ({
+                ...prevState,
+                error: {
+                    msg: err.response.statusText,
+                    status: err.response.status
+                }
+            }));
+        }
+    }
+
     return (
-        <ProfileContext.Provider value={{ profileState, getProfile }}>
+        <ProfileContext.Provider
+            value={{ profileState, getProfile, createProfile }}
+        >
             {children}
         </ProfileContext.Provider>
     );

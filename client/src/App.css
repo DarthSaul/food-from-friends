@@ -271,7 +271,7 @@ button {
     display: flex;
 }
 
-.form .social-input i {
+.form .social-input .social-icons {
     padding: 0.5rem;
     width: 4rem;
 }

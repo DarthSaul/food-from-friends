@@ -15,11 +15,15 @@ All notable changes to this project will be documented in this file.
 -   Logout icon to Navbar
 -   Dashboard link to Navbar
 -   `Spinner` component, conditionally rendered if context is loading
+-   `CreateProfile` component and route handler
+-   `DashboardActions` component
+-   `EditProfile` component
 
 ### Changed
 
 -   Buttons on `Landing` page render conditionally
 -   Refactor file tree, added `/contexts/` folder
+-   Updated POST api/profile route with another validator for bio, making it required (`notEmpty()`)
 
 ### Fixed
 

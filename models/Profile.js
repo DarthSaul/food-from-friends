@@ -11,7 +11,8 @@ const profileSchema = new Schema({
         required: true
     },
     bio: {
-        type: String
+        type: String,
+        required: true
     },
     favoriteCuisines: {
         type: [String]

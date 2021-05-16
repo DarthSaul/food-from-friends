@@ -14,9 +14,11 @@ const Navbar = () => {
         userObj: { isAuthenticated, loading },
         authError
     } = useContext(UserContext);
+
     const handleClick = event => {
         authError();
     };
+
     return (
         <nav className='navbar bg-dark'>
             <h1>

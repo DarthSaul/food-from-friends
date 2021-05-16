@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -34,7 +35,22 @@ const Dashboard = () => {
                         <FontAwesomeIcon icon={faUser} /> Welcome{' '}
                         {userData && userData.name}
                     </p>
-                    {profile !== null ? <>has profile</> : <>has no profile</>}
+                    {profile !== null ? (
+                        <>has profile</>
+                    ) : (
+                        <>
+                            <p>
+                                You have not yet created a profile. You can
+                                create your profile at the link below:
+                            </p>
+                            <Link
+                                to='/create-profile'
+                                className='btn btn-primary my-1'
+                            >
+                                Create Profile
+                            </Link>
+                        </>
+                    )}
                 </>
             )}
         </>
