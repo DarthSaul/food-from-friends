@@ -5,7 +5,9 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 import { UserContext } from '../../contexts/UserContext';
 import { ProfileContext } from '../../contexts/ProfileContext';
+
 import Spinner from '../layout/Spinner';
+import DashboardActions from './DashboardActions';
 
 const Dashboard = () => {
     const {
@@ -36,7 +38,7 @@ const Dashboard = () => {
                         {userData && userData.name}
                     </p>
                     {profile !== null ? (
-                        <>has profile</>
+                        <DashboardActions />
                     ) : (
                         <>
                             <p>

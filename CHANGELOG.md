@@ -28,6 +28,7 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 
 -   Reset `profile` in `ProfileContext` to null when no user is logged in
+-   If `favoriteCuisines` or `favoriteDishes` is already saved on a document, they're added to state as arrays and if no edit is made on the EditProfile component, those fields will be captured as arrays. The backend route handler needed to be adjusted.
 
 ---
 

@@ -9,15 +9,24 @@ import {
 
 const DashboardActions = () => {
     return (
-        <div class='dash-buttons'>
-            <Link href='/edit-profile' class='btn btn-light'>
-                <FontAwesomeIcon icon={faUserCircle} /> Edit Profile
+        <div className='dash-buttons'>
+            <Link to='/edit-profile' className='btn btn-light'>
+                <FontAwesomeIcon
+                    icon={faUserCircle}
+                    style={{ marginRight: 2 }}
+                />{' '}
+                Edit Profile
             </Link>
-            <Link href='/add-restaurants' class='btn btn-light'>
-                <FontAwesomeIcon icon={faPizzaSlice} /> Add Favorite Restaurants
+            <Link to='/add-restaurants' className='btn btn-light'>
+                <FontAwesomeIcon
+                    icon={faPizzaSlice}
+                    style={{ marginRight: 2 }}
+                />{' '}
+                Add Favorite Restaurants
             </Link>
-            <Link href='/add-media' class='btn btn-light'>
-                <FontAwesomeIcon icon={faBookmark} /> Add Favorite Media
+            <Link to='/add-media' className='btn btn-light'>
+                <FontAwesomeIcon icon={faBookmark} style={{ marginRight: 2 }} />{' '}
+                Add Favorite Media
             </Link>
         </div>
     );

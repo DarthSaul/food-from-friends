@@ -50,6 +50,7 @@ function ProfileProvider({ children }) {
     }
 
     async function createProfile(formData, history, edit = false) {
+        console.log('hello');
         const config = {
             headers: {
                 'Content-Type': 'application/json'
