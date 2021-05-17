@@ -6,8 +6,15 @@ import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
+import Dashboard from './components/dashboard/Dashboard';
+import CreateProfile from './components/profile-forms/CreateProfile';
+import EditProfile from './components/profile-forms/EditProfile';
+import AddRestaurant from './components/profile-forms/AddRestaurant';
+import AddMedia from './components/profile-forms/AddMedia';
 
-import { UserContext } from './UserContext';
+import PrivateRoute from './components/routing/PrivateRoute';
+
+import { UserContext } from './contexts/UserContext';
 import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
@@ -39,6 +46,21 @@ const App = () => {
                         <Route exact path='/login'>
                             <Login />
                         </Route>
+                        <PrivateRoute exact path='/dashboard'>
+                            <Dashboard />
+                        </PrivateRoute>
+                        <PrivateRoute exact path='/create-profile'>
+                            <CreateProfile />
+                        </PrivateRoute>
+                        <PrivateRoute exact path='/edit-profile'>
+                            <EditProfile />
+                        </PrivateRoute>
+                        <PrivateRoute exact path='/add-restaurant'>
+                            <AddRestaurant />
+                        </PrivateRoute>
+                        <PrivateRoute exact path='/add-media'>
+                            <AddMedia />
+                        </PrivateRoute>
                     </Switch>
                 </section>
             </>

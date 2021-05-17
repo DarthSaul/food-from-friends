@@ -6,6 +6,36 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## frontend3/profiles-and-dashboard <> 2021-05-17
+
+### Added
+
+-   `PrivateRoute` component
+-   Implement first frontend private route with /dashboard
+-   Dashboard UI
+-   `ProfileContext`, get current profile from JWT on Dashboard load
+-   Logout icon to Navbar
+-   Dashboard link to Navbar
+-   `Spinner` component, conditionally rendered if context is loading
+-   `CreateProfile` component and route handler
+-   `DashboardActions` component
+-   `EditProfile` component
+-   `AddFavorite` & `AddMedia` components, `updateRestaurants` & `updateMedia` to `ProfileContext`
+-   `Media` and `Restaurants` list-style components for dashboard. Delete actions added to `ProfileContext` and configured as click event on components.
+-   `deleteAccount` added to `UserContext`, button for delete account added to `Dashboard`
+
+### Changed
+
+-   Buttons on `Landing` page render conditionally
+-   Refactor file tree, added `/contexts/` folder
+-   Updated POST api/profile route with another validator for bio, making it required (`notEmpty()`)
+-   Background image CSS on `App.css`
+
+### Fixed
+
+-   Reset `profile` in `ProfileContext` to null when no user is logged in
+-   If `favoriteCuisines` or `favoriteDishes` is already saved on a document, they're added to EditProfile component state as array -- fixed to join array elements together when initializing state
+
 ## frontend2/user-context <> 2021-05-14
 
 ### Added

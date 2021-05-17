@@ -1,18 +1,24 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHamburger } from '@fortawesome/free-solid-svg-icons';
+import {
+    faHamburger,
+    faSignOutAlt,
+    faUser
+} from '@fortawesome/free-solid-svg-icons';
 
-import { UserContext } from '../../UserContext';
+import { UserContext } from '../../contexts/UserContext';
 
 const Navbar = () => {
     const {
-        userObj: { isAuthenticated },
+        userObj: { isAuthenticated, loading },
         authError
     } = useContext(UserContext);
+
     const handleClick = event => {
         authError();
     };
+
     return (
         <nav className='navbar bg-dark'>
             <h1>
@@ -24,7 +30,7 @@ const Navbar = () => {
                 <li>
                     <Link to='/profiles'>Profiles</Link>
                 </li>
-                {!isAuthenticated ? (
+                {!isAuthenticated && !loading ? (
                     <>
                         <li>
                             <Link to='/register'>Sign Up</Link>
@@ -36,12 +42,17 @@ const Navbar = () => {
                 ) : (
                     <>
                         <li>
+                            <Link to='/dashboard'>
+                                <FontAwesomeIcon icon={faUser} /> Dashboard
+                            </Link>
+                        </li>
+                        <li>
                             <a
                                 href='#!'
                                 onClick={handleClick}
                                 style={{ cursor: 'pointer' }}
                             >
-                                Logout
+                                <FontAwesomeIcon icon={faSignOutAlt} /> Logout
                             </a>
                         </li>
                     </>

@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 
-import { AlertProvider } from './AlertContext';
-import { UserProvider } from './UserContext';
+import { AlertProvider } from './contexts/AlertContext';
+import { UserProvider } from './contexts/UserContext';
+import { ProfileProvider } from './contexts/ProfileContext';
 
 ReactDOM.render(
     <AlertProvider>
         <UserProvider>
-            <App />
+            <ProfileProvider>
+                <App />
+            </ProfileProvider>
         </UserProvider>
     </AlertProvider>,
     document.getElementById('root')
