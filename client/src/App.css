@@ -336,11 +336,13 @@ button {
 
 /* Landing Page */
 .landing {
-    position: relative;
     background-image: url('./img/showcase.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
+    background-size: 130%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .landing-inner {

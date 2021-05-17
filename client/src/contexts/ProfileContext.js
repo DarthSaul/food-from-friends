@@ -77,91 +77,97 @@ function ProfileProvider({ children }) {
         }
     }
 
-    async function updateRestaurants(type, formData, history) {
-        if (type === 'add') {
-            try {
-                const config = {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                };
-                await axios.put('api/profile/restaurants', formData, config);
-                await getProfile();
-                setAlert('Restaurant added to favorites!', 'success');
-                history.push('/dashboard');
-            } catch (err) {
-                const errors = err.response.data.errors;
-                if (errors) {
-                    errors.forEach(error => setAlert(error.msg, 'danger'));
-                }
-                setProfileState(prevState => ({
-                    ...prevState,
-                    error: {
-                        msg: err.response.statusText,
-                        status: err.response.status
-                    }
-                }));
+    async function addRestaurant(formData, history) {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
             }
-        } else if (type === 'delete') {
-            try {
-                console.log('DELETING...');
-            } catch (err) {
-                const errors = err.response.data.errors;
-                if (errors) {
-                    errors.forEach(error => setAlert(error.msg, 'danger'));
-                }
-                setProfileState(prevState => ({
-                    ...prevState,
-                    error: {
-                        msg: err.response.statusText,
-                        status: err.response.status
-                    }
-                }));
+        };
+        try {
+            await axios.put('api/profile/restaurants', formData, config);
+            await getProfile();
+            setAlert('Restaurant added to favorites!', 'success');
+            history.push('/dashboard');
+        } catch (err) {
+            const errors = err.response.data.errors;
+            if (errors) {
+                errors.forEach(error => setAlert(error.msg, 'danger'));
             }
+            setProfileState(prevState => ({
+                ...prevState,
+                error: {
+                    msg: err.response.statusText,
+                    status: err.response.status
+                }
+            }));
         }
     }
 
-    async function updateMedia(type, formData, history) {
-        if (type === 'add') {
-            try {
-                const config = {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                };
-                await axios.put('api/profile/media', formData, config);
-                await getProfile();
-                setAlert('Media added to favorites!', 'success');
-                history.push('/dashboard');
-            } catch (err) {
-                const errors = err.response.data.errors;
-                if (errors) {
-                    errors.forEach(error => setAlert(error.msg, 'danger'));
-                }
-                setProfileState(prevState => ({
-                    ...prevState,
-                    error: {
-                        msg: err.response.statusText,
-                        status: err.response.status
-                    }
-                }));
+    async function deleteRestaurant(id) {
+        const deleteRoute = `api/profile/restaurants/${id}`;
+        try {
+            await axios.delete(deleteRoute);
+            await getProfile();
+            setAlert('Restaurant removed from favorites.', 'danger');
+        } catch (err) {
+            const errors = err.response.data.errors;
+            if (errors) {
+                errors.forEach(error => setAlert(error.msg, 'danger'));
             }
-        } else if (type === 'delete') {
-            try {
-                console.log('DELETING...');
-            } catch (err) {
-                const errors = err.response.data.errors;
-                if (errors) {
-                    errors.forEach(error => setAlert(error.msg, 'danger'));
+            setProfileState(prevState => ({
+                ...prevState,
+                error: {
+                    msg: err.response.statusText,
+                    status: err.response.status
                 }
-                setProfileState(prevState => ({
-                    ...prevState,
-                    error: {
-                        msg: err.response.statusText,
-                        status: err.response.status
-                    }
-                }));
+            }));
+        }
+    }
+
+    async function addMedia(formData, history) {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
             }
+        };
+        try {
+            await axios.put('api/profile/media', formData, config);
+            await getProfile();
+            setAlert('Media added to favorites!', 'success');
+            history.push('/dashboard');
+        } catch (err) {
+            const errors = err.response.data.errors;
+            if (errors) {
+                errors.forEach(error => setAlert(error.msg, 'danger'));
+            }
+            setProfileState(prevState => ({
+                ...prevState,
+                error: {
+                    msg: err.response.statusText,
+                    status: err.response.status
+                }
+            }));
+        }
+    }
+
+    async function deleteMedia(id) {
+        const deleteRoute = `api/profile/media/${id}`;
+        try {
+            await axios.delete(deleteRoute);
+            await getProfile();
+            setAlert('Media removed from favorites.', 'danger');
+        } catch (err) {
+            const errors = err.response.data.errors;
+            if (errors) {
+                errors.forEach(error => setAlert(error.msg, 'danger'));
+            }
+            setProfileState(prevState => ({
+                ...prevState,
+                error: {
+                    msg: err.response.statusText,
+                    status: err.response.status
+                }
+            }));
         }
     }
 
@@ -171,8 +177,10 @@ function ProfileProvider({ children }) {
                 profileState,
                 getProfile,
                 createProfile,
-                updateRestaurants,
-                updateMedia
+                addRestaurant,
+                deleteRestaurant,
+                addMedia,
+                deleteMedia
             }}
         >
             {children}

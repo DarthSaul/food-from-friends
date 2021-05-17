@@ -8,6 +8,8 @@ import { ProfileContext } from '../../contexts/ProfileContext';
 
 import Spinner from '../layout/Spinner';
 import DashboardActions from './DashboardActions';
+import Restaurants from './Restaurants';
+import Media from './Media';
 
 const Dashboard = () => {
     const {
@@ -38,7 +40,13 @@ const Dashboard = () => {
                         {userData && userData.name}
                     </p>
                     {profile !== null ? (
-                        <DashboardActions />
+                        <>
+                            <DashboardActions />
+                            <Restaurants
+                                restaurants={profile.favoriteRestaurants}
+                            />
+                            <Media media={profile.favoriteMedia} />
+                        </>
                     ) : (
                         <>
                             <p>

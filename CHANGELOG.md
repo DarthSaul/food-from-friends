@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased: frontend3/profiles-and-dashboard <> 2021-05-
+## Unreleased: frontend3/profiles-and-dashboard <> 2021-05-DD
 
 ### Added
 
@@ -17,12 +17,14 @@ All notable changes to this project will be documented in this file.
 -   `DashboardActions` component
 -   `EditProfile` component
 -   `AddFavorite` & `AddMedia` components, `updateRestaurants` & `updateMedia` to `ProfileContext`
+-   `Media` and `Restaurants` list-style components for dashboard. Delete actions added to `ProfileContext` and configured as click event on components.
 
 ### Changed
 
 -   Buttons on `Landing` page render conditionally
 -   Refactor file tree, added `/contexts/` folder
 -   Updated POST api/profile route with another validator for bio, making it required (`notEmpty()`)
+-   Background image CSS on `App.css`
 
 ### Fixed
 

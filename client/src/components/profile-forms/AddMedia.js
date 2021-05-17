@@ -12,7 +12,7 @@ const AddMedia = () => {
         type: '',
         description: ''
     });
-    const { updateMedia } = useContext(ProfileContext);
+    const { addMedia } = useContext(ProfileContext);
     const history = useHistory();
 
     const handleChange = event => {
@@ -25,7 +25,7 @@ const AddMedia = () => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        updateMedia('add', formData, history);
+        addMedia(formData, history);
     };
 
     const { title, type, description } = formData;

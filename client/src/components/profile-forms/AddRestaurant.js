@@ -13,7 +13,7 @@ const AddRestaurant = () => {
         rating: 0,
         review: ''
     });
-    const { updateRestaurants } = useContext(ProfileContext);
+    const { addRestaurant } = useContext(ProfileContext);
     const history = useHistory();
 
     const handleChange = event => {
@@ -26,7 +26,7 @@ const AddRestaurant = () => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        updateRestaurants('add', formData, history);
+        addRestaurant(formData, history);
     };
 
     const { name, location, rating, review } = formData;
