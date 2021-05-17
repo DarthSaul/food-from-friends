@@ -7,6 +7,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
+import Profiles from './components/profiles/Profiles';
 import CreateProfile from './components/profile-forms/CreateProfile';
 import EditProfile from './components/profile-forms/EditProfile';
 import AddRestaurant from './components/profile-forms/AddRestaurant';
@@ -45,6 +46,9 @@ const App = () => {
                         </Route>
                         <Route exact path='/login'>
                             <Login />
+                        </Route>
+                        <Route exact path='/profiles'>
+                            <Profiles />
                         </Route>
                         <PrivateRoute exact path='/dashboard'>
                             <Dashboard />

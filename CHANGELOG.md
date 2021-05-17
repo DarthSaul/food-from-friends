@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 -   `getProfileById` and `getAllProfiles` added to `ProfileContext`
+-   `Profiles` and `ProfileItem` components. `Profiles` is the container that renders an array of `ProfileItems`, which consist of the profiles added to state from our database.
 
 ### Changed
 
