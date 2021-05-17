@@ -104,9 +104,8 @@ function ProfileProvider({ children }) {
     }
 
     async function deleteRestaurant(id) {
-        const deleteRoute = `api/profile/restaurants/${id}`;
         try {
-            await axios.delete(deleteRoute);
+            await axios.delete(`api/profile/restaurants/${id}`);
             await getProfile();
             setAlert('Restaurant removed from favorites.', 'danger');
         } catch (err) {
@@ -151,9 +150,8 @@ function ProfileProvider({ children }) {
     }
 
     async function deleteMedia(id) {
-        const deleteRoute = `api/profile/media/${id}`;
         try {
-            await axios.delete(deleteRoute);
+            await axios.delete(`api/profile/media/${id}`);
             await getProfile();
             setAlert('Media removed from favorites.', 'danger');
         } catch (err) {
