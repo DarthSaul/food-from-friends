@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faUserMinus } from '@fortawesome/free-solid-svg-icons';
 
 import { UserContext } from '../../contexts/UserContext';
 import { ProfileContext } from '../../contexts/ProfileContext';
@@ -18,13 +18,18 @@ const Dashboard = () => {
     } = useContext(ProfileContext);
 
     const {
-        userObj: { user, loading: userLoading }
+        userObj: { user, loading: userLoading },
+        deleteAccount
     } = useContext(UserContext);
 
     useEffect(() => {
         getProfile();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const clickToDelete = async event => {
+        deleteAccount();
+    };
 
     const userData = !userLoading ? user.data : null;
 
@@ -46,6 +51,15 @@ const Dashboard = () => {
                                 restaurants={profile.favoriteRestaurants}
                             />
                             <Media media={profile.favoriteMedia} />
+                            <div className='my-2'>
+                                <button
+                                    className='btn btn-danger'
+                                    onClick={clickToDelete}
+                                >
+                                    <FontAwesomeIcon icon={faUserMinus} />{' '}
+                                    Delete My Account
+                                </button>
+                            </div>
                         </>
                     ) : (
                         <>

@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file.
 -   `EditProfile` component
 -   `AddFavorite` & `AddMedia` components, `updateRestaurants` & `updateMedia` to `ProfileContext`
 -   `Media` and `Restaurants` list-style components for dashboard. Delete actions added to `ProfileContext` and configured as click event on components.
+-   `deleteAccount` added to `UserContext`, button for delete account added to `Dashboard`
 
 ### Changed
 

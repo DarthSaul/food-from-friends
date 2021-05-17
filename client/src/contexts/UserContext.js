@@ -83,6 +83,19 @@ function UserProvider({ children }) {
         }
     }
 
+    async function deleteAccount() {
+        if (window.confirm('Are you sure? This can NOT be undone!')) {
+            try {
+                await axios.delete(`api/profile/`);
+                setAlert('Account was deleted.', 'danger');
+                authError();
+            } catch (err) {
+                const errors = err.response.data.errors;
+                authError(errors);
+            }
+        }
+    }
+
     return (
         <UserContext.Provider
             value={{
@@ -90,7 +103,8 @@ function UserProvider({ children }) {
                 register,
                 authError,
                 loadUser,
-                login
+                login,
+                deleteAccount
             }}
         >
             {children}
