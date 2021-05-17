@@ -15,7 +15,8 @@ const Profiles = () => {
 
     useEffect(() => {
         getAllProfiles();
-    }, [getAllProfiles]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <>

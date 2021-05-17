@@ -59,6 +59,7 @@ function ProfileProvider({ children }) {
             const res = await axios.get('/api/profile');
             setProfileState(prevState => ({
                 ...prevState,
+                profile: null,
                 profiles: res.data,
                 loading: false
             }));
