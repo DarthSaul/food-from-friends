@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased: frontend3/profiles-and-dashboard <> 2021-05-DD
+## Unreleased
+
+---
+
+## frontend3/profiles-and-dashboard <> 2021-05-17
 
 ### Added
 
@@ -31,8 +35,6 @@ All notable changes to this project will be documented in this file.
 
 -   Reset `profile` in `ProfileContext` to null when no user is logged in
 -   If `favoriteCuisines` or `favoriteDishes` is already saved on a document, they're added to EditProfile component state as array -- fixed to join array elements together when initializing state
-
----
 
 ## frontend2/user-context <> 2021-05-14
 
