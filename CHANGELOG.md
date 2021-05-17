@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file.
 -   `CreateProfile` component and route handler
 -   `DashboardActions` component
 -   `EditProfile` component
+-   `AddFavorite` & `AddMedia` components, `updateRestaurants` & `updateMedia` to `ProfileContext`
 
 ### Changed
 

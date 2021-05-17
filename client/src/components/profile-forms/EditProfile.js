@@ -82,10 +82,10 @@ const EditProfile = () => {
 
     return (
         <>
-            <h1 className='large text-primary'>Create Your Profile</h1>
+            <h1 className='large text-primary'>Edit Your Profile</h1>
             <p className='lead'>
-                <FontAwesomeIcon icon={faUser} /> Let's get some information to
-                make your profile stand out
+                <FontAwesomeIcon icon={faUser} /> You can edit your profile
+                below.
             </p>
             <small>* = required field</small>
             <form className='form' onSubmit={handleSubmit}>

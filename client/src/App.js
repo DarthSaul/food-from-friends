@@ -9,6 +9,8 @@ import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import CreateProfile from './components/profile-forms/CreateProfile';
 import EditProfile from './components/profile-forms/EditProfile';
+import AddRestaurant from './components/profile-forms/AddRestaurant';
+import AddMedia from './components/profile-forms/AddMedia';
 
 import PrivateRoute from './components/routing/PrivateRoute';
 
@@ -52,6 +54,12 @@ const App = () => {
                         </PrivateRoute>
                         <PrivateRoute exact path='/edit-profile'>
                             <EditProfile />
+                        </PrivateRoute>
+                        <PrivateRoute exact path='/add-restaurant'>
+                            <AddRestaurant />
+                        </PrivateRoute>
+                        <PrivateRoute exact path='/add-media'>
+                            <AddMedia />
                         </PrivateRoute>
                     </Switch>
                 </section>

@@ -17,12 +17,12 @@ const DashboardActions = () => {
                 />{' '}
                 Edit Profile
             </Link>
-            <Link to='/add-restaurants' className='btn btn-light'>
+            <Link to='/add-restaurant' className='btn btn-light'>
                 <FontAwesomeIcon
                     icon={faPizzaSlice}
                     style={{ marginRight: 2 }}
                 />{' '}
-                Add Favorite Restaurants
+                Add a Favorite Restaurant
             </Link>
             <Link to='/add-media' className='btn btn-light'>
                 <FontAwesomeIcon icon={faBookmark} style={{ marginRight: 2 }} />{' '}

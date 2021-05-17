@@ -55,7 +55,8 @@ const profileSchema = new Schema({
                     'book',
                     'newspaper',
                     'magazine',
-                    'column'
+                    'column',
+                    'other'
                 ],
                 required: true
             },

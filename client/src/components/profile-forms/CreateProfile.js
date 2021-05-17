@@ -74,7 +74,7 @@ const CreateProfile = () => {
                         required
                     />
                     <small className='form-text'>
-                        City & state suggested (eg. Boston, MA)
+                        City & state suggested (eg. Pittsburgh, PA)
                     </small>
                 </div>
                 <div className='form-group'>
