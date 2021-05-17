@@ -29,7 +29,19 @@ function ProfileProvider({ children }) {
 
     const { setAlert } = useContext(AlertContext);
 
-    async function getProfile() {
+    function clearProfile(err) {
+        setProfileState(prevState => ({
+            ...prevState,
+            profile: null,
+            error: {
+                msg: err.response.statusText,
+                status: err.response.status
+            },
+            loading: false
+        }));
+    }
+
+    async function getCurrentProfile() {
         try {
             const res = await axios.get('/api/profile/me');
             setProfileState(prevState => ({
@@ -38,14 +50,41 @@ function ProfileProvider({ children }) {
                 loading: false
             }));
         } catch (err) {
+            clearProfile(err);
+        }
+    }
+
+    async function getAllProfiles() {
+        try {
+            const res = await axios.get('/api/profile');
             setProfileState(prevState => ({
                 ...prevState,
-                error: {
-                    msg: err.response.statusText,
-                    status: err.response.status
-                },
+                profiles: res.data,
                 loading: false
             }));
+        } catch (err) {
+            const errors = err.response.data.errors;
+            if (errors) {
+                errors.forEach(error => setAlert(error.msg, 'danger'));
+            }
+            clearProfile(err);
+        }
+    }
+
+    async function getProfileById(userId) {
+        try {
+            const res = await axios.get(`/api/profile/user/${userId}`);
+            setProfileState(prevState => ({
+                ...prevState,
+                profile: res.data,
+                loading: false
+            }));
+        } catch (err) {
+            const errors = err.response.data.errors;
+            if (errors) {
+                errors.forEach(error => setAlert(error.msg, 'danger'));
+            }
+            clearProfile(err);
         }
     }
 
@@ -57,7 +96,7 @@ function ProfileProvider({ children }) {
         };
         try {
             await axios.post('api/profile', formData, config);
-            await getProfile();
+            await getCurrentProfile();
             setAlert(edit ? 'Profile updated!' : 'Profile created!', 'success');
             if (!edit) {
                 history.push('/dashboard');
@@ -67,13 +106,7 @@ function ProfileProvider({ children }) {
             if (errors) {
                 errors.forEach(error => setAlert(error.msg, 'danger'));
             }
-            setProfileState(prevState => ({
-                ...prevState,
-                error: {
-                    msg: err.response.statusText,
-                    status: err.response.status
-                }
-            }));
+            clearProfile(err);
         }
     }
 
@@ -85,7 +118,7 @@ function ProfileProvider({ children }) {
         };
         try {
             await axios.put('api/profile/restaurants', formData, config);
-            await getProfile();
+            await getCurrentProfile();
             setAlert('Restaurant added to favorites!', 'success');
             history.push('/dashboard');
         } catch (err) {
@@ -93,33 +126,21 @@ function ProfileProvider({ children }) {
             if (errors) {
                 errors.forEach(error => setAlert(error.msg, 'danger'));
             }
-            setProfileState(prevState => ({
-                ...prevState,
-                error: {
-                    msg: err.response.statusText,
-                    status: err.response.status
-                }
-            }));
+            clearProfile(err);
         }
     }
 
     async function deleteRestaurant(id) {
         try {
             await axios.delete(`api/profile/restaurants/${id}`);
-            await getProfile();
+            await getCurrentProfile();
             setAlert('Restaurant removed from favorites.', 'danger');
         } catch (err) {
             const errors = err.response.data.errors;
             if (errors) {
                 errors.forEach(error => setAlert(error.msg, 'danger'));
             }
-            setProfileState(prevState => ({
-                ...prevState,
-                error: {
-                    msg: err.response.statusText,
-                    status: err.response.status
-                }
-            }));
+            clearProfile(err);
         }
     }
 
@@ -131,7 +152,7 @@ function ProfileProvider({ children }) {
         };
         try {
             await axios.put('api/profile/media', formData, config);
-            await getProfile();
+            await getCurrentProfile();
             setAlert('Media added to favorites!', 'success');
             history.push('/dashboard');
         } catch (err) {
@@ -139,33 +160,21 @@ function ProfileProvider({ children }) {
             if (errors) {
                 errors.forEach(error => setAlert(error.msg, 'danger'));
             }
-            setProfileState(prevState => ({
-                ...prevState,
-                error: {
-                    msg: err.response.statusText,
-                    status: err.response.status
-                }
-            }));
+            clearProfile(err);
         }
     }
 
     async function deleteMedia(id) {
         try {
             await axios.delete(`api/profile/media/${id}`);
-            await getProfile();
+            await getCurrentProfile();
             setAlert('Media removed from favorites.', 'danger');
         } catch (err) {
             const errors = err.response.data.errors;
             if (errors) {
                 errors.forEach(error => setAlert(error.msg, 'danger'));
             }
-            setProfileState(prevState => ({
-                ...prevState,
-                error: {
-                    msg: err.response.statusText,
-                    status: err.response.status
-                }
-            }));
+            clearProfile(err);
         }
     }
 
@@ -173,7 +182,9 @@ function ProfileProvider({ children }) {
         <ProfileContext.Provider
             value={{
                 profileState,
-                getProfile,
+                getCurrentProfile,
+                getAllProfiles,
+                getProfileById,
                 createProfile,
                 addRestaurant,
                 deleteRestaurant,

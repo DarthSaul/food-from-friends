@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased: frontend4/display-profiles
 
+### Added
+
+-   `getProfileById` and `getAllProfiles` added to `ProfileContext`
+
+### Changed
+
+-   `getProfile` to `getCurrentProfile` on `ProfileContext`, updated context imports as necessary
+-   Refactored logic inside of `catch` statement in actions on `ProfileContext`, moved to its own function called `clearProfile`. Function sets `profile` in state to null, might have to change later.
+
 ---
 
 ## frontend3/profiles-and-dashboard <> 2021-05-17

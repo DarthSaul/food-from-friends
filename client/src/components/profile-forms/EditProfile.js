@@ -26,14 +26,14 @@ const EditProfile = () => {
 
     const {
         createProfile,
-        getProfile,
+        getCurrentProfile,
         profileState: { profile, loading }
     } = useContext(ProfileContext);
 
     const history = useHistory();
 
     useEffect(() => {
-        getProfile();
+        getCurrentProfile();
         setFormData({
             location: loading || !profile.location ? '' : profile.location,
             bio: loading || !profile.bio ? '' : profile.bio,
