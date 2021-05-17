@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased: frontend3/profiles-and-dashboard <> 2021-05-14
+## Unreleased: frontend3/profiles-and-dashboard <> 2021-05-
 
 ### Added
 
