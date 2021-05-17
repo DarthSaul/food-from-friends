@@ -40,16 +40,17 @@ const EditProfile = () => {
             favoriteCuisines:
                 loading || !profile.favoriteCuisines
                     ? ''
-                    : profile.favoriteCuisines,
+                    : profile.favoriteCuisines.join(', '),
             favoriteDishes:
                 loading || !profile.favoriteDishes
                     ? ''
-                    : profile.favoriteDishes,
+                    : profile.favoriteDishes.join(', '),
             instagram:
                 loading || !profile.social ? '' : profile.social.instagram,
             twitter: loading || !profile.social ? '' : profile.social.twitter,
             facebook: loading || !profile.social ? '' : profile.social.facebook
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading]);
 
     const toggle = () => {

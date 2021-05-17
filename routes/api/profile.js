@@ -56,26 +56,14 @@ router.post(
         if (location) profileFields.location = location;
         if (bio) profileFields.bio = bio;
         if (favoriteCuisines) {
-            if (Array.isArray(favoriteCuisines)) {
-                profileFields.favoriteCuisines = favoriteCuisines.map(el =>
-                    el.trim()
-                );
-            } else {
-                profileFields.favoriteCuisines = favoriteCuisines
-                    .split(',')
-                    .map(el => el.trim());
-            }
+            profileFields.favoriteCuisines = favoriteCuisines
+                .split(',')
+                .map(el => el.trim());
         }
         if (favoriteDishes) {
-            if (Array.isArray(favoriteDishes)) {
-                profileFields.favoriteDishes = favoriteDishes.map(el =>
-                    el.trim()
-                );
-            } else {
-                profileFields.favoriteDishes = favoriteDishes
-                    .split(',')
-                    .map(el => el.trim());
-            }
+            profileFields.favoriteDishes = favoriteDishes
+                .split(',')
+                .map(el => el.trim());
         }
         profileFields.social = {}; // Initialize first, or 'profileFields.social' is undefined
         if (instagram) profileFields.social.instagram = instagram;
