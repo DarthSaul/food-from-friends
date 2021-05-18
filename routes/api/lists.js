@@ -83,7 +83,7 @@ router.get('/:list_id', async (req, res) => {
 router.delete('/:list_id', auth, isListOwner, async (req, res) => {
     const { list_id } = req.params;
     try {
-        await List.findByIdAndDelete(list_id);
+        const list = await List.findByIdAndDelete(list_id);
         if (!list) {
             return res.status(400).json({ msg: 'List not found' });
         }

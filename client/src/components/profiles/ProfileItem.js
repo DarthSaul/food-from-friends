@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const ProfileItem = ({ profile }) => {
-    const {
+const ProfileItem = ({
+    profile: {
         user: { _id, name },
         location,
         bio,
         favoriteRestaurants
-    } = profile;
-
+    }
+}) => {
     return (
         <div className='profile bg-light'>
             <div>
@@ -37,7 +37,7 @@ const ProfileItem = ({ profile }) => {
 };
 
 ProfileItem.propTypes = {
-    profile: PropTypes.object
+    profile: PropTypes.object.isRequired
 };
 
 export default ProfileItem;

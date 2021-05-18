@@ -43,8 +43,65 @@ function ListsProvider({ children }) {
         }
     }
 
+    async function likeList(listId) {
+        try {
+            const res = await axios.put(`api/lists/${listId}/like`);
+            setLists(prevState => ({
+                ...prevState,
+                lists: prevState.lists.map(list =>
+                    list._id === listId ? { ...list, likes: res.data } : list
+                ),
+                loading: false
+            }));
+        } catch (err) {
+            const error = err.response.data;
+            if (error) {
+                setAlert(error.msg, 'danger');
+            }
+            listsError(err);
+        }
+    }
+    async function unlikeList(listId) {
+        try {
+            const res = await axios.put(`api/lists/${listId}/unlike`);
+            setLists(prevState => ({
+                ...prevState,
+                lists: prevState.lists.map(list =>
+                    list._id === listId ? { ...list, likes: res.data } : list
+                ),
+                loading: false
+            }));
+        } catch (err) {
+            const error = err.response.data;
+            if (error) {
+                setAlert(error.msg, 'danger');
+            }
+            listsError(err);
+        }
+    }
+
+    async function deleteList(listId) {
+        try {
+            await axios.delete(`api/lists/${listId}`);
+            setLists(prevState => ({
+                ...prevState,
+                lists: prevState.lists.filter(list => list._id !== listId),
+                loading: false
+            }));
+            setAlert('List was removed', 'success', 3000);
+        } catch (err) {
+            const error = err.response.data;
+            if (error) {
+                setAlert(error.msg, 'danger');
+            }
+            listsError(err);
+        }
+    }
+
     return (
-        <ListsContext.Provider value={{ listState, getLists }}>
+        <ListsContext.Provider
+            value={{ listState, getLists, likeList, unlikeList, deleteList }}
+        >
             {children}
         </ListsContext.Provider>
     );

@@ -7,7 +7,13 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 -   New `ListsContext` for state management of lists
--   Wrapped `<App />` in new provider, using context in new `Lists` component
+-   Wrapped `<App />` in new provider, using context in new `Lists` component.
+-   `listsError`, `getLists`, `likeList`, `unlikeList`, `deleteList` all added to context
+-   List related components: `Lists`, `ListItem`, and `List`.
+
+### Fixed
+
+-   Bug in route handler for "Delete list by list id", fixed
 
 ---
 
