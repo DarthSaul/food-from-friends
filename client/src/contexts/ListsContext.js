@@ -28,10 +28,11 @@ function ListsProvider({ children }) {
 
     async function getLists() {
         try {
-            const res = await axios.get('api/lists');
+            const res = await axios.get('/api/lists');
             setLists(prevState => ({
                 ...prevState,
                 lists: res.data,
+                list: null,
                 loading: false
             }));
         } catch (err) {
@@ -67,7 +68,7 @@ function ListsProvider({ children }) {
             }
         };
         try {
-            await axios.post('api/lists', formData, config);
+            await axios.post('/api/lists', formData, config);
             await getLists();
             setAlert('List created!', 'success');
         } catch (err) {
@@ -81,7 +82,7 @@ function ListsProvider({ children }) {
 
     async function likeList(listId) {
         try {
-            const res = await axios.put(`api/lists/${listId}/like`);
+            const res = await axios.put(`/api/lists/${listId}/like`);
             setLists(prevState => ({
                 ...prevState,
                 lists: prevState.lists.map(list =>
@@ -99,7 +100,7 @@ function ListsProvider({ children }) {
     }
     async function unlikeList(listId) {
         try {
-            const res = await axios.put(`api/lists/${listId}/unlike`);
+            const res = await axios.put(`/api/lists/${listId}/unlike`);
             setLists(prevState => ({
                 ...prevState,
                 lists: prevState.lists.map(list =>
@@ -118,13 +119,46 @@ function ListsProvider({ children }) {
 
     async function deleteList(listId) {
         try {
-            await axios.delete(`api/lists/${listId}`);
+            await axios.delete(`/api/lists/${listId}`);
             setLists(prevState => ({
                 ...prevState,
                 lists: prevState.lists.filter(list => list._id !== listId),
                 loading: false
             }));
             setAlert('List was removed', 'success', 3000);
+        } catch (err) {
+            const error = err.response.data;
+            if (error) {
+                setAlert(error.msg, 'danger');
+            }
+            listsError(err);
+        }
+    }
+
+    async function addComment(listId, comment) {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        try {
+            await axios.post(`/api/lists/${listId}/comment`, comment, config);
+            await getListById(listId);
+            setAlert('Comment added!', 'success');
+        } catch (err) {
+            const error = err.response.data;
+            if (error) {
+                setAlert(error.msg, 'danger');
+            }
+            listsError(err);
+        }
+    }
+
+    async function removeComment(listId, commentId) {
+        try {
+            await axios.delete(`/api/lists/${listId}/comment/${commentId}`);
+            await getListById(listId);
+            setAlert('Comment deleted.', 'danger');
         } catch (err) {
             const error = err.response.data;
             if (error) {
@@ -143,7 +177,9 @@ function ListsProvider({ children }) {
                 unlikeList,
                 deleteList,
                 createList,
-                getListById
+                getListById,
+                addComment,
+                removeComment
             }}
         >
             {children}

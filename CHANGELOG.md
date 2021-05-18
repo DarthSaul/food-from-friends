@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 -   Wrapped `<App />` in new provider, using context in new `Lists` component.
 -   `listsError`, `getLists`, `likeList`, `unlikeList`, `deleteList` all added to context
 -   List related components: `Lists`, `ListItem`, and `List`.
+-   Comment components and route handling
 
 ### Fixed
 
