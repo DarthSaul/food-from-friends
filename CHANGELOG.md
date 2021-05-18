@@ -2,13 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased: frontend4/display-profiles
+## Unreleased
+
+---
+
+## frontend4/display-profiles <> 2021-05-17
 
 ### Added
 
 -   `getProfileById` and `getAllProfiles` added to `ProfileContext`
 -   `Profiles` and `ProfileItem` components. `Profiles` is the container that renders an array of `ProfileItems`, which consist of the profiles added to state from our database.
--   `ProfileTop` and `ProfileAbout` components
+-   `Profile` component for a single profile. `ProfileTop`, `ProfileAbout`, `ProfileRestaurant`, `ProfileMedia` components for structure.
 
 ### Changed
 
@@ -18,8 +22,6 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 
 -   Removed `ProfileContext` functions from dependency arrays in `useEffect` calls because it was leading to infinite rendering and messing up the profile state
-
----
 
 ## frontend3/profiles-and-dashboard <> 2021-05-17
 

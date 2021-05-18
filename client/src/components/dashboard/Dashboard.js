@@ -24,7 +24,8 @@ const Dashboard = () => {
 
     useEffect(() => {
         getCurrentProfile();
-    }, [getCurrentProfile]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const clickToDelete = async event => {
         deleteAccount();

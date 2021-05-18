@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faUser } from '@fortawesome/free-solid-svg-icons';
 import {
     faTwitter,
     faFacebook,
@@ -11,7 +10,6 @@ import {
 const ProfileTop = ({
     profile: {
         location,
-        bio,
         social,
         user: { name, avatar }
     }
@@ -21,7 +19,6 @@ const ProfileTop = ({
             <img className='round-img my-1' src={avatar} alt='' />
             <h1 className='large'>{name}</h1>
             <p className='lead'>Currently exploring {location}</p>
-            <p>{bio}</p>
             <div className='icons my-1'>
                 {social && social.instagram && (
                     <a
