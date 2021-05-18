@@ -6,6 +6,7 @@ import { ListsContext } from '../../contexts/ListsContext';
 
 import Spinner from '../layout/Spinner';
 import ListItem from './ListItem';
+import ListForm from './ListForm';
 
 const Lists = () => {
     const {
@@ -29,7 +30,7 @@ const Lists = () => {
                         <FontAwesomeIcon icon={faHotdog} /> Welcome to the
                         community
                     </p>
-                    {/* ListForm */}
+                    <ListForm />
                     <div className='posts'>
                         {lists.length > 0 ? (
                             lists.map(list => (

@@ -43,6 +43,42 @@ function ListsProvider({ children }) {
         }
     }
 
+    async function getListById(id) {
+        try {
+            const res = await axios.get(`/api/lists/${id}`);
+            setLists(prevState => ({
+                ...prevState,
+                list: res.data,
+                loading: false
+            }));
+        } catch (err) {
+            const errors = err.response.data.errors;
+            if (errors) {
+                errors.forEach(error => setAlert(error.msg, 'danger'));
+            }
+            listsError(err);
+        }
+    }
+
+    async function createList(formData) {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        try {
+            await axios.post('api/lists', formData, config);
+            await getLists();
+            setAlert('List created!', 'success');
+        } catch (err) {
+            const errors = err.response.data.errors;
+            if (errors) {
+                errors.forEach(error => setAlert(error.msg, 'danger'));
+            }
+            listsError(err);
+        }
+    }
+
     async function likeList(listId) {
         try {
             const res = await axios.put(`api/lists/${listId}/like`);
@@ -100,7 +136,15 @@ function ListsProvider({ children }) {
 
     return (
         <ListsContext.Provider
-            value={{ listState, getLists, likeList, unlikeList, deleteList }}
+            value={{
+                listState,
+                getLists,
+                likeList,
+                unlikeList,
+                deleteList,
+                createList,
+                getListById
+            }}
         >
             {children}
         </ListsContext.Provider>

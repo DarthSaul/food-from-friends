@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 
 -   Bug in route handler for "Delete list by list id", fixed
+-   Request path for `axios.get` in `ListsContext` needed another slash
 
 ---
 
