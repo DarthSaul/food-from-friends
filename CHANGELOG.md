@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased: frontend5/lists-and-comments <> YYYY-MM-DD
 
+### Added
+
+-   New `ListsContext` for state management of lists
+-   Wrapped `<App />` in new provider, using context in new `Lists` component
+
 ---
 
 ## frontend4/display-profiles <> 2021-05-17

@@ -30,6 +30,9 @@ const Navbar = () => {
                 <li>
                     <Link to='/profiles'>Profiles</Link>
                 </li>
+                <li>
+                    <Link to='/lists'>Lists</Link>
+                </li>
                 {!isAuthenticated && !loading ? (
                     <>
                         <li>

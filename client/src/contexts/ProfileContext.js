@@ -18,6 +18,8 @@ function ProfileProvider({ children }) {
         userObj: { user }
     } = useContext(UserContext);
 
+    const { setAlert } = useContext(AlertContext);
+
     useEffect(() => {
         if (user === null) {
             setProfileState(prevState => ({
@@ -26,8 +28,6 @@ function ProfileProvider({ children }) {
             }));
         }
     }, [user]);
-
-    const { setAlert } = useContext(AlertContext);
 
     function clearProfile(err) {
         setProfileState(prevState => ({
