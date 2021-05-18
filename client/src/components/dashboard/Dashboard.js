@@ -14,7 +14,7 @@ import Media from './Media';
 const Dashboard = () => {
     const {
         profileState: { profile, loading: profileLoading },
-        getProfile
+        getCurrentProfile
     } = useContext(ProfileContext);
 
     const {
@@ -23,7 +23,7 @@ const Dashboard = () => {
     } = useContext(UserContext);
 
     useEffect(() => {
-        getProfile();
+        getCurrentProfile();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
