@@ -18,6 +18,8 @@ function ProfileProvider({ children }) {
         userObj: { user }
     } = useContext(UserContext);
 
+    const { setAlert } = useContext(AlertContext);
+
     useEffect(() => {
         if (user === null) {
             setProfileState(prevState => ({
@@ -26,8 +28,6 @@ function ProfileProvider({ children }) {
             }));
         }
     }, [user]);
-
-    const { setAlert } = useContext(AlertContext);
 
     function clearProfile(err) {
         setProfileState(prevState => ({
@@ -96,7 +96,7 @@ function ProfileProvider({ children }) {
             }
         };
         try {
-            await axios.post('api/profile', formData, config);
+            await axios.post('/api/profile', formData, config);
             await getCurrentProfile();
             setAlert(edit ? 'Profile updated!' : 'Profile created!', 'success');
             if (!edit) {
@@ -118,7 +118,7 @@ function ProfileProvider({ children }) {
             }
         };
         try {
-            await axios.put('api/profile/restaurants', formData, config);
+            await axios.put('/api/profile/restaurants', formData, config);
             await getCurrentProfile();
             setAlert('Restaurant added to favorites!', 'success');
             history.push('/dashboard');
@@ -133,7 +133,7 @@ function ProfileProvider({ children }) {
 
     async function deleteRestaurant(id) {
         try {
-            await axios.delete(`api/profile/restaurants/${id}`);
+            await axios.delete(`/api/profile/restaurants/${id}`);
             await getCurrentProfile();
             setAlert('Restaurant removed from favorites.', 'danger');
         } catch (err) {
@@ -152,7 +152,7 @@ function ProfileProvider({ children }) {
             }
         };
         try {
-            await axios.put('api/profile/media', formData, config);
+            await axios.put('/api/profile/media', formData, config);
             await getCurrentProfile();
             setAlert('Media added to favorites!', 'success');
             history.push('/dashboard');
@@ -167,7 +167,7 @@ function ProfileProvider({ children }) {
 
     async function deleteMedia(id) {
         try {
-            await axios.delete(`api/profile/media/${id}`);
+            await axios.delete(`/api/profile/media/${id}`);
             await getCurrentProfile();
             setAlert('Media removed from favorites.', 'danger');
         } catch (err) {

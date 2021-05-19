@@ -2,21 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const ProfileItem = ({ profile }) => {
-    const {
+const ProfileItem = ({
+    profile: {
         user: { _id, name },
         location,
         bio,
         favoriteRestaurants
-    } = profile;
-
+    }
+}) => {
     return (
         <div className='profile bg-light'>
             <div>
                 <h2>{name}</h2>
                 <p>{location}</p>
                 <p>{bio}</p>
-                <Link to={`/profile/${_id}`} className='btn btn-primary'>
+                <Link to={`/profile/${_id}`} className='btn btn-primary my-1'>
                     View Profile
                 </Link>
             </div>
@@ -37,7 +37,7 @@ const ProfileItem = ({ profile }) => {
 };
 
 ProfileItem.propTypes = {
-    profile: PropTypes.object
+    profile: PropTypes.object.isRequired
 };
 
 export default ProfileItem;

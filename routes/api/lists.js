@@ -60,10 +60,10 @@ router.get('/', async (req, res) => {
 router.get('/:list_id', async (req, res) => {
     const { list_id } = req.params;
     try {
-        const list = await List.findById(list_id).populate('user', [
-            'name',
-            'avatar'
-        ]);
+        const list = await List.findById(list_id)
+            .populate('user', ['name', 'avatar'])
+            // Newer version of Mongoose's populate below
+            .populate({ path: 'comments', populate: { path: 'user' } });
         if (!list) {
             return res.status(400).json({ msg: 'List not found' });
         }
@@ -83,7 +83,7 @@ router.get('/:list_id', async (req, res) => {
 router.delete('/:list_id', auth, isListOwner, async (req, res) => {
     const { list_id } = req.params;
     try {
-        await List.findByIdAndDelete(list_id);
+        const list = await List.findByIdAndDelete(list_id);
         if (!list) {
             return res.status(400).json({ msg: 'List not found' });
         }
@@ -190,7 +190,6 @@ router.delete(
                 $pull: { comments: comment_id }
             });
             const comment = await Comment.findByIdAndDelete(comment_id);
-            console.log(comment);
             res.json(list);
         } catch (err) {
             console.error(err.message);

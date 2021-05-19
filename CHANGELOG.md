@@ -6,6 +6,27 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## frontend5/lists-and-comments <> 2021-05-19
+
+### Added
+
+-   New `ListsContext` for state management of lists
+-   Wrapped `<App />` in new provider, using context in new `Lists` component.
+-   `listsError`, `getLists`, `likeList`, `unlikeList`, `deleteList` all added to context
+-   List related components: `Lists`, `ListItem`, and `List`.
+-   Comment components and route handling
+-   Implemented controlled form for creating a new list, displaying the restaurants added to the list, and managing the city set for the list.
+
+### Fixed
+
+-   Bug in route handler for "Delete list by list id", fixed.
+-   Request path for `axios.get` in `ListsContext` needed another slash.
+
+### Changed
+
+-   Moved list form to separate route `/list/new`
+-   Extensive re-design of many components: added border-radius, changed colors, changed positioning.
+
 ## frontend4/display-profiles <> 2021-05-17
 
 ### Added

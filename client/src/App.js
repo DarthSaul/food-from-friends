@@ -13,6 +13,9 @@ import CreateProfile from './components/profile-forms/CreateProfile';
 import EditProfile from './components/profile-forms/EditProfile';
 import AddRestaurant from './components/profile-forms/AddRestaurant';
 import AddMedia from './components/profile-forms/AddMedia';
+import Lists from './components/lists/Lists';
+import ListForm from './components/list-form/ListForm';
+import List from './components/list/List';
 
 import PrivateRoute from './components/routing/PrivateRoute';
 
@@ -42,6 +45,7 @@ const App = () => {
                 <section className='container'>
                     <Alert />
                     <Switch>
+                        {/* Public Routes */}
                         <Route exact path='/register'>
                             <Register />
                         </Route>
@@ -54,6 +58,16 @@ const App = () => {
                         <Route exact path='/profile/:id'>
                             <Profile />
                         </Route>
+                        <Route exact path='/lists'>
+                            <Lists />
+                        </Route>
+                        <Route exact path='/lists/new'>
+                            <ListForm />
+                        </Route>
+                        <Route exact path='/lists/:id'>
+                            <List />
+                        </Route>
+                        {/* Private Routes */}
                         <PrivateRoute exact path='/dashboard'>
                             <Dashboard />
                         </PrivateRoute>
