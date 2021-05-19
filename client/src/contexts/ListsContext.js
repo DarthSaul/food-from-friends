@@ -158,7 +158,7 @@ function ListsProvider({ children }) {
         try {
             await axios.delete(`/api/lists/${listId}/comment/${commentId}`);
             await getListById(listId);
-            setAlert('Comment deleted.', 'danger');
+            setAlert('Comment deleted.', 'success');
         } catch (err) {
             const error = err.response.data;
             if (error) {

@@ -20,7 +20,8 @@ const ListItem = ({
         comments,
         user,
         user: { name, avatar }
-    }
+    },
+    showActions
 }) => {
     const {
         userObj: { loading: userLoading, user: currentUser }
@@ -36,47 +37,51 @@ const ListItem = ({
             </div>
 
             <div>
-                <Link to={`/lists/${_id}`} className='btn btn-primary'>
-                    View List
-                </Link>
-
                 <p className='lead my-1'>{city}</p>
-
-                <button
-                    type='button'
-                    className='btn btn-light'
-                    onClick={() => likeList(_id)}
-                >
-                    <FontAwesomeIcon icon={faThumbsUp} />{' '}
-                    {likes.length > 0 && <span>{likes.length}</span>}
-                </button>
-
-                <button
-                    type='button'
-                    className='btn btn-light'
-                    onClick={() => unlikeList(_id)}
-                >
-                    <FontAwesomeIcon icon={faThumbsDown} />
-                </button>
-
-                <Link to={`/lists/${_id}`} className='btn btn-primary'>
-                    Discussion{' '}
-                    {comments.length > 0 && (
-                        <span className='comment-count'>{comments.length}</span>
-                    )}
-                </Link>
-
-                {!userLoading &&
-                    currentUser &&
-                    user._id === currentUser.data._id && (
+                {showActions && (
+                    <>
+                        <Link to={`/lists/${_id}`} className='btn btn-primary'>
+                            View List
+                        </Link>
                         <button
                             type='button'
-                            className='btn btn-danger'
-                            onClick={() => deleteList(_id)}
+                            className='btn btn-light'
+                            onClick={() => likeList(_id)}
                         >
-                            <FontAwesomeIcon icon={faTimes} />
+                            <FontAwesomeIcon icon={faThumbsUp} />{' '}
+                            {likes.length > 0 && <span>{likes.length}</span>}
                         </button>
-                    )}
+
+                        <button
+                            type='button'
+                            className='btn btn-light'
+                            onClick={() => unlikeList(_id)}
+                        >
+                            <FontAwesomeIcon icon={faThumbsDown} />
+                        </button>
+
+                        <Link to={`/lists/${_id}`} className='btn btn-primary'>
+                            Discussion{' '}
+                            {comments.length > 0 && (
+                                <span className='comment-count'>
+                                    {comments.length}
+                                </span>
+                            )}
+                        </Link>
+
+                        {!userLoading &&
+                            currentUser &&
+                            user._id === currentUser.data._id && (
+                                <button
+                                    type='button'
+                                    className='btn btn-danger'
+                                    onClick={() => deleteList(_id)}
+                                >
+                                    <FontAwesomeIcon icon={faTimes} />
+                                </button>
+                            )}
+                    </>
+                )}
             </div>
         </div>
     );

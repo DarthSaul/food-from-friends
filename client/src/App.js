@@ -14,6 +14,7 @@ import EditProfile from './components/profile-forms/EditProfile';
 import AddRestaurant from './components/profile-forms/AddRestaurant';
 import AddMedia from './components/profile-forms/AddMedia';
 import Lists from './components/lists/Lists';
+import ListForm from './components/list-form/ListForm';
 import List from './components/list/List';
 
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -59,6 +60,9 @@ const App = () => {
                         </Route>
                         <Route exact path='/lists'>
                             <Lists />
+                        </Route>
+                        <Route exact path='/lists/new'>
+                            <ListForm />
                         </Route>
                         <Route exact path='/lists/:id'>
                             <List />

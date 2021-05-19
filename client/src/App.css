@@ -255,6 +255,7 @@ img {
 .form input[type='date'],
 .form select,
 .form textarea {
+    font-family: sans-serif;
     display: block;
     width: 100%;
     padding: 0.4rem;
@@ -300,6 +301,17 @@ button {
 
 .table th {
     background: var(--light-color);
+}
+
+.form-restaurants-container {
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+}
+
+.single-form-restaurant {
+    /* border: 1px solid red; */
+    margin-right: 2rem;
+    padding: 2rem;
 }
 
 /* Navbar */
