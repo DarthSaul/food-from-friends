@@ -33,7 +33,7 @@ const Lists = () => {
                     <Link to={'/lists/new'} className='btn btn-primary'>
                         Create a new list
                     </Link>
-                    <div className='posts'>
+                    <div className='lists'>
                         {lists.length > 0 ? (
                             lists.map(list => (
                                 <ListItem

@@ -153,6 +153,7 @@ img {
 }
 
 .alert {
+    border-radius: 4px;
     padding: 0.8rem;
     margin: 1rem 0;
     opacity: 0.9;
@@ -205,6 +206,15 @@ img {
 .badge-white,
 .alert-white {
     background: #fff;
+    color: #333;
+    border: #ccc solid 1px;
+}
+
+.btn-grey,
+.bg-grey,
+.badge-grey,
+.alert-grey {
+    background: rgba(201, 200, 200, 0.904);
     color: #333;
     border: #ccc solid 1px;
 }
@@ -304,14 +314,17 @@ button {
 }
 
 .form-restaurants-container {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.075);
+    border-radius: 4px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .single-form-restaurant {
-    /* border: 1px solid red; */
-    margin-right: 2rem;
-    padding: 2rem;
+    background: rgba(160, 160, 160, 0.2);
+    border-radius: 4px;
+    margin: 0.4rem;
+    padding: 1rem;
 }
 
 /* Navbar */
@@ -473,28 +486,28 @@ button {
     flex-basis: 20%;
 }
 
-/* Posts Page */
-.post-form .post-form-header {
+/* lists Page */
+.list-form .list-form-header {
     background: var(--primary-color);
     padding: 0.5rem;
 }
 
-.post {
+.list {
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-gap: 2rem;
     align-items: center;
 }
 
-.post > div:first-child {
+.list > div:first-child {
     text-align: center;
 }
 
-.post img {
+.list img {
     width: 100px;
 }
 
-.post .comment-count {
+.list .comment-count {
     background: var(--light-color);
     color: var(--primary-color);
     padding: 0.1rem 0.2rem;
@@ -502,7 +515,7 @@ button {
     font-size: 0.8rem;
 }
 
-.post .post-date {
+.list .list-date {
     color: #aaa;
     font-size: 0.8rem;
     margin-bottom: 0.5rem;
@@ -587,11 +600,11 @@ button {
         margin-bottom: 0.2rem;
     }
 
-    .post {
+    .list {
         grid-template-columns: 1fr;
     }
-    .post a,
-    .post button {
+    .list a,
+    .list button {
         padding: 0.3rem 0.4rem;
     }
 }

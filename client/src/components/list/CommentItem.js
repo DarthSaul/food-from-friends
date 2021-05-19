@@ -17,7 +17,7 @@ const CommentItem = ({
         userObj: { loading: userLoading, user: currentUser }
     } = useContext(UserContext);
     return (
-        <div className='post bg-white p-1 my-1'>
+        <div className='list bg-white p-1 my-1'>
             <div>
                 <Link to={`/profile/${user}`}>
                     <img className='round-img' src={user.avatar} alt='' />
@@ -26,7 +26,7 @@ const CommentItem = ({
             </div>
             <div>
                 <p className='my-1'>{text}</p>
-                <p className='post-date'>
+                <p className='list-date'>
                     Posted on <Moment format='YYYY/MM/DD'>{date}</Moment>
                 </p>
                 {!userLoading &&

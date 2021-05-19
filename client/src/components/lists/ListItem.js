@@ -28,7 +28,7 @@ const ListItem = ({
     } = useContext(UserContext);
     const { likeList, unlikeList, deleteList } = useContext(ListsContext);
     return (
-        <div className='post bg-white p-1 my-1'>
+        <div className='list bg-white p-1 my-1'>
             <div>
                 <Link to={`/profile/${user._id}`} className='btn btn-primary'>
                     <img className='round-img' src={avatar} alt='' />
