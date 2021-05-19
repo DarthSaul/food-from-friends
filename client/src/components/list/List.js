@@ -7,6 +7,7 @@ import { ListsContext } from '../../contexts/ListsContext';
 import CommentForm from './CommentForm';
 import CommentItem from './CommentItem';
 import ListItem from '../lists/ListItem';
+import ListRestaurant from './ListRestaurant';
 
 const List = () => {
     const {
@@ -31,6 +32,10 @@ const List = () => {
             ) : (
                 <>
                     <ListItem list={list} showActions={false} />
+                    {list.restaurants.length > 0 &&
+                        list.restaurants.map(res => (
+                            <ListRestaurant restaurant={res} key={res._id} />
+                        ))}
                     <CommentForm listId={id} />
                     <div className='comments'>
                         {list.comments.map(comment => (

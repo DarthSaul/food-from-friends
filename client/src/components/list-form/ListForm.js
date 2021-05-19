@@ -127,7 +127,10 @@ const ListForm = () => {
                 )}
 
                 <div className='bg-primary p'>
-                    <h3>Provide some info about a restaurant below.</h3>
+                    <h3>
+                        Provide some info about a restaurant below, then add it
+                        to your list.
+                    </h3>
                 </div>
                 <form className='form my-1' onSubmit={addRestaurant}>
                     <div>
@@ -197,7 +200,7 @@ const ListForm = () => {
                     </>
                 )}
 
-                <form className='form' onSubmit={handleSubmit}>
+                <form className='form lead' onSubmit={handleSubmit}>
                     <input
                         type='submit'
                         className='btn btn-dark my-1'

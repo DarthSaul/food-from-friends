@@ -24,18 +24,18 @@ const CommentForm = ({ listId }) => {
     };
 
     return (
-        <form className='form' onSubmit={handleSubmit}>
+        <form className='form my-2' onSubmit={handleSubmit}>
             <div className='form-group'>
                 <textarea
                     name='text'
                     cols='30'
-                    rows='5'
+                    rows='4'
                     placeholder='Enter your comment here'
                     value={comment.text}
                     onChange={handleChange}
                 />
             </div>
-            <input type='submit' className='btn btn-primary my-1' />
+            <input type='submit' className='btn btn-primary' />
         </form>
     );
 };

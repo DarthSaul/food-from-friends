@@ -217,10 +217,11 @@ img {
     background: rgba(201, 200, 200, 0.904);
     color: #333;
     border: #ccc solid 1px;
+    border-radius: 4px;
 }
 
 .btn:hover {
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .bg-light,
@@ -265,6 +266,7 @@ img {
 .form input[type='date'],
 .form select,
 .form textarea {
+    border-radius: 4px;
     font-family: sans-serif;
     display: block;
     width: 100%;
@@ -385,12 +387,13 @@ button {
 /* Profiles Page */
 .profile {
     display: grid;
-    grid-template-columns: 2fr 4fr 2fr;
-    align-items: center;
+    grid-template-columns: 2fr 2fr;
+    align-items: flex-start;
     grid-gap: 2rem;
     padding: 1rem;
     line-height: 1.8;
     margin-bottom: 1rem;
+    border-radius: 4px;
 }
 
 /* Profile Page */
@@ -399,8 +402,7 @@ button {
     grid-template-areas:
         'top top'
         'about about'
-        'exp edu'
-        'github github';
+        'res media';
     grid-gap: 1rem;
 }
 
@@ -411,6 +413,7 @@ button {
     align-items: center;
     justify-content: center;
     text-align: center;
+    border-radius: 4px;
 }
 
 .profile-top img {
@@ -429,6 +432,7 @@ button {
 .profile-about {
     grid-area: about;
     text-align: center;
+    border-radius: 4px;
 }
 
 .profile-about .skills {
@@ -438,52 +442,36 @@ button {
     text-align: center;
 }
 
-.profile-exp {
-    grid-area: exp;
+.profile-res {
+    border-radius: 4px;
+    grid-area: res;
 }
 
-.profile-edu {
-    grid-area: edu;
+.profile-media {
+    border-radius: 4px;
+    grid-area: media;
 }
 
-.profile-exp h2,
-.profile-edu h2 {
+.profile-res h2,
+.profile-media h2 {
     margin-bottom: 1rem;
 }
 
-.profile-exp > div,
-.profile-edu > div {
+.profile-res > div,
+.profile-media > div {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
     border-bottom: #ccc 1px dotted;
 }
 
-.profile-exp > div:last-child,
-.profile-edu > div:last-child {
+.profile-res > div:last-child,
+.profile-media > div:last-child {
     border: 0;
 }
 
-.profile-exp p,
-.profile-edu p {
+.profile-res p,
+.profile-media p {
     margin: 0.5rem 0;
-}
-
-.profile-github {
-    grid-area: github;
-}
-
-.profile-github .repo {
-    display: flex;
-}
-
-.profile-github .repo > div:first-child {
-    flex: 7;
-    flex-basis: 70%;
-}
-
-.profile-github > div:last-child {
-    flex: 3;
-    flex-basis: 20%;
 }
 
 /* lists Page */
@@ -493,10 +481,19 @@ button {
 }
 
 .list {
+    border-radius: 4px;
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-gap: 2rem;
     align-items: center;
+}
+
+.list-restaurant {
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-gap: 2rem;
+    align-items: flex-start;
 }
 
 .list > div:first-child {
@@ -585,9 +582,8 @@ button {
         grid-template-areas:
             'top'
             'about'
-            'exp'
-            'edu'
-            'github';
+            'res'
+            'media';
     }
 
     .profile-about .skills {

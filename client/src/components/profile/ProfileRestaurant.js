@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ProfileRestaurant = ({ res: { name, location, rating, review } }) => {
     return (
-        <div>
+        <div className='bg-grey p'>
             <h3 className='text-dark'>{name}</h3>
             <p>{location}</p>
             <p>
