@@ -2,9 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased
+<!-- ## Unreleased:
+--- -->
 
----
+## frontend6/not-found-component <> 2021-05-20
+
+### Added
+
+-   `NotFound` component
+-   `Routes` component
+-   Placed `NotFound` component as last route possible in `Routes` component
+
+### Changed
+
+-   Moved all `<Route />` components out of `App.js` and into `Routes.js`. Then imported `Routes` into `App.js` and applied routing.
 
 ## frontend5/lists-and-comments <> 2021-05-19
 
