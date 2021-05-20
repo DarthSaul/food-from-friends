@@ -153,6 +153,7 @@ img {
 }
 
 .alert {
+    border-radius: 4px;
     padding: 0.8rem;
     margin: 1rem 0;
     opacity: 0.9;
@@ -209,8 +210,18 @@ img {
     border: #ccc solid 1px;
 }
 
+.btn-grey,
+.bg-grey,
+.badge-grey,
+.alert-grey {
+    background: rgba(201, 200, 200, 0.904);
+    color: #333;
+    border: #ccc solid 1px;
+    border-radius: 4px;
+}
+
 .btn:hover {
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .bg-light,
@@ -255,6 +266,8 @@ img {
 .form input[type='date'],
 .form select,
 .form textarea {
+    border-radius: 4px;
+    font-family: sans-serif;
     display: block;
     width: 100%;
     padding: 0.4rem;
@@ -271,7 +284,7 @@ button {
     display: flex;
 }
 
-.form .social-input i {
+.form .social-input .social-icons {
     padding: 0.5rem;
     width: 4rem;
 }
@@ -300,6 +313,20 @@ button {
 
 .table th {
     background: var(--light-color);
+}
+
+.form-restaurants-container {
+    background: rgba(0, 0, 0, 0.075);
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.single-form-restaurant {
+    background: rgba(160, 160, 160, 0.2);
+    border-radius: 4px;
+    margin: 0.4rem;
+    padding: 1rem;
 }
 
 /* Navbar */
@@ -336,11 +363,13 @@ button {
 
 /* Landing Page */
 .landing {
-    position: relative;
     background-image: url('./img/showcase.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
+    background-size: 130%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .landing-inner {
@@ -358,12 +387,13 @@ button {
 /* Profiles Page */
 .profile {
     display: grid;
-    grid-template-columns: 2fr 4fr 2fr;
-    align-items: center;
+    grid-template-columns: 2fr 2fr;
+    align-items: flex-start;
     grid-gap: 2rem;
     padding: 1rem;
     line-height: 1.8;
     margin-bottom: 1rem;
+    border-radius: 4px;
 }
 
 /* Profile Page */
@@ -372,8 +402,7 @@ button {
     grid-template-areas:
         'top top'
         'about about'
-        'exp edu'
-        'github github';
+        'res media';
     grid-gap: 1rem;
 }
 
@@ -384,6 +413,7 @@ button {
     align-items: center;
     justify-content: center;
     text-align: center;
+    border-radius: 4px;
 }
 
 .profile-top img {
@@ -402,6 +432,7 @@ button {
 .profile-about {
     grid-area: about;
     text-align: center;
+    border-radius: 4px;
 }
 
 .profile-about .skills {
@@ -411,76 +442,69 @@ button {
     text-align: center;
 }
 
-.profile-exp {
-    grid-area: exp;
+.profile-res {
+    border-radius: 4px;
+    grid-area: res;
 }
 
-.profile-edu {
-    grid-area: edu;
+.profile-media {
+    border-radius: 4px;
+    grid-area: media;
 }
 
-.profile-exp h2,
-.profile-edu h2 {
+.profile-res h2,
+.profile-media h2 {
     margin-bottom: 1rem;
 }
 
-.profile-exp > div,
-.profile-edu > div {
+.profile-res > div,
+.profile-media > div {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
     border-bottom: #ccc 1px dotted;
 }
 
-.profile-exp > div:last-child,
-.profile-edu > div:last-child {
+.profile-res > div:last-child,
+.profile-media > div:last-child {
     border: 0;
 }
 
-.profile-exp p,
-.profile-edu p {
+.profile-res p,
+.profile-media p {
     margin: 0.5rem 0;
 }
 
-.profile-github {
-    grid-area: github;
-}
-
-.profile-github .repo {
-    display: flex;
-}
-
-.profile-github .repo > div:first-child {
-    flex: 7;
-    flex-basis: 70%;
-}
-
-.profile-github > div:last-child {
-    flex: 3;
-    flex-basis: 20%;
-}
-
-/* Posts Page */
-.post-form .post-form-header {
+/* lists Page */
+.list-form .list-form-header {
     background: var(--primary-color);
     padding: 0.5rem;
 }
 
-.post {
+.list {
+    border-radius: 4px;
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-gap: 2rem;
     align-items: center;
 }
 
-.post > div:first-child {
+.list-restaurant {
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-gap: 2rem;
+    align-items: flex-start;
+}
+
+.list > div:first-child {
     text-align: center;
 }
 
-.post img {
+.list img {
     width: 100px;
 }
 
-.post .comment-count {
+.list .comment-count {
     background: var(--light-color);
     color: var(--primary-color);
     padding: 0.1rem 0.2rem;
@@ -488,7 +512,7 @@ button {
     font-size: 0.8rem;
 }
 
-.post .post-date {
+.list .list-date {
     color: #aaa;
     font-size: 0.8rem;
     margin-bottom: 0.5rem;
@@ -558,9 +582,8 @@ button {
         grid-template-areas:
             'top'
             'about'
-            'exp'
-            'edu'
-            'github';
+            'res'
+            'media';
     }
 
     .profile-about .skills {
@@ -573,11 +596,11 @@ button {
         margin-bottom: 0.2rem;
     }
 
-    .post {
+    .list {
         grid-template-columns: 1fr;
     }
-    .post a,
-    .post button {
+    .list a,
+    .list button {
         padding: 0.3rem 0.4rem;
     }
 }
