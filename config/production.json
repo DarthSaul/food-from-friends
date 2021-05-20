@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://MERN-user-0:PVKDpUyd5AWMPqAh@cluster0.leerj.mongodb.net/foodFromFriends?retryWrites=true&w=majority",
+    "jwtSecret": "aBadSecret"
+}
