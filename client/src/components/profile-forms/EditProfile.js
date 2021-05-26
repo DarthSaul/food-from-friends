@@ -161,7 +161,7 @@ const EditProfile = () => {
                             />
                             <input
                                 type='text'
-                                placeholder='Twitter URL'
+                                placeholder='Twitter handle, eg. janedoe'
                                 name='twitter'
                                 value={twitter}
                                 onChange={handleChange}
@@ -176,7 +176,7 @@ const EditProfile = () => {
                             />
                             <input
                                 type='text'
-                                placeholder='Facebook URL'
+                                placeholder='Facebook username, eg. janedoe'
                                 name='facebook'
                                 value={facebook}
                                 onChange={handleChange}
@@ -191,7 +191,7 @@ const EditProfile = () => {
                             />
                             <input
                                 type='text'
-                                placeholder='Instagram URL'
+                                placeholder='Instagram handle, eg. janedoe'
                                 name='instagram'
                                 value={instagram}
                                 onChange={handleChange}
