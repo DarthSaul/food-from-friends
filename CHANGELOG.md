@@ -2,8 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-<!-- ## Unreleased:
---- -->
+## Unreleased: frontend7.1/social-links-patch <> 2021-05-27
+
+### Fixed
+
+-   Social media links
+
+---
 
 ## frontend6/not-found-component <> 2021-05-20
 
