@@ -6,13 +6,8 @@ import Landing from './components/layout/Landing';
 import Routes from './components/routing/Routes';
 
 import { UserContext } from './contexts/UserContext';
-import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
-
-if (localStorage.token) {
-    setAuthToken(localStorage.token);
-}
 
 const App = () => {
     const { loadUser } = useContext(UserContext);

@@ -2,8 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
-<!-- ## Unreleased:
---- -->
+## Unreleased:
+
+---
+
+## frontend7.2/logout-patch <> 2021-05-27
+
+### Fixed
+
+-   Event handler for "Logout" button on `Navbar` component, utilizing `useHistory` hook from `react-router-dom` to redirect to login page
+
+## frontend7.1/social-links-patch <> 2021-05-27
+
+### Fixed
+
+-   Social media links
 
 ## frontend6/not-found-component <> 2021-05-20
 
