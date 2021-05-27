@@ -6,6 +6,12 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## frontend7.3/screen-size-patch <> YYYY-MM-DD
+
+### Added
+
+-   `hide-sm` class to components that should hide on smaller screens
+
 ## frontend7.2/logout-patch <> 2021-05-27
 
 ### Fixed

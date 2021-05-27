@@ -54,7 +54,8 @@ const Navbar = () => {
                     <>
                         <li>
                             <Link to='/dashboard'>
-                                <FontAwesomeIcon icon={faUser} /> Dashboard
+                                <FontAwesomeIcon icon={faUser} />{' '}
+                                <span className='hide-sm'>Dashboard</span>
                             </Link>
                         </li>
                         <li>
@@ -63,7 +64,8 @@ const Navbar = () => {
                                 onClick={handleClick}
                                 style={{ cursor: 'pointer' }}
                             >
-                                <FontAwesomeIcon icon={faSignOutAlt} /> Logout
+                                <FontAwesomeIcon icon={faSignOutAlt} />{' '}
+                                <span className='hide-sm'>Logout</span>
                             </a>
                         </li>
                     </>
