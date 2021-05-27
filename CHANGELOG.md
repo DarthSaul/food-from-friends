@@ -6,7 +6,13 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## frontend7.3/screen-size-patch <> YYYY-MM-DD
+## frontend7.4/remove-lists-patch <> 2021-05-27
+
+### Changed
+
+-   When user and profile deleted, remove / delete all associated lists and comments
+
+## frontend7.3/screen-size-patch <> 2021-05-27
 
 ### Added
 
