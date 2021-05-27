@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faHamburger,
@@ -8,6 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { UserContext } from '../../contexts/UserContext';
+import { AlertContext } from '../../contexts/AlertContext';
 
 const Navbar = () => {
     const {
@@ -15,8 +16,15 @@ const Navbar = () => {
         authError
     } = useContext(UserContext);
 
+    const { setAlert } = useContext(AlertContext);
+
+    const history = useHistory();
+
     const handleClick = event => {
+        event.preventDefault();
         authError();
+        history.push('/login');
+        setAlert('You have logged out.', 'danger');
     };
 
     return (
