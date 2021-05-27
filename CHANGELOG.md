@@ -2,11 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased:
+## Unreleased: frontend7.4/remove-lists-patch <> YYYY-MM-DD
 
 ---
 
-## frontend7.3/screen-size-patch <> YYYY-MM-DD
+## frontend7.3/screen-size-patch <> 2021-05-27
 
 ### Added
 
