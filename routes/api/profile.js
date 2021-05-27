@@ -137,11 +137,13 @@ router.get('/user/:user_id', async (req, res) => {
 // @access    Private
 router.delete('/', auth, async (req, res) => {
     try {
-        await Profile.findOneAndRemove({ user: req.user.id });
-
-        await User.findOneAndRemove({ _id: req.user.id });
-
-        return res.json({ msg: 'User deleted' });
+        await Promise.all([
+            List.deleteMany({ user: req.user.id }),
+            Comment.deleteMany({ user: req.user.id }),
+            Profile.findOneAndRemove({ user: req.user.id }),
+            User.findOneAndRemove({ _id: req.user.id })
+        ]);
+        return res.json({ msg: 'User and profile deleted' });
     } catch (err) {
         console.error(err.message);
         return res.status(500).send('Server error');
