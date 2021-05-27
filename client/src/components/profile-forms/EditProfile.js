@@ -67,6 +67,7 @@ const EditProfile = () => {
 
     const handleSubmit = async event => {
         event.preventDefault();
+        window.scrollTo(0, 0);
         createProfile(formData, history, true);
     };
 

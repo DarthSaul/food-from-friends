@@ -22,7 +22,7 @@ const ProfileTop = ({
             <div className='icons my-1'>
                 {social && social.instagram && (
                     <a
-                        href={social.instagram}
+                        href={`https://www.instagram.com/${social.instagram}`}
                         target='_blank'
                         rel='noreferrer external'
                     >
@@ -31,7 +31,7 @@ const ProfileTop = ({
                 )}
                 {social && social.twitter && (
                     <a
-                        href={social.twitter}
+                        href={`https://twitter.com/${social.twitter}`}
                         target='_blank'
                         rel='noopener noreferrer'
                     >
@@ -40,7 +40,7 @@ const ProfileTop = ({
                 )}
                 {social && social.facebook && (
                     <a
-                        href={social.facebook}
+                        href={`https://www.facebook.com/${social.facebook}`}
                         target='_blank'
                         rel='noopener noreferrer'
                     >

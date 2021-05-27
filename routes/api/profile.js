@@ -66,12 +66,9 @@ router.post(
                 .map(el => el.trim());
         }
         profileFields.social = {}; // Initialize first, or 'profileFields.social' is undefined
-        if (instagram)
-            profileFields.social.instagram = `https://www.instagram.com/${instagram}`;
-        if (twitter)
-            profileFields.social.twitter = `https://twitter.com/${twitter}`;
-        if (facebook)
-            profileFields.social.facebook = `https://www.facebook.com/${facebook}`;
+        if (instagram) profileFields.social.instagram = instagram;
+        if (twitter) profileFields.social.twitter = twitter;
+        if (facebook) profileFields.social.facebook = facebook;
 
         try {
             let profile = await Profile.findOne({ user: req.user.id });

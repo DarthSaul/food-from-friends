@@ -2,11 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased: frontend7.1/social-links-patch <> YYYY-MM-DD
+## Unreleased: frontend7.1/social-links-patch <> 2021-05-27
 
 ### Fixed
 
--
+-   Social media links
 
 ---
 
