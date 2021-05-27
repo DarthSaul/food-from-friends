@@ -84,7 +84,11 @@ function UserProvider({ children }) {
     }
 
     async function deleteAccount() {
-        if (window.confirm('Are you sure? This can NOT be undone!')) {
+        if (
+            window.confirm(
+                'Are you sure? Your account, lists and comments will be deleted. This can NOT be undone!'
+            )
+        ) {
             try {
                 await axios.delete(`/api/profile/`);
                 setAlert('Account was deleted.', 'danger');
