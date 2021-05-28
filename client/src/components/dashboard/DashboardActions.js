@@ -17,6 +17,13 @@ const DashboardActions = () => {
                 />{' '}
                 Edit Profile
             </Link>
+            <Link to='/edit-profile-image' className='btn btn-light'>
+                <FontAwesomeIcon
+                    icon={faUserCircle}
+                    style={{ marginRight: 2 }}
+                />{' '}
+                Upload Profile Image
+            </Link>
             <Link to='/add-restaurant' className='btn btn-light'>
                 <FontAwesomeIcon
                     icon={faPizzaSlice}

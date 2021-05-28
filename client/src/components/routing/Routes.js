@@ -9,6 +9,7 @@ import Dashboard from '../dashboard/Dashboard';
 import Profiles from '../profiles/Profiles';
 import Profile from '../profile/Profile';
 import CreateProfile from '../profile-forms/CreateProfile';
+import ImageUpload from '../profile-forms/ImageUpload';
 import EditProfile from '../profile-forms/EditProfile';
 import AddRestaurant from '../profile-forms/AddRestaurant';
 import AddMedia from '../profile-forms/AddMedia';
@@ -48,6 +49,9 @@ const Routes = () => {
                 </PrivateRoute>
                 <PrivateRoute exact path='/create-profile'>
                     <CreateProfile />
+                </PrivateRoute>
+                <PrivateRoute exact path='/edit-profile-image'>
+                    <ImageUpload />
                 </PrivateRoute>
                 <PrivateRoute exact path='/edit-profile'>
                     <EditProfile />

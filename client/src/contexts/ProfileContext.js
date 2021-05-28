@@ -90,6 +90,7 @@ function ProfileProvider({ children }) {
     }
 
     async function createProfile(formData, history, edit = false) {
+        console.log(formData);
         const config = {
             headers: {
                 'Content-Type': 'application/json'
@@ -109,6 +110,10 @@ function ProfileProvider({ children }) {
             }
             clearProfile(err);
         }
+    }
+
+    async function uploadImage(file) {
+        console.log(file);
     }
 
     async function addRestaurant(formData, history) {
@@ -187,6 +192,7 @@ function ProfileProvider({ children }) {
                 getAllProfiles,
                 getProfileById,
                 createProfile,
+                uploadImage,
                 addRestaurant,
                 deleteRestaurant,
                 addMedia,

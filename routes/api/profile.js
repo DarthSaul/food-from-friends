@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
+// const multer = require('multer');
+// const upload = multer({ dest: 'uploads/' });
 
 const auth = require('../../middleware/auth');
 
@@ -36,6 +38,7 @@ router.post(
     check('location', 'Your location is required.').notEmpty(),
     check('bio', 'A short bio is required.').notEmpty(),
     async (req, res) => {
+        // console.log(req.file);
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
