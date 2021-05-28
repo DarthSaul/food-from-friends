@@ -2,11 +2,19 @@ const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
 
+const multer = require('multer');
+const { storage } = require('./config/cloudinary');
+let upload = multer({ storage });
+
 const app = express();
 
 connectDB();
 
-app.use(express.json({ extended: false }));
+app.use(express.json({ extended: true }));
+
+app.post('/upload', upload.single('myFile'), (req, res) => {
+    console.log(req.file);
+});
 
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
