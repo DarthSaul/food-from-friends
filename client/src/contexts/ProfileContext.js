@@ -112,10 +112,6 @@ function ProfileProvider({ children }) {
         }
     }
 
-    async function uploadImage(file) {
-        console.log(file);
-    }
-
     async function addRestaurant(formData, history) {
         const config = {
             headers: {
@@ -192,7 +188,6 @@ function ProfileProvider({ children }) {
                 getAllProfiles,
                 getProfileById,
                 createProfile,
-                uploadImage,
                 addRestaurant,
                 deleteRestaurant,
                 addMedia,
