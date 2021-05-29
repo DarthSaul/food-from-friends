@@ -12,14 +12,11 @@ connectDB();
 
 app.use(express.json({ extended: true }));
 
-app.post('/upload', upload.single('myFile'), (req, res) => {
-    console.log(req.file);
-});
-
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/lists', require('./routes/api/lists'));
+app.use('/api/upload', require('./routes/api/upload'));
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));

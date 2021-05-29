@@ -16,7 +16,11 @@ const userSchema = new Schema({
         required: true
     },
     avatar: {
-        type: String
+        url: {
+            type: String
+        },
+        filename: { type: String },
+        originalname: { type: String }
     },
     date: {
         type: Date,

@@ -44,7 +44,18 @@ const Dashboard = () => {
                         <FontAwesomeIcon icon={faUser} /> Welcome{' '}
                         {userData && userData.name}
                     </p>
-                    {profile !== null ? (
+                    {userData && (
+                        <div>
+                            <img
+                                className='my-1'
+                                style={{ width: 'auto', height: '150px' }}
+                                src={userData.avatar.url}
+                                alt=''
+                            />
+                        </div>
+                    )}
+
+                    {!profileLoading && profile !== null ? (
                         <>
                             <DashboardActions />
                             <Restaurants
