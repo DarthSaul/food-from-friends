@@ -1,7 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faUserMinus } from '@fortawesome/free-solid-svg-icons';
+import {
+    faUser,
+    faUserMinus,
+    faUserCircle
+} from '@fortawesome/free-solid-svg-icons';
 
 import { UserContext } from '../../contexts/UserContext';
 import { ProfileContext } from '../../contexts/ProfileContext';
@@ -43,18 +47,29 @@ const Dashboard = () => {
                     <p className='lead'>
                         <FontAwesomeIcon icon={faUser} /> Welcome{' '}
                         {userData && userData.name}
+                        {userData && (
+                            <div>
+                                <img
+                                    className='my'
+                                    style={{ width: 'auto', height: '150px' }}
+                                    src={userData.avatar.url}
+                                    alt=''
+                                />
+                                <div>
+                                    <Link
+                                        to='/upload'
+                                        className='btn btn-success'
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={faUserCircle}
+                                            style={{ marginRight: 2 }}
+                                        />{' '}
+                                        Upload or Change Profile Image
+                                    </Link>
+                                </div>
+                            </div>
+                        )}
                     </p>
-                    {userData && (
-                        <div>
-                            <img
-                                className='my-1'
-                                style={{ width: 'auto', height: '150px' }}
-                                src={userData.avatar.url}
-                                alt=''
-                            />
-                        </div>
-                    )}
-
                     {!profileLoading && profile !== null ? (
                         <>
                             <DashboardActions />

@@ -198,7 +198,7 @@ img {
 .badge-success,
 .alert-success {
     background: var(--success-color);
-    color: #fff;
+    color: #333;
 }
 
 .btn-white,
