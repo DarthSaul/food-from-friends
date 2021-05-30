@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased: feature8/image-upload <> YYYY-MM-DD
+## Unreleased: feature8/image-upload <> 2021-05-30
 
 ### Added
 
 -   `FileUpload` component
+-   Cloudinary configuration
+-   Display new avatar via url path
+
+### Fixed
+
+-   Moved initial `setAuthToken` functionality from `App.js` to `UserContext`
+
+### Removed
+
+-   Gravatar
 
 ---
 

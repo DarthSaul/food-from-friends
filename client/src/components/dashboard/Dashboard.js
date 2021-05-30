@@ -44,7 +44,7 @@ const Dashboard = () => {
             ) : (
                 <>
                     <h1 className='large text-primary'>Dashboard</h1>
-                    <p className='lead'>
+                    <div className='lead'>
                         <FontAwesomeIcon icon={faUser} /> Welcome{' '}
                         {userData && userData.name}
                         {userData && (
@@ -69,7 +69,7 @@ const Dashboard = () => {
                                 </div>
                             </div>
                         )}
-                    </p>
+                    </div>
                     {!profileLoading && profile !== null ? (
                         <>
                             <DashboardActions />

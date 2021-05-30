@@ -27,6 +27,8 @@ const ListItem = ({
         userObj: { loading: userLoading, user: currentUser }
     } = useContext(UserContext);
     const { likeList, unlikeList, deleteList } = useContext(ListsContext);
+    console.log(avatar.thumbnail);
+    console.log(avatar.url);
     return (
         <div className='list bg-white p-1 my-1'>
             <div>
