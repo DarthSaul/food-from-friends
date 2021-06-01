@@ -1,10 +1,14 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 
 import { AlertContext } from './AlertContext';
 import setAuthToken from '../utils/setAuthToken';
 
 const UserContext = React.createContext();
+
+if (localStorage.token) {
+    setAuthToken(localStorage.token);
+}
 
 function UserProvider({ children }) {
     const [userObj, setUser] = useState({
@@ -13,6 +17,11 @@ function UserProvider({ children }) {
         loading: true,
         user: null
     });
+
+    useEffect(() => {
+        loadUser();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const { setAlert } = useContext(AlertContext);
 

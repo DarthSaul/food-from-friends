@@ -2,16 +2,21 @@ const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
 
+const multer = require('multer');
+const { storage } = require('./config/cloudinary');
+let upload = multer({ storage });
+
 const app = express();
 
 connectDB();
 
-app.use(express.json({ extended: false }));
+app.use(express.json({ extended: true }));
 
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/lists', require('./routes/api/lists'));
+app.use('/api/upload', require('./routes/api/upload'));
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));

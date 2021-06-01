@@ -26,7 +26,6 @@ router.post(
             const user = await User.findById(req.user.id).select('-password');
             const newList = new List({
                 user: user.id,
-                avatar: user.avatar,
                 city: req.body.city,
                 restaurants: req.body.restaurants
             });
@@ -46,7 +45,7 @@ router.get('/', async (req, res) => {
     try {
         const lists = await List.find()
             .populate('user', ['name', 'avatar'])
-            .populate('comments', ['user', 'avatar', 'text']);
+            .populate('comments', ['user', 'text']);
         return res.json(lists);
     } catch (err) {
         console.error(err.message);
@@ -160,7 +159,6 @@ router.post('/:list_id/comment', auth, async (req, res) => {
         const user = await User.findById(req.user.id);
         const comment = new Comment({
             user: user.id,
-            avatar: user.avatar,
             text: req.body.text
         });
         list.comments.push(comment);

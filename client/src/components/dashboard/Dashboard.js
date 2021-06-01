@@ -1,7 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faUserMinus } from '@fortawesome/free-solid-svg-icons';
+import {
+    faUser,
+    faUserMinus,
+    faUserCircle
+} from '@fortawesome/free-solid-svg-icons';
 
 import { UserContext } from '../../contexts/UserContext';
 import { ProfileContext } from '../../contexts/ProfileContext';
@@ -40,11 +44,39 @@ const Dashboard = () => {
             ) : (
                 <>
                     <h1 className='large text-primary'>Dashboard</h1>
-                    <p className='lead'>
+                    <div className='lead'>
                         <FontAwesomeIcon icon={faUser} /> Welcome{' '}
                         {userData && userData.name}
-                    </p>
-                    {profile !== null ? (
+                        {userData && (
+                            <div>
+                                {userData.avatar && (
+                                    <img
+                                        className='my'
+                                        style={{
+                                            width: 'auto',
+                                            height: '150px'
+                                        }}
+                                        src={userData.avatar.url}
+                                        alt=''
+                                    />
+                                )}
+
+                                <div>
+                                    <Link
+                                        to='/upload'
+                                        className='btn btn-success'
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={faUserCircle}
+                                            style={{ marginRight: 2 }}
+                                        />{' '}
+                                        Upload or Change Profile Image
+                                    </Link>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                    {!profileLoading && profile !== null ? (
                         <>
                             <DashboardActions />
                             <Restaurants

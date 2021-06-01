@@ -31,7 +31,7 @@ const ListItem = ({
         <div className='list bg-white p-1 my-1'>
             <div>
                 <Link to={`/profile/${user._id}`} className='btn btn-primary'>
-                    <img className='round-img' src={avatar} alt='' />
+                    <img className='round-img' src={avatar.thumbnail} alt='' />
                     <h4>{name}</h4>
                 </Link>
             </div>
