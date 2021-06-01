@@ -27,13 +27,11 @@ const ListItem = ({
         userObj: { loading: userLoading, user: currentUser }
     } = useContext(UserContext);
     const { likeList, unlikeList, deleteList } = useContext(ListsContext);
-    console.log(avatar.thumbnail);
-    console.log(avatar.url);
     return (
         <div className='list bg-white p-1 my-1'>
             <div>
                 <Link to={`/profile/${user._id}`} className='btn btn-primary'>
-                    <img className='round-img' src={avatar.url} alt='' />
+                    <img className='round-img' src={avatar.thumbnail} alt='' />
                     <h4>{name}</h4>
                 </Link>
             </div>
