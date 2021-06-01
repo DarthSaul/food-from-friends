@@ -6,6 +6,26 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## feature8/image-upload <> 2021-06-01
+
+### Added
+
+-   `FileUpload` component
+-   Cloudinary configuration on `cloudinary.js`
+-   Display new avatar via url path
+-   Virtuals for medium and thumbnail sizes
+-   Button on dashboard for image upload
+
+### Fixed
+
+-   Moved initial `setAuthToken` functionality from `App.js` to `UserContext`
+-   Instances of `img src={...}` across application that needed to reference new image file path
+
+### Removed
+
+-   Gravatar
+-   `Avatar` field from both `User` and `List` models -- the frontend references the avatar from `User` document ref directly
+
 ## frontend7.4/remove-lists-patch <> 2021-05-27
 
 ### Changed

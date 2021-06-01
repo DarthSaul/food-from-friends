@@ -36,6 +36,7 @@ router.post(
     check('location', 'Your location is required.').notEmpty(),
     check('bio', 'A short bio is required.').notEmpty(),
     async (req, res) => {
+        // console.log(req.file);
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });

@@ -9,6 +9,7 @@ import Dashboard from '../dashboard/Dashboard';
 import Profiles from '../profiles/Profiles';
 import Profile from '../profile/Profile';
 import CreateProfile from '../profile-forms/CreateProfile';
+import FileUpload from '../profile-forms/FileUpload';
 import EditProfile from '../profile-forms/EditProfile';
 import AddRestaurant from '../profile-forms/AddRestaurant';
 import AddMedia from '../profile-forms/AddMedia';
@@ -43,11 +44,15 @@ const Routes = () => {
                 <Route exact path='/lists/:id'>
                     <List />
                 </Route>
+
                 <PrivateRoute exact path='/dashboard'>
                     <Dashboard />
                 </PrivateRoute>
                 <PrivateRoute exact path='/create-profile'>
                     <CreateProfile />
+                </PrivateRoute>
+                <PrivateRoute exact path='/upload'>
+                    <FileUpload />
                 </PrivateRoute>
                 <PrivateRoute exact path='/edit-profile'>
                     <EditProfile />
