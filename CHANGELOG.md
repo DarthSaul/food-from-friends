@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased:
+## Unreleased: feature8.2/color-update <> 2021-06-01
+
+### Changed
+
+-   Danger button text color
 
 ---
 
