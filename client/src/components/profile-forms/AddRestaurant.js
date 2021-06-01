@@ -10,7 +10,7 @@ const AddRestaurant = () => {
     const [formData, setFormData] = useState({
         name: '',
         location: '',
-        rating: 0,
+        rating: 1,
         review: ''
     });
     const { addRestaurant } = useContext(ProfileContext);
@@ -66,10 +66,10 @@ const AddRestaurant = () => {
                 <div className='form-group'>
                     <input
                         type='number'
-                        placeholder='Rating 1-5'
+                        placeholder='Rating 1-10'
                         name='rating'
-                        min={0}
-                        max={5}
+                        min={1}
+                        max={10}
                         value={rating}
                         onChange={handleChange}
                         required
