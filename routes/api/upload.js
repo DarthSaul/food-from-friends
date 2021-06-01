@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const { storage } = require('../../config/cloudinary');
+const { storage, cloudinary } = require('../../config/cloudinary');
 let upload = multer({ storage });
 
 const User = require('../../models/User');
@@ -15,6 +15,9 @@ router.post('/', upload.single('file'), auth, async (req, res) => {
     const { filename, originalname, path: url } = req.file;
     try {
         const user = await User.findById(req.user.id);
+        if (user.avatar) {
+            await cloudinary.uploader.destroy(user.avatar.filename);
+        }
         user.avatar = {
             url,
             filename,

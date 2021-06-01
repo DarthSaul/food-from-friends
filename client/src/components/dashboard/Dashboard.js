@@ -49,12 +49,18 @@ const Dashboard = () => {
                         {userData && userData.name}
                         {userData && (
                             <div>
-                                <img
-                                    className='my'
-                                    style={{ width: 'auto', height: '150px' }}
-                                    src={userData.avatar.url}
-                                    alt=''
-                                />
+                                {userData.avatar && (
+                                    <img
+                                        className='my'
+                                        style={{
+                                            width: 'auto',
+                                            height: '150px'
+                                        }}
+                                        src={userData.avatar.url}
+                                        alt=''
+                                    />
+                                )}
+
                                 <div>
                                     <Link
                                         to='/upload'

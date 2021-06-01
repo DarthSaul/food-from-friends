@@ -10,9 +10,6 @@ const commentSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    avatar: {
-        type: String
-    },
     date: {
         type: Date,
         default: Date.now

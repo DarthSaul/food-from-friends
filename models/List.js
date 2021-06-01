@@ -6,9 +6,6 @@ const listSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    avatar: {
-        type: String
-    },
     city: {
         type: String,
         required: true
