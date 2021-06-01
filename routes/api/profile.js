@@ -159,7 +159,9 @@ router.put(
     auth,
     check('name', 'Name is required').notEmpty(),
     check('location', 'Location is required').notEmpty(),
-    check('rating', 'Rating is required').notEmpty(),
+    check('rating', 'Rating is required and must be between 1 - 10')
+        .notEmpty()
+        .isInt({ min: 1, max: 10 }),
     check('review', 'Review is required').notEmpty(),
     async (req, res) => {
         const errors = validationResult(req);
