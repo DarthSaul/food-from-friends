@@ -2,13 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased: feature8.1/favicon-and-rating-patch <>
+## Unreleased:
+
+---
+
+## feature8.1/favicon-and-rating-patch <> 2021-06-01
+
+### Added
+
+-   Validation for favorite restaurant rating
 
 ### Changed
 
 -   Favicon
-
----
+-   Rating range on `AddRestaurant` component
 
 ## feature8/image-upload <> 2021-06-01
 
