@@ -20,8 +20,8 @@ const ProfileItem = ({
                     View Profile
                 </Link>
             </div>
-            <div>
-                <p>Favorite restaurants</p>
+            <div className='profiles-content'>
+                <p className='fav-res'>Favorite restaurants</p>
                 <ul>
                     {favoriteRestaurants.map((el, ind) => {
                         return (

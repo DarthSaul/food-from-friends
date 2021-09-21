@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
-const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
@@ -36,14 +35,7 @@ router.post(
                     .json({ errors: [{ msg: 'User already exists.' }] }); // Match format from above for reusability on frontend!
             }
 
-            // Get users gravatar
-            const avatar = gravatar.url(email, {
-                s: '200',
-                r: 'pg',
-                d: 'mm'
-            });
-
-            const newUser = new User({ name, email, avatar, password });
+            const newUser = new User({ name, email, password });
 
             // Encrypt using bcrypt
             const salt = await bcrypt.genSalt(10);
@@ -52,7 +44,7 @@ router.post(
             // Save new user
             await newUser.save();
 
-            // Return jwt
+            // Return JWT
             const payload = {
                 user: {
                     id: newUser.id

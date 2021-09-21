@@ -65,11 +65,8 @@ const Register = () => {
                         onChange={handleChange}
                         required
                     />
-                    <small className='form-text'>
-                        This site uses Gravatar so if you want a profile image,
-                        use a Gravatar email
-                    </small>
                 </div>
+
                 <div className='form-group'>
                     <input
                         type='password'
@@ -93,7 +90,7 @@ const Register = () => {
                 <input
                     type='submit'
                     className='btn btn-success'
-                    // value='Register'
+                    value='Register'
                 />
             </form>
             <p className='my-1'>
