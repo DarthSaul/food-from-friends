@@ -366,7 +366,7 @@ button {
 
 /* Landing Page */
 .landing {
-    background-image: url('./img/showcase.jpg');
+    background-image: url('https://res.cloudinary.com/darthsaul/image/upload/v1632229754/Food-From-Friends/showcase_eenagj.jpg');
     background-size: 130%;
     position: fixed;
     top: 0;
@@ -397,6 +397,16 @@ button {
     line-height: 1.8;
     margin-bottom: 1rem;
     border-radius: 4px;
+}
+
+.profile h2 {
+    font-size: 2.5em;
+}
+
+.profile .fav-res {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 1em;
 }
 
 /* Profile Page */
@@ -569,7 +579,7 @@ button {
         text-align: center;
     }
 
-    .profile ul {
+    .profile .profiles-content {
         display: none;
     }
 
