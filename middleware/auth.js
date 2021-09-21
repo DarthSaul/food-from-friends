@@ -1,9 +1,7 @@
+const jwt = require('jsonwebtoken');
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
-
-const jwt = require('jsonwebtoken');
-// const config = require('config');
 
 module.exports = (req, res, next) => {
     const token = req.header('x-auth-token');

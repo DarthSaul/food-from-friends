@@ -19,7 +19,7 @@ const CommentItem = ({
     return (
         <div className='list bg-white p-1 my-1'>
             <div>
-                <Link to={`/profile/${user}`}>
+                <Link to={`/profile/${user._id}`}>
                     <img
                         className='round-img'
                         src={user.avatar ? user.avatar.thumbnail : ''}

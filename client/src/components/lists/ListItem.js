@@ -18,8 +18,7 @@ const ListItem = ({
         restaurants,
         likes,
         comments,
-        user,
-        user: { name, avatar }
+        user: { name, avatar, _id: user_id }
     },
     showActions
 }) => {
@@ -30,7 +29,7 @@ const ListItem = ({
     return (
         <div className='list bg-white p-1 my-1'>
             <div>
-                <Link to={`/profile/${user._id}`} className='btn btn-primary'>
+                <Link to={`/profile/${user_id}`} className='btn btn-primary'>
                     <img className='round-img' src={avatar.thumbnail} alt='' />
                     <h4>{name}</h4>
                 </Link>
@@ -71,7 +70,7 @@ const ListItem = ({
 
                         {!userLoading &&
                             currentUser &&
-                            user._id === currentUser.data._id && (
+                            user_id === currentUser.data._id && (
                                 <button
                                     type='button'
                                     className='btn btn-danger'
