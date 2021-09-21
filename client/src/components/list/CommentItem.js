@@ -22,7 +22,7 @@ const CommentItem = ({
                 <Link to={`/profile/${user}`}>
                     <img
                         className='round-img'
-                        src={user.avatar.thumbnail}
+                        src={user.avatar ? user.avatar.thumbnail : ''}
                         alt=''
                     />
                     <h4>{user.name}</h4>
