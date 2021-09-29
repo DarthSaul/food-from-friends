@@ -15,7 +15,8 @@ const FileUpload = () => {
     });
 
     const {
-        userObj: { user, loading: userLoading }
+        userObj: { user, loading: userLoading },
+        loadUser
     } = useContext(UserContext);
 
     const onChange = event => {
@@ -43,6 +44,7 @@ const FileUpload = () => {
                 fileName,
                 loading: false
             });
+            loadUser();
         } catch (err) {
             if (err.response.status === 500) {
                 console.log('There was a problem with the server');

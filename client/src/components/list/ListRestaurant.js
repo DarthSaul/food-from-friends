@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 const ListRestaurant = ({ restaurant: { name, rating, review } }) => {
     return (
-        <div className='list-restaurant bg-success my-1 p-1'>
-            <div className='text-dark'>
+        <div className='list-restaurant bg-success my-1 p-2'>
+            <div className='text-black'>
                 <h2>{name}</h2>
-                <p>Rating: {rating}</p>
+                <p className='text-dark'>Rating: {rating}</p>
             </div>
-            <p className='my text-dark'>{review}</p>
+            <p className='text-black'>{review}</p>
         </div>
     );
 };

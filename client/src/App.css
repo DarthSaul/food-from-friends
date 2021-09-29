@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap');
+
 /* Global Styles */
 :root {
     --primary-color: #118ab2;
@@ -14,7 +16,7 @@
 }
 
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-size: 1rem;
     line-height: 1.6;
     background-color: #fff;
@@ -36,10 +38,10 @@ img {
 
 /* Utilities */
 .container {
-    max-width: 1100px;
+    max-width: 1250px;
     margin: auto;
     overflow: hidden;
-    padding: 0 2rem;
+    padding: 1rem 7rem;
     margin-top: 6rem;
     margin-bottom: 3rem;
 }
@@ -58,23 +60,36 @@ img {
 }
 
 .lead {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
 }
 
+.fs-2 {
+    font-size: 1.4em;
+}
+.fs-3 {
+    font-size: 1.8em;
+}
+.fw-bold {
+    font-weight: bold;
+}
+.fw-light {
+    font-weight: lighter;
+}
 .text-center {
     text-align: center;
 }
-
 .text-primary {
     color: var(--primary-color);
 }
-
 .text-dark {
     color: var(--dark-color);
 }
 .text-success {
     color: var(--success-color);
+}
+.text-black {
+    color: black;
 }
 
 /* Padding */
@@ -131,6 +146,30 @@ img {
 .mt {
     margin-top: 0.5rem;
 }
+.mt-1 {
+    margin-top: 1rem;
+}
+.mt-2 {
+    margin-top: 2rem;
+}
+.mt-3 {
+    margin-top: 3rem;
+}
+.mb {
+    margin-bottom: 0.5rem;
+}
+.mb-1 {
+    margin-bottom: 1rem;
+}
+.mb-2 {
+    margin-bottom: 2rem;
+}
+.mb-3 {
+    margin-bottom: 3rem;
+}
+.mb-4 {
+    margin-bottom: 4rem;
+}
 
 .btn {
     display: inline-block;
@@ -144,6 +183,11 @@ img {
     margin-right: 0.5rem;
     transition: opacity 0.2s ease-in;
     outline: none;
+}
+
+.btn-lg {
+    font-size: 1.8rem;
+    padding: 0.8rem 2rem;
 }
 
 .badge {
@@ -193,7 +237,7 @@ img {
 .badge-danger,
 .alert-danger {
     background: var(--danger-color);
-    color: var(--dark-color);
+    color: white;
 }
 
 .btn-success,
@@ -276,6 +320,16 @@ img {
     padding: 0.4rem;
     font-size: 1.2rem;
     border: 1px solid #ccc;
+    line-height: 1.5em;
+}
+
+.form input[type='number'] {
+    border-radius: 4px;
+    font-family: sans-serif;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    margin-left: 0.25em;
 }
 
 .form input[type='submit'],
@@ -329,7 +383,7 @@ button {
     background: rgba(160, 160, 160, 0.2);
     border-radius: 4px;
     margin: 0.4rem;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 /* Navbar */
@@ -337,13 +391,12 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.7rem 2rem;
+    padding: 1rem 2rem;
     position: fixed;
     z-index: 1;
     width: 100%;
     top: 0;
     border-bottom: solid 1px var(--primary-color);
-    opacity: 0.9;
 }
 
 .navbar ul {
@@ -354,6 +407,7 @@ button {
     color: whitesmoke;
     padding: 0.45rem;
     margin: 0 0.25rem;
+    font-size: 1.2em;
 }
 
 .navbar a:hover {
@@ -366,7 +420,8 @@ button {
 
 /* Landing Page */
 .landing {
-    background-image: url('https://res.cloudinary.com/darthsaul/image/upload/v1632229754/Food-From-Friends/showcase_eenagj.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://res.cloudinary.com/darthsaul/image/upload/v1632229754/Food-From-Friends/showcase_eenagj.jpg');
     background-size: 130%;
     position: fixed;
     top: 0;
@@ -388,25 +443,50 @@ button {
 }
 
 /* Profiles Page */
-.profile {
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    align-items: flex-start;
-    grid-gap: 2rem;
-    padding: 1rem;
+.profile-item {
+    padding: 2rem 8rem;
     line-height: 1.8;
-    margin-bottom: 1rem;
-    border-radius: 4px;
+    margin-bottom: 3rem;
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+.profile-item img {
+    position: absolute;
+    width: 8.5em;
+    height: 8.5em;
+    background: white;
+    border: 3px solid black;
+    border-radius: 50%;
+    top: 15%;
+    left: -5%;
+    object-fit: cover;
 }
 
-.profile h2 {
-    font-size: 2.5em;
+.profile-item-top {
+    display: flex;
+    align-items: baseline;
 }
 
-.profile .fav-res {
-    font-weight: bold;
+.profile-item-top h2 {
+    font-size: 3em;
+    margin-right: 1em;
+}
+.profile-item-top p {
     font-size: 1.2em;
-    margin-top: 1em;
+    font-weight: 300;
+}
+
+.profiles-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: flex-start;
+    grid-gap: 4rem;
+}
+
+.profile-item .fav-res {
+    font-weight: bold;
+    font-size: 1.4em;
 }
 
 /* Profile Page */
@@ -427,10 +507,15 @@ button {
     justify-content: center;
     text-align: center;
     border-radius: 4px;
+    margin-bottom: 1em;
+    box-shadow: 0px 8px 3px rgba(0, 0, 0, 0.25);
 }
 
 .profile-top img {
     width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 2px solid black;
 }
 
 .profile-top .icons a {
@@ -446,9 +531,18 @@ button {
     grid-area: about;
     text-align: center;
     border-radius: 4px;
+    margin-bottom: 1em;
+    box-shadow: 0px 8px 3px rgba(0, 0, 0, 0.25);
 }
-
-.profile-about .skills {
+.profile-about h2 {
+    font-size: 2em;
+}
+.profile-about .bio {
+    text-align: left;
+    width: 90%;
+    margin: auto;
+}
+.profile-about .cuisines {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -458,11 +552,13 @@ button {
 .profile-res {
     border-radius: 4px;
     grid-area: res;
+    box-shadow: 0px 8px 3px rgba(0, 0, 0, 0.25);
 }
 
 .profile-media {
     border-radius: 4px;
     grid-area: media;
+    box-shadow: 0px 8px 3px rgba(0, 0, 0, 0.25);
 }
 
 .profile-res h2,
@@ -475,6 +571,7 @@ button {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
     border-bottom: #ccc 1px dotted;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.08);
 }
 
 .profile-res > div:last-child,
@@ -494,11 +591,52 @@ button {
 }
 
 .list {
-    border-radius: 4px;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-gap: 2rem;
-    align-items: center;
+    border-radius: 8px;
+    padding: 2em;
+    margin-bottom: 2.5rem;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.list img {
+    position: absolute;
+    width: 7.5em;
+    height: 7.5em;
+    background: white;
+    border: 3px solid black;
+    border-radius: 50%;
+    top: 15%;
+    left: -6%;
+    object-fit: cover;
+}
+
+.list-inner {
+    width: 80%;
+    margin: auto;
+}
+
+.list-inner .lead {
+    margin-bottom: 0;
+    font-size: 2.4em;
+}
+
+.list h4 {
+    color: black;
+    font-weight: normal;
+    font-size: 1.3em;
+    margin-top: 0.3em;
+}
+
+.list-profile-link {
+    color: black;
+    font-weight: bold;
+}
+.list-profile-link:hover {
+    color: var(--dark-color);
+}
+
+.list-actions {
+    margin-top: 1.5em;
 }
 
 .list-restaurant {
@@ -507,34 +645,101 @@ button {
     grid-template-columns: 2fr 8fr;
     grid-gap: 2rem;
     align-items: flex-start;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2em;
 }
 
 .list > div:first-child {
     text-align: center;
 }
 
-.list img {
-    width: 100px;
-}
-
 .list .comment-count {
     background: var(--light-color);
     color: var(--primary-color);
-    padding: 0.1rem 0.2rem;
+    text-align: center;
+    padding: 0.1em 0.4em;
     border-radius: 5px;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    margin-left: 0.4em;
 }
 
-.list .list-date {
+.comment-date {
     color: #aaa;
-    font-size: 0.8rem;
+    font-size: 01rem;
+    font-style: italic;
+    margin-bottom: 0.25rem;
+}
+
+.comment {
+    border-radius: 8px;
+    position: relative;
+}
+
+.comment img {
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    background: white;
+    border: 3px solid black;
+    border-radius: 50%;
+    top: 15%;
+    left: -4%;
+    object-fit: cover;
+}
+
+.comment-inner {
+    width: 90%;
+    margin: 1em auto;
+}
+.comment-inner h4 {
+    font-size: 1.3em;
+}
+.comment-inner h4:hover {
+    color: var(--dark-color);
+}
+
+/* Dashboard */
+.dash-img {
+    border-radius: 12px;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
+}
+.dash-buttons a {
     margin-bottom: 0.5rem;
 }
 
 /* Mobile Styles */
-@media (max-width: 700px) {
+
+@media (max-width: 950px) {
+    .navbar a {
+        font-size: 1em;
+    }
+    .list-inner {
+        font-size: 0.8em;
+        width: 100%;
+    }
+    .list-inner h4,
+    .list-inner p {
+        margin-left: 50px;
+    }
+    .list img {
+        width: 6em;
+        height: 6em;
+    }
+    .profile-item {
+        padding: 2rem 3rem;
+        /* font-size: 0.9em; */
+    }
+    .profile-item img {
+        display: none;
+    }
+    .profile-item-top {
+        flex-wrap: wrap;
+    }
+}
+@media (max-width: 715px) {
     .container {
         margin-top: 8rem;
+        padding: 1rem 4rem;
     }
 
     .hide-sm {
@@ -574,12 +779,20 @@ button {
     }
 
     /* Profiles Page */
-    .profile {
-        grid-template-columns: 1fr;
+    .profile-item {
+        display: flex;
+        flex-direction: column;
         text-align: center;
     }
+    .profile-item-top h2 {
+        margin: auto;
+    }
+    .profile-item-top p {
+        display: block;
+        width: 100%;
+    }
 
-    .profile .profiles-content {
+    .profile-item .profiles-content {
         display: none;
     }
 
@@ -599,21 +812,44 @@ button {
             'media';
     }
 
-    .profile-about .skills {
+    .profile-about .cuisines {
         flex-direction: column;
     }
 
     .dash-buttons a {
         display: block;
         width: 100%;
-        margin-bottom: 0.2rem;
     }
 
     .list {
         grid-template-columns: 1fr;
     }
-    .list a,
-    .list button {
-        padding: 0.3rem 0.4rem;
+    .list img {
+        display: none;
+    }
+    .list-inner h4,
+    .list-inner p {
+        margin-left: 0;
+    }
+    .list-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: space-evenly;
+    }
+    .list-actions > a,
+    .list-actions > button {
+        margin-bottom: 1em;
+    }
+}
+
+@media (max-width: 550px) {
+    .container {
+        padding: 1rem 1.5rem;
+    }
+    .list-inner {
+        font-size: 0.7em;
+    }
+    .list-actions > a:last-child {
+        display: none;
     }
 }

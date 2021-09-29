@@ -25,13 +25,13 @@ const Lists = () => {
                 <Spinner />
             ) : (
                 <>
-                    <h1 className='large text-primary'>Lists</h1>
-                    <p className='lead'>
+                    <h1 className='x-large text-primary my-1'>Lists</h1>
+                    <p className='lead mb-2'>
                         <FontAwesomeIcon icon={faHotdog} /> Welcome to the
                         community
                     </p>
-                    <Link to={'/lists/new'} className='btn btn-primary'>
-                        Create a new list
+                    <Link to={'/lists/new'} className='btn btn-primary mb-2'>
+                        <span className='fs-2'>Create a new list</span>
                     </Link>
                     <div className='lists'>
                         {lists.length > 0 ? (

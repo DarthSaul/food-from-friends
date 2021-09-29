@@ -133,6 +133,7 @@ const EditProfile = () => {
                     <textarea
                         placeholder='* A short bio of yourself'
                         name='bio'
+                        rows='6'
                         value={bio}
                         onChange={handleChange}
                         required

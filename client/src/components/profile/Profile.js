@@ -32,7 +32,7 @@ const Profile = () => {
                         <ProfileTop profile={profile} />
                         <ProfileAbout profile={profile} />
                         <div className='profile-res bg-white p-2'>
-                            <h2 className='text-primary'>
+                            <h2 className='text-primary lead'>
                                 Favorite Restaurants
                             </h2>
                             {profile.favoriteRestaurants.length > 0 ? (
@@ -52,7 +52,9 @@ const Profile = () => {
                             )}
                         </div>
                         <div className='profile-media bg-white p-2'>
-                            <h2 className='text-primary'>Favorite Media</h2>
+                            <h2 className='text-primary lead'>
+                                Favorite Media
+                            </h2>
                             {profile.favoriteMedia.length > 0 ? (
                                 <>
                                     {profile.favoriteMedia.map(el => (

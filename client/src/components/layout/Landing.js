@@ -33,8 +33,9 @@ const Landing = () => {
                             <>
                                 <Link
                                     to='/dashboard'
-                                    className='btn btn-primary'
+                                    className='btn btn-lg btn-primary mt-1'
                                 >
+                                    {/* <span className='fs-3'>My Dashboard</span> */}
                                     My Dashboard
                                 </Link>
                             </>

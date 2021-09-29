@@ -24,8 +24,8 @@ const List = () => {
 
     return (
         <>
-            <Link to='/lists' className='btn'>
-                Back to all lists
+            <Link to='/lists' className='btn my-2'>
+                <span className='fs-2'>Back to all lists</span>
             </Link>
             {list === null || loading ? (
                 <Spinner />

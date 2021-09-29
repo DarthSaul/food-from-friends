@@ -24,10 +24,10 @@ const Profiles = () => {
                 <Spinner />
             ) : (
                 <>
-                    <h1 className='large text-primary'>Foodies</h1>
-                    <p className='lead'>
+                    <h1 className='x-large text-primary my-1'>Foodies</h1>
+                    <p className='lead mb-4'>
                         <FontAwesomeIcon icon={faHotdog} /> Connect with other
-                        food enthusiasts
+                        food enthusiasts!
                     </p>
                     <div className='profiles'>
                         {profiles.length > 0 ? (

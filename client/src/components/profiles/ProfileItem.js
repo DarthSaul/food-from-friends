@@ -4,34 +4,40 @@ import PropTypes from 'prop-types';
 
 const ProfileItem = ({
     profile: {
-        user: { _id, name },
+        user: { _id, name, avatar },
         location,
         bio,
         favoriteRestaurants
     }
 }) => {
     return (
-        <div className='profile bg-light'>
-            <div>
+        <div className='profile-item bg-light'>
+            <img src={avatar.url} alt='' />
+            <div className='profile-item-top'>
                 <h2>{name}</h2>
                 <p>{location}</p>
-                <p>{bio}</p>
-                <Link to={`/profile/${_id}`} className='btn btn-primary my-1'>
-                    View Profile
-                </Link>
             </div>
             <div className='profiles-content'>
-                <p className='fav-res'>Favorite restaurants</p>
-                <ul>
-                    {favoriteRestaurants.map((el, ind) => {
-                        return (
-                            <li key={ind} className='text-primary'>
-                                {el.name}
-                            </li>
-                        );
-                    })}
-                </ul>
+                <div className='bio'>
+                    <p className='fav-res'>About</p>
+                    <p>{bio}</p>
+                </div>
+                <div>
+                    <p className='fav-res'>Favorites</p>
+                    <ul>
+                        {favoriteRestaurants.map((el, ind) => {
+                            return (
+                                <li key={ind} className='text-primary'>
+                                    {el.name}
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
             </div>
+            <Link to={`/profile/${_id}`} className='btn btn-primary mt-2'>
+                <span className='fs-2'>View Profile</span>
+            </Link>
         </div>
     );
 };
