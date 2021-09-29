@@ -15,7 +15,7 @@ const ListForm = () => {
 
     const [restaurant, setRestaurant] = useState({
         name: '',
-        rating: 0,
+        rating: 1,
         review: ''
     });
 
@@ -126,7 +126,7 @@ const ListForm = () => {
                     </>
                 )}
 
-                <div className='bg-primary p'>
+                <div className='bg-primary p-1'>
                     <h3>
                         Provide some info about a restaurant below, then add it
                         to your list.
@@ -147,12 +147,12 @@ const ListForm = () => {
                         </small>
                     </div>
                     <div className='my-1'>
-                        Rating (1-10):{' '}
+                        <span className='fs-2'>Rating (1-10): </span>
                         <input
                             type='number'
                             placeholder='Rating 1-10'
                             name='rating'
-                            min={0}
+                            min={1}
                             max={10}
                             value={rating}
                             onChange={handleRestaurantsChange}
@@ -178,15 +178,15 @@ const ListForm = () => {
                 </form>
                 {restaurants.restaurants.length > 0 && (
                     <>
-                        <h4>Restaurants on list:</h4>
-                        <div className='form-restaurants-container'>
+                        <h4 className='lead'>Restaurants on list:</h4>
+                        <div className='form-restaurants-container p-1'>
                             {restaurants.restaurants.map((res, ind) => (
                                 <div
                                     key={ind}
                                     className='single-form-restaurant'
                                 >
                                     <h4>{res.name}</h4>
-                                    <p>{res.rating}</p>
+                                    <p className='py'>{res.rating}</p>
                                     <button
                                         type='button'
                                         className='btn btn-danger'

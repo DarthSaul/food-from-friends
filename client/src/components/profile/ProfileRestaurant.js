@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const ProfileRestaurant = ({ res: { name, location, rating, review } }) => {
     return (
-        <div className='bg-grey p'>
-            <h3 className='text-dark'>{name}</h3>
+        <div className='bg-grey p-3'>
+            <h3 className='text-dark fs-2'>{name}</h3>
             <p>{location}</p>
             <p>
                 <strong>Rating: </strong>
@@ -14,6 +14,7 @@ const ProfileRestaurant = ({ res: { name, location, rating, review } }) => {
                 <strong>Review: </strong>
                 {review}
             </p>
+            <br />
         </div>
     );
 };

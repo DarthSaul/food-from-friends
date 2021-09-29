@@ -51,10 +51,10 @@ const Dashboard = () => {
                             <div>
                                 {userData.avatar && (
                                     <img
-                                        className='my'
+                                        className='my-1 dash-img'
                                         style={{
                                             width: 'auto',
-                                            height: '150px'
+                                            height: '250px'
                                         }}
                                         src={userData.avatar.url}
                                         alt=''
