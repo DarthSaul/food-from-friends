@@ -8,7 +8,7 @@ import '../../css/Landing.css';
 const Landing = () => {
 	return (
 		<div className="landing-inner">
-			<div className="landing-header mb-1">
+			<div className="landing-header">
 				<LandingNavbar />
 			</div>
 			<LandingHero />

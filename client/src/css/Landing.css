@@ -56,11 +56,13 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: rgba(0, 119, 181, 0.25);
 }
 .landing-left h1 {
-	font-size: 6em;
+	font-size: 5.35em;
 	line-height: 1em;
+}
+.landing-right img {
+	border-radius: 10px;
 }
 
 /* Landing footer */
@@ -68,7 +70,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 90%;
+	width: 70%;
 	height: 100%;
 	margin: auto;
 	padding: 2em;

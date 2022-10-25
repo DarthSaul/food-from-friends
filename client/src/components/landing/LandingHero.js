@@ -9,20 +9,25 @@ const LandingHero = () => {
 	return (
 		<>
 			<div className="landing-left">
-				<h1>Food From Friends</h1>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-					Sequi facere magni hic explicabo nemo quasi libero
-					veritatis. Harum quasi voluptas, consequuntur aliquid
-					corrupti illo, facere quos maiores sunt accusantium tempora.
-				</p>
-				<div className="buttons">
+				<h1 className="mb-2">Curated food recs from friends</h1>
+				<div>
+					<p className="text-muted fw-light mb-1">
+						Lorem ipsum, dolor sit amet consectetur adipisicing
+						elit. Sequi facere magni hic explicabo nemo quasi libero
+						veritatis. Harum quasi voluptas,
+					</p>
 					{!isAuthenticated && !loading ? (
 						<>
-							<Link to="/register" className="btn btn-primary">
+							<Link
+								to="/register"
+								className="btn btn-primary btn-round"
+							>
 								Sign Up
 							</Link>
-							<Link to="/login" className="btn btn-light">
+							<Link
+								to="/login"
+								className="btn btn-light btn-round"
+							>
 								Login
 							</Link>
 						</>
@@ -38,7 +43,12 @@ const LandingHero = () => {
 					)}
 				</div>
 			</div>
-			<div className="landing-right">Landing Page Image Will Go Here</div>
+			<div className="landing-right">
+				<img
+					src="https://res.cloudinary.com/darthsaul/image/upload/v1632229754/Food-From-Friends/showcase_eenagj.jpg"
+					alt=""
+				/>
+			</div>
 		</>
 	);
 };

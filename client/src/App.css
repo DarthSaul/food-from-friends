@@ -91,6 +91,9 @@ img {
 .text-black {
 	color: black;
 }
+.text-muted {
+	color: rgb(159, 159, 159);
+}
 
 /* Padding */
 .p {
@@ -188,6 +191,10 @@ img {
 .btn-lg {
 	font-size: 1.8rem;
 	padding: 0.8rem 2rem;
+}
+
+.btn-round {
+	border-radius: 16px;
 }
 
 .badge {
