@@ -1,0 +1,75 @@
+/* Landing CSS grid setup */
+.landing-inner {
+	background-color: white;
+	height: 100vh;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 3fr 1fr;
+	grid-template-areas:
+		'header header'
+		'content1 content2'
+		'footer footer';
+}
+.landing-header {
+	grid-area: header;
+}
+.landing-footer {
+	grid-area: footer;
+}
+.landing-left {
+	grid-area: content1;
+}
+.landing-right {
+	grid-area: content2;
+}
+
+/* Landing nav */
+.landing-navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 90%;
+	margin: auto;
+	padding: 2em;
+}
+.landing-navbar ul {
+	display: flex;
+}
+.landing-navbar li {
+	padding: 0.45rem;
+	margin: 0 0.25rem;
+	font-size: 1.2em;
+}
+
+/* Landing hero */
+.landing-left {
+	width: 75%;
+	margin-left: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.landing-right {
+	width: 75%;
+	margin-right: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 119, 181, 0.25);
+}
+.landing-left h1 {
+	font-size: 6em;
+	line-height: 1em;
+}
+
+/* Landing footer */
+.landing-footer-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 90%;
+	height: 100%;
+	margin: auto;
+	padding: 2em;
+}
