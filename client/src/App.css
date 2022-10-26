@@ -381,7 +381,6 @@ img {
 	padding: 0.4rem;
 	font-size: 1.2rem;
 	border: 1px solid #ccc;
-	margin-left: 0.25em;
 }
 
 .form input[type='submit'],
@@ -396,7 +395,8 @@ button {
 }
 
 .table th {
-	background: var(--light-color);
+	background: var(--primary-color);
+	color: white;
 }
 
 .form-restaurants-container {

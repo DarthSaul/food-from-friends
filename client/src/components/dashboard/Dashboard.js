@@ -1,20 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserMinus, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../contexts/UserContext';
 import { ProfileContext } from '../../contexts/ProfileContext';
 import Spinner from '../layout/Spinner';
-// import DashboardActions from './DashboardActions';
 import EditProfile from '../profile-forms/EditProfile';
 import Restaurants from './Restaurants';
 import Media from './Media';
+import ManageAccount from './ManageAccount';
 import '../../css/Dashboard.css';
 
 const Dashboard = () => {
 	const [tabState, setTab] = useState({
 		tab: 'profile',
 	});
+
 	const {
 		profileState: { profile, loading: profileLoading },
 		getCurrentProfile,
@@ -22,17 +21,12 @@ const Dashboard = () => {
 
 	const {
 		userObj: { user, loading: userLoading },
-		deleteAccount,
 	} = useContext(UserContext);
 
 	useEffect(() => {
 		getCurrentProfile();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-
-	const clickToDelete = async (event) => {
-		deleteAccount();
-	};
 
 	const tabChange = (event) => {
 		setTab({ tab: event });
@@ -41,10 +35,12 @@ const Dashboard = () => {
 	const userData = !userLoading ? user.data : null;
 
 	const { tab } = tabState;
+
 	const tabs = [
 		{ value: 'profile', label: 'Edit Profile' },
 		{ value: 'restaurants', label: 'Favorite Restaurants' },
 		{ value: 'media', label: 'Favorite Media' },
+		{ value: 'manage', label: 'Manage Account' },
 	];
 
 	return (
@@ -77,6 +73,7 @@ const Dashboard = () => {
 								<ul>
 									{tabs.map((el, ind) => (
 										<li
+											key={ind}
 											className={
 												tab === el.value
 													? 'selected cursor-pointer'
@@ -90,45 +87,7 @@ const Dashboard = () => {
 								</ul>
 							</div>
 							<hr className="my-1" />
-							{/* <DashboardActions /> */}
-							{tab === 'profile' && (
-								<div>
-									<div className="profile-actions mb-1">
-										<Link
-											to="/upload"
-											className="btn btn-light"
-										>
-											<FontAwesomeIcon
-												icon={faUserCircle}
-												style={{ marginRight: 2 }}
-											/>{' '}
-											Upload or Change Profile Image
-										</Link>
-										<button
-											className="btn btn-danger"
-											onClick={clickToDelete}
-										>
-											<FontAwesomeIcon
-												icon={faUserMinus}
-											/>{' '}
-											Delete My Account
-										</button>
-									</div>
-									<div className="fs-3 text-primary">
-										Edit Profile
-									</div>
-									<div className="text-muted fw-light">
-										Make changes to your public profile.
-										Once finished, click{' '}
-										<strong>Submit</strong>.
-										<div>
-											<small>* Required field</small>
-										</div>
-									</div>
-									<hr className="my-1" />
-									<EditProfile />
-								</div>
-							)}
+							{tab === 'profile' && <EditProfile />}
 							{tab === 'restaurants' && (
 								<Restaurants
 									restaurants={profile.favoriteRestaurants}
@@ -137,6 +96,7 @@ const Dashboard = () => {
 							{tab === 'media' && (
 								<Media media={profile.favoriteMedia} />
 							)}
+							{tab === 'manage' && <ManageAccount />}
 						</>
 					) : (
 						<>

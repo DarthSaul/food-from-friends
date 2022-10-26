@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-
+import { Link, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import {
 	faTwitter,
 	faFacebook,
@@ -20,8 +20,6 @@ const EditProfile = () => {
 		twitter: '',
 		facebook: '',
 	});
-
-	const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
 	const {
 		createProfile,
@@ -52,10 +50,6 @@ const EditProfile = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [loading]);
 
-	const toggle = () => {
-		toggleSocialInputs((toggle) => !toggle);
-	};
-
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 		setFormData((state) => ({
@@ -81,8 +75,37 @@ const EditProfile = () => {
 	} = formData;
 
 	return (
-		<>
-			<form className="form edit-profile-form" onSubmit={handleSubmit}>
+		<div className="dashboard-form">
+			<div className="fs-3 text-primary">Edit Profile</div>
+			<div className="text-muted fw-light">
+				Make changes to your public profile. Once finished, click{' '}
+				<strong>Submit</strong>.
+				<div>
+					<small>* Required field</small>
+				</div>
+			</div>
+			<hr className="my-1" />
+			<form className="form" onSubmit={handleSubmit}>
+				<div className="form-group">
+					<div>
+						<div>Profile Image</div>
+						<small className="form-text">
+							Upload or Change Image
+						</small>
+					</div>
+					<div>
+						<Link to="/upload" className="btn btn-dark">
+							<FontAwesomeIcon
+								icon={faUserCircle}
+								style={{
+									marginRight: 2,
+								}}
+							/>{' '}
+							Profile Image
+						</Link>
+					</div>
+				</div>
+				<hr className="my-1" />
 				<div className="form-group">
 					<div>
 						<div>Location *</div>
@@ -205,11 +228,14 @@ const EditProfile = () => {
 					</div>
 				</div>
 				<hr className="my" />
-				<div className="edit-profile-submit">
-					<input type="submit" className="btn btn-primary my-1" />
+				<div className="dashboard-submit">
+					<input
+						type="submit"
+						className="btn btn-primary btn-lg my-1"
+					/>
 				</div>
 			</form>
-		</>
+		</div>
 	);
 };
 

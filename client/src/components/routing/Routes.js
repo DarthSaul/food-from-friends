@@ -48,9 +48,6 @@ const Routes = () => {
 					<PrivateRoute exact path="/upload">
 						<FileUpload />
 					</PrivateRoute>
-					<PrivateRoute exact path="/add-restaurant">
-						<AddRestaurant />
-					</PrivateRoute>
 					<PrivateRoute exact path="/add-media">
 						<AddMedia />
 					</PrivateRoute>
