@@ -1,7 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { Redirect } from 'react-router-dom';
 
 import { UserContext } from '../../contexts/UserContext';
 

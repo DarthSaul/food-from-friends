@@ -1,7 +1,6 @@
 import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import VerticalNav from '../layout/VerticalNav';
-import Alert from '../layout/Alert';
 import NotFound from '../layout/NotFound';
 import Dashboard from '../dashboard/Dashboard';
 import Profiles from '../profiles/Profiles';
@@ -24,7 +23,6 @@ const Routes = () => {
 		<div className="grid-layout">
 			{!noNav && <VerticalNav />}
 			<section className="content-container">
-				<Alert />
 				<Switch>
 					<Route exact path="/profiles">
 						<Profiles />

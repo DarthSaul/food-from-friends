@@ -20,6 +20,7 @@ const LandingHero = () => {
 	};
 
 	const { tab } = tabState;
+
 	return (
 		<>
 			<div className="landing-left">

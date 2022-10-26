@@ -1,0 +1,39 @@
+/* Dashboard */
+.dashboard-headline {
+	display: flex;
+	align-items: center;
+}
+.dash-img {
+	width: 10em;
+	height: 10em;
+	background: white;
+	border: 3px solid grey;
+	border-radius: 50%;
+	object-fit: cover;
+}
+.dash-buttons a {
+	margin-bottom: 0.5rem;
+}
+.dashboard-tabs ul {
+	display: flex;
+	gap: 15px;
+}
+.dashboard-tabs ul li {
+	padding: 0.5em;
+	border-radius: 12px;
+}
+.dashboard-tabs .selected {
+	background-color: rgba(98, 98, 98, 0.15);
+}
+.profile-actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@media (max-width: 715px) {
+	.dash-buttons a {
+		display: block;
+		width: 100%;
+	}
+}

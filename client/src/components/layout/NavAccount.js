@@ -19,7 +19,7 @@ const NavAccount = () => {
 		event.preventDefault();
 		authError();
 		history.push('/');
-		setAlert('You have logged out.', 'danger');
+		setAlert('You have logged out.', 'primary');
 	};
 
 	const userData = !userLoading && isAuthenticated ? user.data : null;

@@ -49,6 +49,7 @@ img {
 	grid-area: content;
 }
 .content-container {
+	width: 100%;
 	margin: auto;
 	overflow: hidden;
 	padding: 0.5rem 3rem;
@@ -240,13 +241,20 @@ img {
 	color: #333;
 }
 
+.alert-container {
+	position: fixed;
+	top: 0;
+	right: 10px;
+}
+
 .alert {
 	border-radius: 4px;
 	padding: 0.8rem;
 	margin: 1rem 0;
-	opacity: 0.9;
+	opacity: 1;
 	background: var(--light-color);
 	color: #333;
+	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary,
@@ -719,15 +727,6 @@ button {
 	color: var(--dark-color);
 }
 
-/* Dashboard */
-.dash-img {
-	border-radius: 12px;
-	box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
-}
-.dash-buttons a {
-	margin-bottom: 0.5rem;
-}
-
 /* Footer */
 footer {
 	position: fixed;
@@ -863,11 +862,6 @@ footer {
 
 	.profile-about .cuisines {
 		flex-direction: column;
-	}
-
-	.dash-buttons a {
-		display: block;
-		width: 100%;
 	}
 
 	.list {

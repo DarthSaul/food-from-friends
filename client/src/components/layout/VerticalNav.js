@@ -12,7 +12,7 @@ const VerticalNav = () => {
 	} = useContext(UserContext);
 	return (
 		<nav className="vert-nav">
-			<div className="nav-inner bg-primary">
+			<div className="nav-inner bg-dark">
 				<div className="p-1">
 					<h1>Food</h1>
 					<hr className="my-1" />
