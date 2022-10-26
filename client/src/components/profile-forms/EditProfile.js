@@ -1,8 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
 import {
 	faTwitter,
 	faFacebook,
@@ -83,22 +82,32 @@ const EditProfile = () => {
 
 	return (
 		<>
-			<small>* = required field</small>
-			<form className="form" onSubmit={handleSubmit}>
+			<form className="form edit-profile-form" onSubmit={handleSubmit}>
 				<div className="form-group">
+					<div>
+						<div>Location *</div>
+						<small className="form-text">
+							City & state suggested (eg. Boston, MA)
+						</small>
+					</div>
 					<input
 						type="text"
-						placeholder="* Location"
+						placeholder="Location"
 						name="location"
 						value={location}
 						onChange={handleChange}
 						required
 					/>
-					<small className="form-text">
-						City & state suggested (eg. Boston, MA)
-					</small>
 				</div>
+				<hr className="my-1" />
 				<div className="form-group">
+					<div>
+						<div>Favorite cuisines</div>
+						<small className="form-text">
+							Please use comma separated values (eg. Korean,
+							Mexican, BBQ, Italian)
+						</small>
+					</div>
 					<input
 						type="text"
 						placeholder="Favorite cuisines"
@@ -106,12 +115,16 @@ const EditProfile = () => {
 						value={favoriteCuisines}
 						onChange={handleChange}
 					/>
-					<small className="form-text">
-						Please use comma separated values (eg. Korean, Mexican,
-						BBQ, Italian)
-					</small>
 				</div>
+				<hr className="my-1" />
 				<div className="form-group">
+					<div>
+						<div>Favorite dishes</div>
+						<small className="form-text">
+							Please use comma separated values (eg. Cacio e Pepe,
+							Tacos, Fried Rice, Ramen)
+						</small>
+					</div>
 					<input
 						type="text"
 						placeholder="Favorite dishes"
@@ -119,42 +132,37 @@ const EditProfile = () => {
 						value={favoriteDishes}
 						onChange={handleChange}
 					/>
-					<small className="form-text">
-						Please use comma separated values (eg. Cacio e Pepe,
-						Tacos, Fried Rice, Ramen)
-					</small>
 				</div>
+				<hr className="my-1" />
 				<div className="form-group">
+					<div>
+						<div>Bio *</div>
+						<small className="form-text">
+							Tell us a little about yourself
+						</small>
+					</div>
 					<textarea
-						placeholder="* A short bio of yourself"
+						placeholder="A short bio of yourself"
 						name="bio"
 						rows="6"
 						value={bio}
 						onChange={handleChange}
 						required
 					/>
-					<small className="form-text">
-						Tell us a little about yourself
-					</small>
 				</div>
+				<hr className="my-1" />
+				<div className="form-group">
+					<div>
+						<div>Social</div>
+						<small className="form-text">Optional</small>
+					</div>
 
-				<div className="mt-2">
-					<button
-						type="button"
-						className="btn btn-light"
-						onClick={toggle}
-					>
-						Add Social Network Links
-					</button>
-					<span style={{ fontStyle: 'italic' }}>Optional</span>
-				</div>
-				{displaySocialInputs && (
-					<div className="my-2">
-						<div className="form-group social-input">
+					<div className="social-input-container">
+						<div className="social-input">
 							<FontAwesomeIcon
 								icon={faTwitter}
 								size="2x"
-								className="social-icons"
+								className="social-icons twitter"
 							/>
 							<input
 								type="text"
@@ -165,11 +173,11 @@ const EditProfile = () => {
 							/>
 						</div>
 
-						<div className="form-group social-input">
+						<div className="social-input">
 							<FontAwesomeIcon
 								icon={faFacebook}
 								size="2x"
-								className="social-icons"
+								className="social-icons facebook"
 							/>
 							<input
 								type="text"
@@ -180,11 +188,11 @@ const EditProfile = () => {
 							/>
 						</div>
 
-						<div className="form-group social-input">
+						<div className="social-input">
 							<FontAwesomeIcon
 								icon={faInstagram}
 								size="2x"
-								className="social-icons"
+								className="social-icons instagram"
 							/>
 							<input
 								type="text"
@@ -195,9 +203,11 @@ const EditProfile = () => {
 							/>
 						</div>
 					</div>
-				)}
-
-				<input type="submit" className="btn btn-primary my-1" />
+				</div>
+				<hr className="my" />
+				<div className="edit-profile-submit">
+					<input type="submit" className="btn btn-primary my-1" />
+				</div>
 			</form>
 		</>
 	);

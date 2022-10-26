@@ -5,7 +5,7 @@ import { faUserMinus, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../contexts/UserContext';
 import { ProfileContext } from '../../contexts/ProfileContext';
 import Spinner from '../layout/Spinner';
-import DashboardActions from './DashboardActions';
+// import DashboardActions from './DashboardActions';
 import EditProfile from '../profile-forms/EditProfile';
 import Restaurants from './Restaurants';
 import Media from './Media';
@@ -117,6 +117,15 @@ const Dashboard = () => {
 									<div className="fs-3 text-primary">
 										Edit Profile
 									</div>
+									<div className="text-muted fw-light">
+										Make changes to your public profile.
+										Once finished, click{' '}
+										<strong>Submit</strong>.
+										<div>
+											<small>* Required field</small>
+										</div>
+									</div>
+									<hr className="my-1" />
 									<EditProfile />
 								</div>
 							)}
