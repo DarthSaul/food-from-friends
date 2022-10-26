@@ -6,14 +6,14 @@ import { ProfileContext } from '../../contexts/ProfileContext';
 import AddRestaurant from '../profile-forms/AddRestaurant';
 
 const Restaurants = ({ restaurants }) => {
-	const [viewState, setView] = useState({
-		view: 'list',
-	});
+	const [viewState, setView] = useState({ view: 'list' });
 
-	const changeView = (event) => {
+	const changeView = () => {
 		const newView = view === 'list' ? 'new' : 'list';
 		setView({ view: newView });
 	};
+
+	const { view } = viewState;
 
 	const { deleteRestaurant } = useContext(ProfileContext);
 
@@ -39,8 +39,6 @@ const Restaurants = ({ restaurants }) => {
 		</tr>
 	));
 
-	const { view } = viewState;
-
 	return (
 		<>
 			<div className="favs-header my-2">
@@ -65,7 +63,7 @@ const Restaurants = ({ restaurants }) => {
 					<tbody>{restaurantList}</tbody>
 				</table>
 			)}
-			{view === 'new' && <AddRestaurant />}
+			{view === 'new' && <AddRestaurant changeView={changeView} />}
 		</>
 	);
 };

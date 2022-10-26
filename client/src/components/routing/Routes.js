@@ -7,8 +7,6 @@ import Profiles from '../profiles/Profiles';
 import Profile from '../profile/Profile';
 import CreateProfile from '../profile-forms/CreateProfile';
 import FileUpload from '../profile-forms/FileUpload';
-import AddRestaurant from '../profile-forms/AddRestaurant';
-import AddMedia from '../profile-forms/AddMedia';
 import Lists from '../lists/Lists';
 import ListForm from '../list-form/ListForm';
 import List from '../list/List';
@@ -47,9 +45,6 @@ const Routes = () => {
 					</PrivateRoute>
 					<PrivateRoute exact path="/upload">
 						<FileUpload />
-					</PrivateRoute>
-					<PrivateRoute exact path="/add-media">
-						<AddMedia />
 					</PrivateRoute>
 					<Route>
 						<NotFound />

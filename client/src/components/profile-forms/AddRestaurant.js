@@ -1,16 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { ProfileContext } from '../../contexts/ProfileContext';
 
-const AddRestaurant = () => {
+const AddRestaurant = ({ changeView }) => {
 	const [formData, setFormData] = useState({
 		name: '',
 		location: '',
 		rating: 1,
 		review: '',
 	});
+
 	const { addRestaurant } = useContext(ProfileContext);
-	const history = useHistory();
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -22,7 +21,8 @@ const AddRestaurant = () => {
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
-		addRestaurant(formData, history);
+		addRestaurant(formData);
+		changeView();
 	};
 
 	const { name, location, rating, review } = formData;

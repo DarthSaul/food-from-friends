@@ -388,6 +388,10 @@ button {
 	font: inherit;
 }
 
+.table {
+	width: 100%;
+}
+
 .table th,
 .table td {
 	padding: 1rem;
