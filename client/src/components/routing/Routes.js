@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import VerticalNav from '../layout/VerticalNav';
 import NotFound from '../layout/NotFound';
 import Dashboard from '../dashboard/Dashboard';
@@ -13,12 +13,9 @@ import List from '../list/List';
 import PrivateRoute from '../routing/PrivateRoute';
 
 const Routes = () => {
-	const { pathname } = useLocation();
-	const noNav = pathname === '/register' || pathname === '/login';
-
 	return (
 		<div className="grid-layout">
-			{!noNav && <VerticalNav />}
+			<VerticalNav />
 			<section className="content-container">
 				<Switch>
 					<Route exact path="/profiles">

@@ -39,7 +39,7 @@ const Register = ({ login }) => {
 
 	return (
 		<div>
-			<div className="x-large text-primary">Join Us</div>
+			<div className="x-large text-dark">Join Us</div>
 			<form className="form register-form" onSubmit={handleSubmit}>
 				<div className="form-group">
 					<input

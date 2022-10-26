@@ -37,7 +37,7 @@ const LandingHero = () => {
 							{!isAuthenticated && !loading ? (
 								<>
 									<div
-										className="btn btn-primary btn-round"
+										className="btn btn-primary btn-round mr"
 										onClick={signUp}
 									>
 										Sign Up

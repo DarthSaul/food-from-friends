@@ -71,9 +71,8 @@
 /* Landing footer */
 .landing-footer-content {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
-	width: 50%;
 	height: 100%;
 	margin: auto;
 	padding: 2em;

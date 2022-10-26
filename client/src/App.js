@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Landing from './components/layout/Landing';
+import About from './components/layout/About';
 import Routes from './components/routing/Routes';
 import Alert from './components/layout/Alert';
 
@@ -14,6 +15,9 @@ const App = () => (
 			<Switch>
 				<Route exact path="/">
 					<Landing />
+				</Route>
+				<Route exact path="/about">
+					<About />
 				</Route>
 				<Route>
 					<Routes />
