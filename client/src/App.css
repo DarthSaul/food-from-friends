@@ -61,20 +61,18 @@ img {
 .x-large {
 	font-size: 4rem;
 	line-height: 1.2;
-	margin-bottom: 1rem;
 }
-
 .large {
 	font-size: 3rem;
 	line-height: 1.2;
-	margin-bottom: 1rem;
 }
-
 .lead {
 	font-size: 1.8rem;
 	margin-bottom: 1rem;
 }
-
+.fs-1 {
+	font-size: 1.2em;
+}
 .fs-2 {
 	font-size: 1.4em;
 }
@@ -227,6 +225,11 @@ img {
 	padding: 0.8rem 2rem;
 }
 
+.btn-sm {
+	font-size: 0.8rem;
+	padding: 0.3rem 1.1rem;
+}
+
 .btn-round {
 	border-radius: 16px;
 }
@@ -244,6 +247,7 @@ img {
 	position: fixed;
 	top: 0;
 	right: 10px;
+	z-index: 1000;
 }
 
 .alert {
@@ -253,7 +257,7 @@ img {
 	opacity: 1;
 	background: var(--light-color);
 	color: #333;
-	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+	box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .btn-primary,
@@ -417,38 +421,6 @@ button {
 	padding: 2rem;
 }
 
-/* Navbar */
-.navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem 2rem;
-	position: fixed;
-	z-index: 1;
-	width: 100%;
-	top: 0;
-	border-bottom: solid 1px var(--primary-color);
-}
-
-.navbar ul {
-	display: flex;
-}
-
-.navbar a {
-	color: whitesmoke;
-	padding: 0.45rem;
-	margin: 0 0.25rem;
-	font-size: 1.2em;
-}
-
-.navbar a:hover {
-	color: var(--success-color);
-}
-
-.navbar .welcome span {
-	margin-right: 0.6rem;
-}
-
 /* Profiles Page */
 .profile-item {
 	padding: 2rem 8rem;
@@ -591,138 +563,6 @@ button {
 	margin: 0.5rem 0;
 }
 
-/* lists Page */
-.list-form .list-form-header {
-	background: var(--primary-color);
-	padding: 0.5rem;
-}
-
-.list {
-	border-radius: 8px;
-	padding: 2em;
-	margin-bottom: 2.5rem;
-	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.08);
-	position: relative;
-}
-
-.list img {
-	position: absolute;
-	width: 7.5em;
-	height: 7.5em;
-	background: white;
-	border: 3px solid black;
-	border-radius: 50%;
-	top: 15%;
-	left: -6%;
-	object-fit: cover;
-}
-
-.list-inner {
-	width: 80%;
-	margin: auto;
-}
-
-.list-inner .lead {
-	margin-bottom: 0;
-	font-size: 2.4em;
-}
-
-.list h4 {
-	color: black;
-	font-weight: normal;
-	font-size: 1.3em;
-	margin-top: 0.3em;
-}
-
-.list-profile-link {
-	color: black;
-	font-weight: bold;
-}
-.list-profile-link:hover {
-	color: var(--dark-color);
-}
-
-.list-actions {
-	margin-top: 1.5em;
-}
-
-.list-restaurant {
-	border-radius: 4px;
-	display: grid;
-	grid-template-columns: 2fr 8fr;
-	grid-gap: 2rem;
-	align-items: flex-start;
-	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.08);
-	margin-bottom: 2em;
-}
-
-.list > div:first-child {
-	text-align: center;
-}
-
-.list .comment-count {
-	background: var(--light-color);
-	color: var(--primary-color);
-	text-align: center;
-	padding: 0.1em 0.4em;
-	border-radius: 5px;
-	font-size: 1rem;
-	margin-left: 0.4em;
-}
-
-.comment-date {
-	color: #aaa;
-	font-size: 01rem;
-	font-style: italic;
-	margin-bottom: 0.25rem;
-}
-
-.comment {
-	border-radius: 8px;
-	position: relative;
-}
-
-.comment img {
-	position: absolute;
-	width: 5em;
-	height: 5em;
-	background: white;
-	border: 3px solid black;
-	border-radius: 50%;
-	top: 15%;
-	left: -4%;
-	object-fit: cover;
-}
-
-.comment-inner {
-	width: 90%;
-	margin: 1em auto;
-}
-.comment-inner h4 {
-	font-size: 1.3em;
-}
-.comment-inner h4:hover {
-	color: var(--dark-color);
-}
-
-/* Footer */
-footer {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	height: 3.5em;
-	background-color: var(--dark-color);
-	color: #c4c4c4;
-	padding: 0 2em;
-	font-size: 0.8em;
-}
-.footer-row {
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-
 .view-code {
 	color: #c4c4c4;
 }
@@ -736,21 +576,6 @@ footer {
 /* Mobile Styles */
 
 @media (max-width: 950px) {
-	.navbar a {
-		font-size: 1em;
-	}
-	.list-inner {
-		font-size: 0.8em;
-		width: 100%;
-	}
-	.list-inner h4,
-	.list-inner p {
-		margin-left: 50px;
-	}
-	.list img {
-		width: 6em;
-		height: 6em;
-	}
 	.profile-item {
 		padding: 2rem 3rem;
 		/* font-size: 0.9em; */
@@ -763,11 +588,6 @@ footer {
 	}
 }
 @media (max-width: 715px) {
-	.content-container {
-		margin-top: 8rem;
-		padding: 1rem 4rem;
-	}
-
 	.hide-sm {
 		display: none;
 	}
@@ -783,25 +603,6 @@ footer {
 
 	.lead {
 		font-size: 1rem;
-	}
-
-	/* Navbar */
-	.navbar {
-		display: block;
-		text-align: center;
-	}
-
-	.navbar ul {
-		text-align: center;
-		justify-content: center;
-	}
-
-	.navbar h1 {
-		margin-bottom: 1rem;
-	}
-
-	.navbar .welcome {
-		display: none;
 	}
 
 	/* Profiles Page */
@@ -841,58 +642,12 @@ footer {
 	.profile-about .cuisines {
 		flex-direction: column;
 	}
-
-	.list {
-		grid-template-columns: 1fr;
-	}
-	.list img {
-		display: none;
-	}
-	.list-inner h4,
-	.list-inner p {
-		margin-left: 0;
-	}
-	.list-actions {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: space-evenly;
-	}
-	.list-actions > a,
-	.list-actions > button {
-		margin-bottom: 1em;
-	}
 }
 
 @media (max-width: 550px) {
-	.navbar {
-		font-size: 0.9em;
-	}
-	.content-container {
-		padding: 1rem 1.5rem;
-	}
-	.list-inner {
-		font-size: 0.7em;
-	}
-	.list-actions > a:last-child {
-		display: none;
-	}
 }
 
 @media (max-width: 375px) {
-	.navbar {
-		font-size: 0.8em;
-	}
-	footer {
-		font-size: 0.9em;
-	}
 }
 @media (max-width: 325px) {
-	footer {
-		height: auto;
-		padding: 0.8em 1em;
-		font-size: 0.8em;
-	}
-	.footer-row {
-		flex-wrap: wrap;
-	}
 }
