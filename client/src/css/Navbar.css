@@ -1,0 +1,46 @@
+.vert-nav .nav-inner {
+	height: 100%;
+	width: 250px;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.vert-nav li {
+	margin-bottom: 0.6em;
+	width: 100%;
+}
+.vert-nav a {
+	color: white;
+	padding: 0.5em;
+	width: 100%;
+	display: block;
+}
+.vert-nav .selected {
+	background-color: rgba(255, 255, 255, 0.15);
+	border-radius: 12px;
+}
+.account-actions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+.account-actions p {
+	font-size: 0.8em;
+}
+.account-actions img {
+	position: relative;
+	top: 4px;
+	width: 3em;
+	height: 3em;
+	background: white;
+	border-radius: 50%;
+	object-fit: cover;
+}
+.account-actions .logout {
+	align-self: flex-start;
+	position: relative;
+	bottom: 3px;
+}

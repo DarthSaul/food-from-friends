@@ -1,188 +1,195 @@
 import React, { useContext, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-
+import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
 import {
-    faTwitter,
-    faFacebook,
-    faInstagram
+	faTwitter,
+	faFacebook,
+	faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 
 import { ProfileContext } from '../../contexts/ProfileContext';
 
 const CreateProfile = () => {
-    const [formData, setFormData] = useState({
-        location: '',
-        bio: '',
-        favoriteCuisines: '',
-        favoriteDishes: '',
-        instagram: '',
-        twitter: '',
-        facebook: ''
-    });
+	const [formData, setFormData] = useState({
+		location: '',
+		bio: '',
+		favoriteCuisines: '',
+		favoriteDishes: '',
+		instagram: '',
+		twitter: '',
+		facebook: '',
+	});
 
-    const [displaySocialInputs, toggleSocialInputs] = useState(false);
+	const { createProfile } = useContext(ProfileContext);
 
-    const { createProfile } = useContext(ProfileContext);
+	const history = useHistory();
 
-    const history = useHistory();
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+		setFormData((state) => ({
+			...state,
+			[name]: value,
+		}));
+	};
 
-    const toggle = () => {
-        toggleSocialInputs(toggle => !toggle);
-    };
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		createProfile(formData, history);
+	};
 
-    const handleChange = event => {
-        const { name, value } = event.target;
-        setFormData(state => ({
-            ...state,
-            [name]: value
-        }));
-    };
+	const {
+		location,
+		bio,
+		favoriteCuisines,
+		favoriteDishes,
+		instagram,
+		twitter,
+		facebook,
+	} = formData;
 
-    const handleSubmit = async event => {
-        event.preventDefault();
-        createProfile(formData, history);
-    };
+	return (
+		<div className="dashboard-form">
+			<div className="fs-3 text-primary">Create Profile</div>
+			<div className="text-muted fw-light">
+				Let's get some information to make your profile stand out. Once
+				finished, click <strong>Submit</strong>.
+				<div>
+					<small>* Required field</small>
+				</div>
+			</div>
+			<hr className="my-1" />
+			<form className="form" onSubmit={handleSubmit}>
+				<div className="form-group">
+					<div>
+						<div>Location *</div>
+						<small className="form-text">
+							City & state suggested (eg. Boston, MA)
+						</small>
+					</div>
+					<input
+						type="text"
+						placeholder="Location"
+						name="location"
+						value={location}
+						onChange={handleChange}
+						required
+					/>
+				</div>
+				<hr className="my-1" />
+				<div className="form-group">
+					<div>
+						<div>Favorite cuisines</div>
+						<small className="form-text">
+							Please use comma separated values (eg. Korean,
+							Mexican, BBQ, Italian)
+						</small>
+					</div>
+					<input
+						type="text"
+						placeholder="Favorite cuisines"
+						name="favoriteCuisines"
+						value={favoriteCuisines}
+						onChange={handleChange}
+					/>
+				</div>
+				<hr className="my-1" />
+				<div className="form-group">
+					<div>
+						<div>Favorite dishes</div>
+						<small className="form-text">
+							Please use comma separated values (eg. Cacio e Pepe,
+							Tacos, Fried Rice, Ramen)
+						</small>
+					</div>
+					<input
+						type="text"
+						placeholder="Favorite dishes"
+						name="favoriteDishes"
+						value={favoriteDishes}
+						onChange={handleChange}
+					/>
+				</div>
+				<hr className="my-1" />
+				<div className="form-group">
+					<div>
+						<div>Bio *</div>
+						<small className="form-text">
+							Tell us a little about yourself
+						</small>
+					</div>
+					<textarea
+						placeholder="A short bio of yourself"
+						name="bio"
+						value={bio}
+						onChange={handleChange}
+						required
+					/>
+				</div>
+				<hr className="my-1" />
 
-    const {
-        location,
-        bio,
-        favoriteCuisines,
-        favoriteDishes,
-        instagram,
-        twitter,
-        facebook
-    } = formData;
+				<div className="form-group">
+					<div>
+						<div>Social</div>
+						<small className="form-text">Optional</small>
+					</div>
 
-    return (
-        <>
-            <h1 className='large text-primary'>Create Your Profile</h1>
-            <p className='lead'>
-                <FontAwesomeIcon icon={faUser} /> Let's get some information to
-                make your profile stand out
-            </p>
-            <small>* = required field</small>
-            <form className='form' onSubmit={handleSubmit}>
-                <div className='form-group'>
-                    <input
-                        type='text'
-                        placeholder='* Location'
-                        name='location'
-                        value={location}
-                        onChange={handleChange}
-                        required
-                    />
-                    <small className='form-text'>
-                        City & state suggested (eg. Pittsburgh, PA)
-                    </small>
-                </div>
-                <div className='form-group'>
-                    <input
-                        type='text'
-                        placeholder='Favorite cuisines'
-                        name='favoriteCuisines'
-                        value={favoriteCuisines}
-                        onChange={handleChange}
-                    />
-                    <small className='form-text'>
-                        Please use comma separated values (eg. Korean, Mexican,
-                        BBQ, Italian)
-                    </small>
-                </div>
-                <div className='form-group'>
-                    <input
-                        type='text'
-                        placeholder='Favorite dishes'
-                        name='favoriteDishes'
-                        value={favoriteDishes}
-                        onChange={handleChange}
-                    />
-                    <small className='form-text'>
-                        Please use comma separated values (eg. Cacio e Pepe,
-                        Tacos, Fried Rice, Ramen)
-                    </small>
-                </div>
-                <div className='form-group'>
-                    <textarea
-                        placeholder='* A short bio of yourself'
-                        name='bio'
-                        value={bio}
-                        onChange={handleChange}
-                        required
-                    />
-                    <small className='form-text'>
-                        Tell us a little about yourself
-                    </small>
-                </div>
+					<div className="social-input-container">
+						<div className="social-input">
+							<FontAwesomeIcon
+								icon={faTwitter}
+								size="2x"
+								className="social-icons twitter"
+							/>
+							<input
+								type="text"
+								placeholder="Twitter handle, eg. janedoe"
+								name="twitter"
+								value={twitter}
+								onChange={handleChange}
+							/>
+						</div>
 
-                <div className='my-2'>
-                    <button
-                        type='button'
-                        className='btn btn-light'
-                        onClick={toggle}
-                    >
-                        Add Social Network Links
-                    </button>
-                    <span style={{ fontStyle: 'italic' }}>Optional</span>
-                </div>
-                {displaySocialInputs && (
-                    <>
-                        <div className='form-group social-input'>
-                            <FontAwesomeIcon
-                                icon={faTwitter}
-                                size='2x'
-                                className='social-icons'
-                            />
-                            <input
-                                type='text'
-                                placeholder='Twitter handle, eg. janedoe'
-                                name='twitter'
-                                value={twitter}
-                                onChange={handleChange}
-                            />
-                        </div>
+						<div className="social-input">
+							<FontAwesomeIcon
+								icon={faFacebook}
+								size="2x"
+								className="social-icons facebook"
+							/>
+							<input
+								type="text"
+								placeholder="Facebook username, eg. janedoe"
+								name="facebook"
+								value={facebook}
+								onChange={handleChange}
+							/>
+						</div>
 
-                        <div className='form-group social-input'>
-                            <FontAwesomeIcon
-                                icon={faFacebook}
-                                size='2x'
-                                className='social-icons'
-                            />
-                            <input
-                                type='text'
-                                placeholder='Facebook username, eg. janedoe'
-                                name='facebook'
-                                value={facebook}
-                                onChange={handleChange}
-                            />
-                        </div>
-
-                        <div className='form-group social-input'>
-                            <FontAwesomeIcon
-                                icon={faInstagram}
-                                size='2x'
-                                className='social-icons'
-                            />
-                            <input
-                                type='text'
-                                placeholder='Instagram handle, eg. janedoe'
-                                name='instagram'
-                                value={instagram}
-                                onChange={handleChange}
-                            />
-                        </div>
-                    </>
-                )}
-
-                <input type='submit' className='btn btn-primary my-1' />
-
-                <Link className='btn btn-light my-1' to='/dashboard'>
-                    Go Back
-                </Link>
-            </form>
-        </>
-    );
+						<div className="social-input">
+							<FontAwesomeIcon
+								icon={faInstagram}
+								size="2x"
+								className="social-icons instagram"
+							/>
+							<input
+								type="text"
+								placeholder="Instagram handle, eg. janedoe"
+								name="instagram"
+								value={instagram}
+								onChange={handleChange}
+							/>
+						</div>
+					</div>
+				</div>
+				<hr className="my" />
+				<div className="dashboard-submit">
+					<input
+						type="submit"
+						className="btn btn-primary btn-lg my-1"
+					/>
+				</div>
+			</form>
+		</div>
+	);
 };
 
 export default CreateProfile;

@@ -1,0 +1,198 @@
+/* Profiles Page */
+.profiles-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+.profiles-header .btn {
+	position: relative;
+	bottom: 8px;
+}
+.profiles {
+	display: grid;
+	grid-template-columns: 1.75fr 1fr;
+	gap: 5%;
+}
+.profiles-sidebar-wrapper {
+	padding: 0 1em;
+}
+.profiles-sidebar {
+	border-radius: 10px;
+	border: 1px solid grey;
+}
+.profiles-sidebar-wrapper .divider {
+	width: 96%;
+	margin: auto;
+}
+.profiles-sidebar .sidebar-header {
+	border-bottom: 1px solid grey;
+	padding: 0.25em 0.75em;
+}
+.profiles-sidebar ul li {
+	padding: 1.5em;
+	border-bottom: 1px solid black;
+}
+.profiles-sidebar ul li:last-child {
+	border-bottom: none;
+}
+.profile-item {
+	border-radius: 8px;
+	border: 0.5px solid grey;
+	background-color: rgba(125, 208, 156, 0.1);
+}
+.profile-item-top {
+	border-radius: 8px 8px 0 0;
+	background-color: white;
+}
+.profile-item-header {
+	display: flex;
+	justify-content: space-between;
+}
+.profile-item-header img {
+	width: 7em;
+	height: 7em;
+	background: white;
+	border: 1.5px solid grey;
+	border-radius: 50%;
+	object-fit: cover;
+}
+/* Profile Page */
+.profile-grid {
+	display: grid;
+	grid-template-areas:
+		'top top rule sidebar'
+		'tabs tabs rule sidebar'
+		'view view rule sidebar';
+	grid-template-columns: 1fr 1fr 5px 300px;
+	grid-gap: 1rem;
+	padding-bottom: 3rem;
+}
+.profile-grid .sidebar {
+	grid-area: sidebar;
+}
+.profile-grid .sidebar .sidebar-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.sidebar .sidebar-items li {
+	display: flex;
+	align-items: center;
+	border-radius: 12px;
+	background-color: #2a9d903b;
+}
+.sidebar .sidebar-items .icon {
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.75em;
+	border-radius: 50%;
+}
+.profile-divider {
+	grid-area: rule;
+	border-right: 2px solid #264653;
+	height: 98%;
+	margin: auto;
+}
+.profile-top {
+	grid-area: top;
+	border-radius: 10px;
+	margin-bottom: 5.5rem;
+}
+.profile-top .banner {
+	min-height: 150px;
+}
+.profile-info {
+	background-color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	position: relative;
+	color: black;
+}
+.profile-info .showcase {
+	display: flex;
+	align-items: center;
+	gap: 2em;
+	margin-left: 2em;
+}
+.profile-top img {
+	width: 10em;
+	height: 10em;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 2px solid white;
+	position: absolute;
+}
+.profile-top .name {
+	margin-left: 200px;
+}
+.profile-info .icons {
+	display: flex;
+	flex-direction: row;
+	gap: 7px;
+}
+.profile-info .icons a {
+	color: black;
+}
+.profile-grid .tabs {
+	grid-area: tabs;
+	color: black;
+}
+.profile-grid .tabs hr {
+	width: 97%;
+	margin: 1rem auto 0;
+}
+.profile-grid .tabs ul {
+	display: flex;
+}
+.profile-grid .tabs ul li {
+	margin-right: 0.5rem;
+	border-radius: 10px;
+	padding: 0.75em 1em;
+	min-width: 125px;
+	text-align: center;
+}
+.profile-grid .tabs ul li:hover {
+	background-color: #26465321;
+}
+.profile-grid .tabs .selected {
+	background-color: #2a9d9043;
+}
+.profile-grid .view {
+	grid-area: view;
+}
+.profile-restaurants .res-showcase {
+	display: flex;
+	gap: 2rem;
+	border-radius: 12px;
+}
+.profile-restaurants .res-showcase .info {
+	flex: 0 0 37%;
+	border-right: 0.5px solid white;
+	padding-right: 1em;
+}
+.profile-media .media-showcase {
+	display: flex;
+	gap: 2rem;
+	border-radius: 12px;
+}
+
+.profile-media .media-showcase .info {
+	flex: 0 0 37%;
+	border-right: 0.5px solid white;
+	padding-right: 1em;
+}
+.cuisines-container {
+	display: flex;
+}
+
+.cuisines-container div {
+	border-radius: 10px;
+	min-width: 150px;
+	text-align: center;
+}
+.profile-about .bio {
+	margin-left: 0.25em;
+}

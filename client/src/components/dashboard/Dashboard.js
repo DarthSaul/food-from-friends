@@ -1,116 +1,114 @@
-import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faUser,
-    faUserMinus,
-    faUserCircle
-} from '@fortawesome/free-solid-svg-icons';
-
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { ProfileContext } from '../../contexts/ProfileContext';
-
 import Spinner from '../layout/Spinner';
-import DashboardActions from './DashboardActions';
+import EditProfile from '../profile-forms/EditProfile';
+import CreateProfile from '../profile-forms/CreateProfile';
 import Restaurants from './Restaurants';
 import Media from './Media';
+import ManageAccount from './ManageAccount';
+import '../../css/Dashboard.css';
 
 const Dashboard = () => {
-    const {
-        profileState: { profile, loading: profileLoading },
-        getCurrentProfile
-    } = useContext(ProfileContext);
+	const [tabState, setTab] = useState({
+		tab: 'profile',
+	});
 
-    const {
-        userObj: { user, loading: userLoading },
-        deleteAccount
-    } = useContext(UserContext);
+	const {
+		profileState: { profile, loading: profileLoading },
+		getCurrentProfile,
+	} = useContext(ProfileContext);
 
-    useEffect(() => {
-        getCurrentProfile();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+	const {
+		userObj: { user, loading: userLoading },
+	} = useContext(UserContext);
 
-    const clickToDelete = async event => {
-        deleteAccount();
-    };
+	useEffect(() => {
+		getCurrentProfile();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
-    const userData = !userLoading ? user.data : null;
+	const tabChange = (event) => {
+		setTab({ tab: event });
+	};
 
-    return (
-        <>
-            {profileLoading && profile === null ? (
-                <Spinner />
-            ) : (
-                <>
-                    <h1 className='large text-primary'>Dashboard</h1>
-                    <div className='lead'>
-                        <FontAwesomeIcon icon={faUser} /> Welcome{' '}
-                        {userData && userData.name}
-                        {userData && (
-                            <div>
-                                {userData.avatar && (
-                                    <img
-                                        className='my-1 dash-img'
-                                        style={{
-                                            width: 'auto',
-                                            height: '250px'
-                                        }}
-                                        src={userData.avatar.url}
-                                        alt=''
-                                    />
-                                )}
+	const userData = !userLoading ? user.data : null;
 
-                                <div>
-                                    <Link
-                                        to='/upload'
-                                        className='btn btn-success'
-                                    >
-                                        <FontAwesomeIcon
-                                            icon={faUserCircle}
-                                            style={{ marginRight: 2 }}
-                                        />{' '}
-                                        Upload or Change Profile Image
-                                    </Link>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                    {!profileLoading && profile !== null ? (
-                        <>
-                            <DashboardActions />
-                            <Restaurants
-                                restaurants={profile.favoriteRestaurants}
-                            />
-                            <Media media={profile.favoriteMedia} />
-                            <div className='my-2'>
-                                <button
-                                    className='btn btn-danger'
-                                    onClick={clickToDelete}
-                                >
-                                    <FontAwesomeIcon icon={faUserMinus} />{' '}
-                                    Delete My Account
-                                </button>
-                            </div>
-                        </>
-                    ) : (
-                        <>
-                            <p>
-                                You have not yet created a profile. You can
-                                create your profile at the link below:
-                            </p>
-                            <Link
-                                to='/create-profile'
-                                className='btn btn-primary my-1'
-                            >
-                                Create Profile
-                            </Link>
-                        </>
-                    )}
-                </>
-            )}
-        </>
-    );
+	const { tab } = tabState;
+
+	const tabs = [
+		{ value: 'profile', label: 'Edit Profile' },
+		{ value: 'restaurants', label: 'Favorite Restaurants' },
+		{ value: 'media', label: 'Favorite Media' },
+		{ value: 'manage', label: 'Manage Account' },
+	];
+
+	return (
+		<>
+			{profileLoading && profile === null ? (
+				<Spinner />
+			) : (
+				<>
+					<div className="dashboard-headline">
+						<div className="mr-1">
+							<img
+								className="my-1 dash-img"
+								src={
+									userData && userData.avatar
+										? userData.avatar.thumbnail
+										: 'https://res.cloudinary.com/darthsaul/image/upload/v1626367195/Coffee-Corner/no_image_wkgy3c.png'
+								}
+								alt="Avatar"
+							/>
+						</div>
+						<div>
+							<p className="fs-3 fw-bold">Dashboard</p>
+							<p className="fw-light">
+								{userData && userData.email}
+							</p>
+						</div>
+					</div>
+					<div className="dashboard-tabs">
+						<ul>
+							{tabs.map((el, ind) => (
+								<li
+									key={ind}
+									className={
+										tab === el.value
+											? 'selected cursor-pointer'
+											: 'cursor-pointer'
+									}
+									onClick={(e) => tabChange(el.value)}
+								>
+									{el.label}
+								</li>
+							))}
+						</ul>
+					</div>
+					<hr className="my-1" />
+
+					{!profileLoading && profile !== null ? (
+						<>
+							{tab === 'profile' && <EditProfile />}
+							{tab === 'restaurants' && (
+								<Restaurants
+									restaurants={profile.favoriteRestaurants}
+								/>
+							)}
+							{tab === 'media' && (
+								<Media media={profile.favoriteMedia} />
+							)}
+							{tab === 'manage' && <ManageAccount />}
+						</>
+					) : (
+						<>
+							<CreateProfile />
+						</>
+					)}
+				</>
+			)}
+		</>
+	);
 };
 
 export default Dashboard;

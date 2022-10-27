@@ -1,0 +1,84 @@
+/* Dashboard */
+.dashboard-headline {
+	display: flex;
+	align-items: center;
+}
+.dash-img {
+	width: 10em;
+	height: 10em;
+	background: white;
+	border: 3px solid grey;
+	border-radius: 50%;
+	object-fit: cover;
+}
+.dash-buttons a {
+	margin-bottom: 0.5rem;
+}
+.dashboard-tabs ul {
+	display: flex;
+	gap: 15px;
+}
+.dashboard-tabs ul li {
+	padding: 0.5em;
+	border-radius: 12px;
+}
+.dashboard-tabs .selected {
+	background-color: rgba(98, 98, 98, 0.15);
+}
+.profile-actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.dashboard-form .form-group {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	gap: 7%;
+
+	align-items: start;
+}
+
+.dashboard-submit {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.social-input-container {
+	width: 100%;
+}
+
+.dashboard-form .social-input {
+	display: grid;
+	grid-template-columns: 6% 1fr;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 0.75em;
+}
+
+.dashboard-form .social-input .social-icons {
+	padding-right: 0.5rem;
+}
+
+.dashboard-form .social-input .social-icons.twitter {
+	color: #00acee;
+}
+.dashboard-form .social-input .social-icons.facebook {
+	color: #3b5998;
+}
+.dashboard-form .social-input .social-icons.instagram {
+	color: #dd2a7b;
+}
+
+.favs-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* Media Queries */
+@media (max-width: 715px) {
+	.dash-buttons a {
+		display: block;
+		width: 100%;
+	}
+}
