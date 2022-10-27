@@ -9,7 +9,7 @@ const PrivateRoute = ({ children, ...rest }) => {
 	} = useContext(UserContext);
 	const { setAlert } = useContext(AlertContext);
 	if (!loading && !isAuthenticated) {
-		setAlert('Please log in to access the dashboard.', 'danger');
+		setAlert('You must be logged in to do that.', 'danger');
 	}
 	return (
 		<Route {...rest}>
