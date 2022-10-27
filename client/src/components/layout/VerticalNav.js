@@ -18,7 +18,17 @@ const VerticalNav = () => {
 					<hr className="my-1" />
 					<ul>
 						<li>
-							<NavLink to="/lists" activeClassName="selected">
+							<NavLink
+								to="/lists"
+								isActive={(match, location) => {
+									const rootPath =
+										location.pathname.split('/');
+									if (rootPath[1] === 'lists') {
+										return true;
+									}
+								}}
+								activeClassName="selected"
+							>
 								<FontAwesomeIcon
 									icon={faHamburger}
 									className="mr"
@@ -27,7 +37,20 @@ const VerticalNav = () => {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/profiles" activeClassName="selected">
+							<NavLink
+								to="/profiles"
+								isActive={(match, location) => {
+									const rootPath =
+										location.pathname.split('/')[1];
+									if (
+										rootPath === 'profile' ||
+										rootPath === 'profiles'
+									) {
+										return true;
+									}
+								}}
+								activeClassName="selected"
+							>
 								<FontAwesomeIcon icon={faUser} className="mr" />{' '}
 								Profiles
 							</NavLink>

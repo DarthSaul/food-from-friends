@@ -1,22 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faTwitter,
-    faFacebook,
-    faInstagram
-} from '@fortawesome/free-brands-svg-icons';
 
 const ProfileTop = ({
-    profile: {
-        location,
-        social,
-        user: { name, avatar }
-    }
+	profile: {
+		location,
+		social,
+		user: { name, avatar },
+	},
 }) => {
-    return (
-        <div className='profile-top bg-primary p-2'>
-            <img className='round-img my-1' src={avatar.medium} alt='' />
+	return (
+		<>
+			<div className="banner"></div>
+			<div className="middle-divider"></div>
+			<div className="profile-info">
+				<div className="showcase">
+					<img src={avatar.medium} alt="avatar" />
+					<div className="name">
+						<div className="fs-3">{name}</div>
+						<div>{location}</div>
+					</div>
+				</div>
+				<div className="">
+					<div className="btn btn-dark mt"> Action </div>
+				</div>
+			</div>
+
+			{/* <img className='round-img my-1' src={avatar.medium} alt='' />
             <h1 className='large'>{name}</h1>
             <p className='lead'>Currently exploring {location}</p>
             <div className='icons my-1'>
@@ -47,13 +56,13 @@ const ProfileTop = ({
                         <FontAwesomeIcon icon={faFacebook} size='3x' />
                     </a>
                 )}
-            </div>
-        </div>
-    );
+            </div> */}
+		</>
+	);
 };
 
 ProfileTop.propTypes = {
-    profile: PropTypes.object.isRequired
+	profile: PropTypes.object.isRequired,
 };
 
 export default ProfileTop;

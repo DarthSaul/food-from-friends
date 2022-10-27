@@ -127,6 +127,18 @@ img {
 .p-3 {
 	padding: 3rem;
 }
+.pr {
+	padding-right: 0.5rem;
+}
+.pr-1 {
+	padding-right: 1rem;
+}
+.pr-2 {
+	padding-right: 2rem;
+}
+.pr-3 {
+	padding-right: 3rem;
+}
 .py {
 	padding: 0.5rem 0;
 }
