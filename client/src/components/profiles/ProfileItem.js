@@ -23,7 +23,14 @@ const ProfileItem = ({
 						<div className="text-muted fs-1">{location}</div>
 					</div>
 					<div>
-						<img src={avatar.url} alt="Avatar" />
+						<img
+							src={
+								avatar
+									? avatar.url
+									: 'https://res.cloudinary.com/darthsaul/image/upload/v1626367195/Coffee-Corner/no_image_wkgy3c.png'
+							}
+							alt="Avatar"
+						/>
 					</div>
 				</div>
 				<div>

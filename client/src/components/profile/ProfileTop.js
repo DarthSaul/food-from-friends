@@ -20,7 +20,15 @@ const ProfileTop = ({
 			<div className="middle-divider"></div>
 			<div className="profile-info">
 				<div className="showcase">
-					<img src={avatar.medium} alt="avatar" />
+					<img
+						src={
+							avatar
+								? avatar.medium
+								: 'https://res.cloudinary.com/darthsaul/image/upload/v1626367195/Coffee-Corner/no_image_wkgy3c.png'
+						}
+						alt="avatar"
+					/>
+
 					<div className="name">
 						<div className="fs-3">{name}</div>
 						<div className="fw-light">{location}</div>

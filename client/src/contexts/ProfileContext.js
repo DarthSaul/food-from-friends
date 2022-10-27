@@ -98,7 +98,7 @@ function ProfileProvider({ children }) {
 		try {
 			await axios.post('/api/profile', formData, config);
 			await getCurrentProfile();
-			setAlert(edit ? 'Profile updated!' : 'Profile created!', 'success');
+			setAlert(edit ? 'Profile updated!' : 'Profile created!', 'primary');
 			if (!edit) {
 				history.push('/dashboard');
 			}

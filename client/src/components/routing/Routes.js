@@ -5,7 +5,6 @@ import NotFound from '../layout/NotFound';
 import Dashboard from '../dashboard/Dashboard';
 import Profiles from '../profiles/Profiles';
 import Profile from '../profile/Profile';
-import CreateProfile from '../profile-forms/CreateProfile';
 import FileUpload from '../profile-forms/FileUpload';
 import Lists from '../lists/Lists';
 import ListForm from '../list-form/ListForm';
@@ -36,9 +35,6 @@ const Routes = () => {
 
 					<PrivateRoute exact path="/dashboard">
 						<Dashboard />
-					</PrivateRoute>
-					<PrivateRoute exact path="/create-profile">
-						<CreateProfile />
 					</PrivateRoute>
 					<PrivateRoute exact path="/upload">
 						<FileUpload />

@@ -23,11 +23,19 @@ const NavAccount = () => {
 	};
 
 	const userData = !userLoading && isAuthenticated ? user.data : null;
+	console.log();
 
 	return (
 		<div className="account-actions p-1">
 			<div className="mr">
-				<img alt="account" src={userData.avatar.url} />
+				<img
+					alt="account"
+					src={
+						userData.avatar
+							? userData.avatar.thumbnail
+							: 'https://res.cloudinary.com/darthsaul/image/upload/v1626367195/Coffee-Corner/no_image_wkgy3c.png'
+					}
+				/>
 			</div>
 			<div>
 				<p>{userData.name}</p>

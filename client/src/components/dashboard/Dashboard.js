@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { ProfileContext } from '../../contexts/ProfileContext';
 import Spinner from '../layout/Spinner';
 import EditProfile from '../profile-forms/EditProfile';
+import CreateProfile from '../profile-forms/CreateProfile';
 import Restaurants from './Restaurants';
 import Media from './Media';
 import ManageAccount from './ManageAccount';
@@ -51,13 +51,15 @@ const Dashboard = () => {
 				<>
 					<div className="dashboard-headline">
 						<div className="mr-1">
-							{userData.avatar && (
-								<img
-									className="my-1 dash-img"
-									src={userData.avatar.url}
-									alt="Avatar"
-								/>
-							)}
+							<img
+								className="my-1 dash-img"
+								src={
+									userData && userData.avatar
+										? userData.avatar.thumbnail
+										: 'https://res.cloudinary.com/darthsaul/image/upload/v1626367195/Coffee-Corner/no_image_wkgy3c.png'
+								}
+								alt="Avatar"
+							/>
 						</div>
 						<div>
 							<p className="fs-3 fw-bold">Dashboard</p>
@@ -66,27 +68,27 @@ const Dashboard = () => {
 							</p>
 						</div>
 					</div>
+					<div className="dashboard-tabs">
+						<ul>
+							{tabs.map((el, ind) => (
+								<li
+									key={ind}
+									className={
+										tab === el.value
+											? 'selected cursor-pointer'
+											: 'cursor-pointer'
+									}
+									onClick={(e) => tabChange(el.value)}
+								>
+									{el.label}
+								</li>
+							))}
+						</ul>
+					</div>
+					<hr className="my-1" />
 
 					{!profileLoading && profile !== null ? (
 						<>
-							<div className="dashboard-tabs">
-								<ul>
-									{tabs.map((el, ind) => (
-										<li
-											key={ind}
-											className={
-												tab === el.value
-													? 'selected cursor-pointer'
-													: 'cursor-pointer'
-											}
-											onClick={(e) => tabChange(el.value)}
-										>
-											{el.label}
-										</li>
-									))}
-								</ul>
-							</div>
-							<hr className="my-1" />
 							{tab === 'profile' && <EditProfile />}
 							{tab === 'restaurants' && (
 								<Restaurants
@@ -100,16 +102,7 @@ const Dashboard = () => {
 						</>
 					) : (
 						<>
-							<p>
-								You have not yet created a profile. You can
-								create your profile at the link below:
-							</p>
-							<Link
-								to="/create-profile"
-								className="btn btn-primary my-1"
-							>
-								Create Profile
-							</Link>
+							<CreateProfile />
 						</>
 					)}
 				</>
