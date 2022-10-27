@@ -69,8 +69,25 @@
 }
 .profile-grid .sidebar {
 	grid-area: sidebar;
-	border-radius: 10px;
-	border: 1px solid black;
+}
+.profile-grid .sidebar .sidebar-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.sidebar .sidebar-items li {
+	display: flex;
+	align-items: center;
+	border-radius: 12px;
+	background-color: #2a9d903b;
+}
+.sidebar .sidebar-items .icon {
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.75em;
+	border-radius: 50%;
 }
 .profile-divider {
 	grid-area: rule;
@@ -111,6 +128,14 @@
 .profile-top .name {
 	margin-left: 200px;
 }
+.profile-info .icons {
+	display: flex;
+	flex-direction: row;
+	gap: 7px;
+}
+.profile-info .icons a {
+	color: black;
+}
 .profile-grid .tabs {
 	grid-area: tabs;
 	color: black;
@@ -123,7 +148,7 @@
 	display: flex;
 }
 .profile-grid .tabs ul li {
-	margin-right: 1rem;
+	margin-right: 0.5rem;
 	border-radius: 10px;
 	padding: 0.75em 1em;
 	min-width: 125px;
@@ -143,20 +168,31 @@
 	gap: 2rem;
 	border-radius: 12px;
 }
-.profile-restaurants .info {
-	flex: 0 0 37%;
-}
 .profile-restaurants .res-showcase .info {
+	flex: 0 0 37%;
 	border-right: 0.5px solid white;
 	padding-right: 1em;
 }
-
 .profile-media .media-showcase {
 	display: flex;
 	gap: 2rem;
 	border-radius: 12px;
 }
 
-.profile-media .info {
-	flex: 1 1 auto;
+.profile-media .media-showcase .info {
+	flex: 0 0 37%;
+	border-right: 0.5px solid white;
+	padding-right: 1em;
+}
+.cuisines-container {
+	display: flex;
+}
+
+.cuisines-container div {
+	border-radius: 10px;
+	min-width: 150px;
+	text-align: center;
+}
+.profile-about .bio {
+	margin-left: 0.25em;
 }

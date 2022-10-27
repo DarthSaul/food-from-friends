@@ -1,11 +1,10 @@
 import React from 'react';
 
 const ProfileRestaurants = ({ restaurants }) => {
-	console.log(restaurants);
 	return (
 		<div className="profile-restaurants">
 			<div className="large mb-1">Favorite Restaurants</div>
-			{restaurants.length &&
+			{restaurants.length ? (
 				restaurants.map((el) => (
 					<div key={el._id} className="res-showcase bg-dark p-1 mb-1">
 						<div className="info">
@@ -18,7 +17,10 @@ const ProfileRestaurants = ({ restaurants }) => {
 							<div className="fw-light">{el.review}</div>
 						</div>
 					</div>
-				))}
+				))
+			) : (
+				<div>User has no favorite restaurants yet.</div>
+			)}
 		</div>
 	);
 };

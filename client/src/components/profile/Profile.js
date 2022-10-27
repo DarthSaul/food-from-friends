@@ -7,6 +7,7 @@ import ProfileRestaurants from './ProfileRestaurants';
 import ProfileCuisines from './ProfileCuisines';
 import ProfileMedia from './ProfileMedia';
 import ProfileAbout from './ProfileAbout';
+import Sidebar from './Sidebar';
 
 const Profile = () => {
 	const [tab, setTab] = useState('restaurants');
@@ -55,7 +56,9 @@ const Profile = () => {
 							<ProfileTop profile={profile} />
 						</div>
 						<div className="profile-divider"></div>
-						<div className="sidebar">{/* Sidebar Component */}</div>
+						<div className="sidebar">
+							<Sidebar />
+						</div>
 						<div className="tabs">
 							{/* Create component, pass setTab down as prop */}
 							<ul>

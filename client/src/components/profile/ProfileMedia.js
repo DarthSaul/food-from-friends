@@ -1,26 +1,32 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-// import capitalize from 'capitalize';
+import capitalize from 'capitalize';
 
 const ProfileMedia = ({ media }) => {
 	return (
 		<div className="profile-media">
 			<div className="large mb-1">Media</div>
-			<div className="media-showcase bg-dark p-1">
-				<div className="info">
-					<div className="fw-bold">Name of Media</div>
-					<div className="fw-light">Location</div>
-					<div className="fw-light">Rating: 5</div>
-				</div>
-				<div className="review">
-					<div className="fw-bold">Desc</div>
-					<div>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Pariatur repellat, aliquam officiis sint corporis
-						reprehenderit similique
+			{media.length ? (
+				media.map((el) => (
+					<div
+						key={el._id}
+						className="media-showcase bg-dark p-1 mb-1"
+					>
+						<div className="info">
+							<div className="fw-bold">{el.title}</div>
+							<div className="fw-light">
+								{capitalize(el.type)}
+							</div>
+						</div>
+						<div className="review">
+							<div className="fw-bold">Description</div>
+							<div>{el.description}</div>
+						</div>
 					</div>
-				</div>
-			</div>
+				))
+			) : (
+				<div>User has no favorite media yet.</div>
+			)}
 		</div>
 	);
 };
