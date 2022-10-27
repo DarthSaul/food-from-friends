@@ -32,7 +32,7 @@ const Login = ({ signUp }) => {
 
 	return (
 		<div>
-			<div className="x-large text-dark">Sign In</div>
+			<div className="x-large text-dark mb-1">Welcome Back</div>
 			<form className="form login-form" onSubmit={handleSubmit}>
 				<div className="form-group">
 					<input

@@ -39,12 +39,6 @@
 	align-items: start;
 }
 
-.dashboard-form hr {
-	height: 0.5px;
-	background-color: rgb(181, 181, 181);
-	border: none;
-}
-
 .dashboard-submit {
 	display: flex;
 	justify-content: flex-end;
