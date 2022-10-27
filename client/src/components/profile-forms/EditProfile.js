@@ -31,22 +31,31 @@ const EditProfile = () => {
 
 	useEffect(() => {
 		getCurrentProfile();
-		setFormData({
-			location: loading || !profile.location ? '' : profile.location,
-			bio: loading || !profile.bio ? '' : profile.bio,
-			favoriteCuisines:
-				loading || !profile.favoriteCuisines
-					? ''
-					: profile.favoriteCuisines.join(', '),
-			favoriteDishes:
-				loading || !profile.favoriteDishes
-					? ''
-					: profile.favoriteDishes.join(', '),
-			instagram:
-				loading || !profile.social ? '' : profile.social.instagram,
-			twitter: loading || !profile.social ? '' : profile.social.twitter,
-			facebook: loading || !profile.social ? '' : profile.social.facebook,
-		});
+		if (!loading) {
+			setFormData({
+				location: profile.location ? profile.location : '',
+				bio: profile.bio ? profile.bio : '',
+				favoriteCuisines: profile.favoriteCuisines
+					? profile.favoriteCuisines.join(', ')
+					: '',
+				favoriteDishes: profile.favoriteDishes
+					? profile.favoriteDishes.join(', ')
+					: '',
+				instagram:
+					profile.social && profile.social.instagram
+						? profile.social.instagram
+						: '',
+				twitter:
+					profile.social && profile.social.twitter
+						? profile.social.twitter
+						: '',
+				facebook:
+					profile.social && profile.social.facebook
+						? profile.social.facebook
+						: '',
+			});
+		}
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [loading]);
 

@@ -20,6 +20,7 @@
 	background-color: rgba(255, 255, 255, 0.15);
 	font-weight: bold;
 	border-radius: 12px;
+	letter-spacing: 0.1rem;
 }
 .account-actions {
 	display: flex;

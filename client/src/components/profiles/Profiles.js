@@ -1,11 +1,10 @@
 import React, { useContext, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHotdog } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 import { ProfileContext } from '../../contexts/ProfileContext';
-
 import Spinner from '../layout/Spinner';
 import ProfileItem from './ProfileItem';
+import '../../css/Profiles.css';
 
 const Profiles = () => {
 	const {
@@ -24,19 +23,61 @@ const Profiles = () => {
 				<Spinner />
 			) : (
 				<>
-					<h1 className="large text-primary">Foodies</h1>
-					<p className="lead mb-4">
-						<FontAwesomeIcon icon={faHotdog} /> Connect with other
-						food enthusiasts!
-					</p>
+					<div className="profiles-header mb-1">
+						<div>
+							<h1 className="large text-primary">Community</h1>
+							<p className="fw-light fs-1">
+								Check out community members favorites.
+							</p>
+						</div>
+						<div>
+							<Link to="/dashboard" className="btn btn-dark">
+								Dashboard
+							</Link>
+						</div>
+					</div>
+
+					<hr className="mb-2" />
+
 					<div className="profiles">
-						{profiles.length > 0 ? (
-							profiles.map((el) => (
-								<ProfileItem key={el._id} profile={el} />
-							))
-						) : (
-							<h4>No profiles found</h4>
-						)}
+						<div className="profiles-list">
+							{profiles.length > 0 ? (
+								profiles.map((el) => (
+									<ProfileItem key={el._id} profile={el} />
+								))
+							) : (
+								<h2 className="text-dark">
+									No profiles found.
+								</h2>
+							)}
+						</div>
+						<div className="profiles-sidebar-wrapper">
+							<div className="profiles-sidebar">
+								<div className="sidebar-header lead text-primary">
+									Actions 1
+								</div>
+								<ul>
+									<li>Item 1</li>
+									<li>Item 2</li>
+									<li>Item 3</li>
+								</ul>
+							</div>
+
+							<div className="divider">
+								<hr className="my-2" />
+							</div>
+
+							<div className="profiles-sidebar">
+								<div className="sidebar-header lead text-primary">
+									Actions 2
+								</div>
+								<ul>
+									<li>Item 1</li>
+									<li>Item 2</li>
+									<li>Item 3</li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</>
 			)}
