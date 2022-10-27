@@ -115,6 +115,10 @@
 	grid-area: tabs;
 	color: black;
 }
+.profile-grid .tabs hr {
+	width: 97%;
+	margin: 1rem auto 0;
+}
 .profile-grid .tabs ul {
 	display: flex;
 }
@@ -133,4 +137,26 @@
 }
 .profile-grid .view {
 	grid-area: view;
+}
+.profile-restaurants .res-showcase {
+	display: flex;
+	gap: 2rem;
+	border-radius: 12px;
+}
+.profile-restaurants .info {
+	flex: 0 0 37%;
+}
+.profile-restaurants .res-showcase .info {
+	border-right: 0.5px solid white;
+	padding-right: 1em;
+}
+
+.profile-media .media-showcase {
+	display: flex;
+	gap: 2rem;
+	border-radius: 12px;
+}
+
+.profile-media .info {
+	flex: 1 1 auto;
 }

@@ -73,7 +73,7 @@ const Profile = () => {
 									</li>
 								))}
 							</ul>
-							<hr className="my-1" />
+							<hr />
 						</div>
 						<div className="view">
 							{tab === 'restaurants' && (
