@@ -52,7 +52,7 @@ const LandingHero = () => {
 								<>
 									<Link
 										to="/dashboard"
-										className="btn btn-primary mt-1"
+										className="btn btn-primary mt-1 cursor-pointer"
 									>
 										My Dashboard
 									</Link>
