@@ -12,7 +12,7 @@ const sidebar = () => {
 		<div>
 			<div className="sidebar-top mb-1">
 				<div className="fs-2 text-dark">Recent Activity</div>
-				<div>
+				<div className="avatar-icon">
 					<FontAwesomeIcon
 						icon={faEllipsisH}
 						className="cursor-pointer"

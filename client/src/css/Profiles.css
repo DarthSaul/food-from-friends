@@ -57,10 +57,10 @@
 .profile-grid {
 	display: grid;
 	grid-template-areas:
-		'top top rule sidebar'
-		'tabs tabs rule sidebar'
-		'view view rule sidebar';
-	grid-template-columns: 1fr 1fr 5px 300px;
+		'top rule sidebar'
+		'tabs rule sidebar'
+		'view rule sidebar';
+	grid-template-columns: 1fr 5px 0.4fr;
 	grid-gap: 1rem;
 	padding-bottom: 3rem;
 }
@@ -112,7 +112,7 @@
 	display: flex;
 	align-items: center;
 	gap: 2em;
-	margin-left: 2em;
+	margin-left: 0.5rem;
 }
 .profile-top img {
 	width: 10em;
@@ -121,9 +121,10 @@
 	object-fit: cover;
 	border: 2px solid white;
 	position: absolute;
+	z-index: 2;
 }
 .profile-top .name {
-	margin-left: 200px;
+	margin-left: 11rem;
 }
 .profile-info .icons {
 	display: flex;
@@ -203,11 +204,48 @@
 		height: 5em;
 	}
 }
+@media (max-width: 1225px) {
+	.profile-grid {
+		grid-template-columns: 0.7fr 1px 1fr;
+	}
+	.sidebar-top .fs-2 {
+		font-size: 1.3em;
+	}
+	.sidebar-items {
+		font-size: 0.9rem;
+	}
+}
+@media (max-width: 1100px) {
+	.profile-grid {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			'top'
+			'tabs'
+			'view'
+			'sidebar';
+	}
+	.profile-divider {
+		display: none;
+	}
+	.sidebar-items {
+		font-size: 1.1rem;
+	}
+}
 @media (max-width: 950px) {
 	.profiles-header {
 		display: unset;
 	}
 	.profiles-header .btn {
 		margin: 1em 0;
+	}
+	.profile-info .showcase {
+		margin-left: 0;
+	}
+	.profile-top img {
+		width: 7em;
+		height: 7em;
+	}
+	.profile-top .name {
+		margin-left: 8rem;
 	}
 }
