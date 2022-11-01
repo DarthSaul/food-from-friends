@@ -62,7 +62,7 @@ const Lists = () => {
 							)}
 						</div>
 					)}
-					{tab === 'new' && <ListForm />}
+					{tab === 'new' && <ListForm setTab={setTab} />}
 				</>
 			)}
 		</>

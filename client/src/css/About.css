@@ -3,3 +3,9 @@
 	max-width: 1000px;
 	margin: auto;
 }
+.about-page .content {
+	color: rgb(124, 124, 124);
+}
+.about-page-links {
+	display: flex;
+}
