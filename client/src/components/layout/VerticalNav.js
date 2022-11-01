@@ -1,20 +1,37 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHamburger, faUser, faHome } from '@fortawesome/free-solid-svg-icons';
+import {
+	faHamburger,
+	faUser,
+	faHome,
+	faTimes,
+} from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../contexts/UserContext';
 import NavAccount from './NavAccount';
 import '../../css/Navbar.css';
 
-const VerticalNav = () => {
+const VerticalNav = ({ navState, toggleNav }) => {
 	const {
 		userObj: { isAuthenticated },
 	} = useContext(UserContext);
+
 	return (
 		<nav className="vert-nav">
-			<div className="nav-inner bg-dark">
+			<div className={`nav-inner bg-dark ${navState && 'open-nav'}`}>
 				<div className="p-1">
-					<h1>Food</h1>
+					<div className="vert-nav-header">
+						<h1>Food</h1>
+						<div className="close">
+							<FontAwesomeIcon
+								icon={faTimes}
+								size="2x"
+								onClick={(e) => toggleNav(false)}
+								className="cursor-pointer"
+							/>
+						</div>
+					</div>
+
 					<hr className="my-1" />
 					<ul>
 						<li>
@@ -28,6 +45,7 @@ const VerticalNav = () => {
 									}
 								}}
 								activeClassName="selected"
+								onClick={(e) => toggleNav(false)}
 							>
 								<FontAwesomeIcon
 									icon={faHamburger}
@@ -50,13 +68,18 @@ const VerticalNav = () => {
 									}
 								}}
 								activeClassName="selected"
+								onClick={(e) => toggleNav(false)}
 							>
 								<FontAwesomeIcon icon={faUser} className="mr" />{' '}
 								Profiles
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/dashboard" activeClassName="selected">
+							<NavLink
+								to="/dashboard"
+								activeClassName="selected"
+								onClick={(e) => toggleNav(false)}
+							>
 								<FontAwesomeIcon icon={faHome} className="mr" />{' '}
 								Dashboard
 							</NavLink>

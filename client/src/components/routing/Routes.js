@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import VerticalNav from '../layout/VerticalNav';
 import NotFound from '../layout/NotFound';
@@ -9,11 +9,22 @@ import Lists from '../lists/Lists';
 import ListForm from '../list-form/ListForm';
 import List from '../list/List';
 import PrivateRoute from '../routing/PrivateRoute';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Routes = () => {
+	const [nav, toggleNav] = useState(false);
+
 	return (
 		<div className="grid-layout">
-			<VerticalNav />
+			<VerticalNav navState={nav} toggleNav={toggleNav} />
+			<nav
+				className="nav-mini cursor-pointer fw-light"
+				onClick={() => toggleNav(true)}
+			>
+				<FontAwesomeIcon icon={faBars} size="lg" className="mr" />
+				<span className="fs-1">Menu</span>
+			</nav>
 			<section className="content-container">
 				<Switch>
 					<Route exact path="/profiles">

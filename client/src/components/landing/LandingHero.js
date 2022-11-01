@@ -29,10 +29,9 @@ const LandingHero = () => {
 						<h1 className="mb-2">Curated food recs from friends</h1>
 						<div>
 							<p className="text-muted fw-light mb-1">
-								Lorem ipsum, dolor sit amet consectetur
-								adipisicing elit. Sequi facere magni hic
-								explicabo nemo quasi libero veritatis. Harum
-								quasi voluptas,
+								Food From Friends is a community for friends to
+								share and explore curated lists of where to eat
+								in any given city.
 							</p>
 							{!isAuthenticated && !loading ? (
 								<>
