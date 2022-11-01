@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { useHistory, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { ListsContext } from '../../contexts/ListsContext';
 import { UserContext } from '../../contexts/UserContext';
 import { AlertContext } from '../../contexts/AlertContext';
 
-const ListForm = () => {
+const ListForm = ({ setTab }) => {
 	const {
 		userObj: { isAuthenticated, loading },
 	} = useContext(UserContext);
@@ -24,8 +24,6 @@ const ListForm = () => {
 	});
 
 	const { createList } = useContext(ListsContext);
-
-	const history = useHistory();
 
 	const addRestaurant = (e) => {
 		e.preventDefault();
@@ -79,7 +77,7 @@ const ListForm = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		createList(restaurants);
-		history.push('/lists');
+		setTab('lists');
 	};
 
 	const { name, rating, review } = restaurant;
