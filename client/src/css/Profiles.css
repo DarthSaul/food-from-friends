@@ -13,9 +13,6 @@
 	grid-template-columns: 1.75fr 1fr;
 	gap: 5%;
 }
-.profiles-sidebar-wrapper {
-	padding: 0 1em;
-}
 .profiles-sidebar {
 	border-radius: 10px;
 	border: 1px solid grey;
@@ -195,4 +192,22 @@
 }
 .profile-about .bio {
 	margin-left: 0.25em;
+}
+@media (max-width: 1300px) {
+	.profiles {
+		grid-template-columns: 1fr;
+		gap: 0%;
+	}
+	.profile-item-header img {
+		width: 5em;
+		height: 5em;
+	}
+}
+@media (max-width: 950px) {
+	.profiles-header {
+		display: unset;
+	}
+	.profiles-header .btn {
+		margin: 1em 0;
+	}
 }
