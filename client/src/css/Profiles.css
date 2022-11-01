@@ -26,7 +26,7 @@
 	padding: 0.25em 0.75em;
 }
 .profiles-sidebar ul li {
-	padding: 1.5em;
+	padding: 0.5em 1.5em;
 	border-bottom: 1px solid black;
 }
 .profiles-sidebar ul li:last-child {

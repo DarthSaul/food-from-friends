@@ -5,12 +5,21 @@ const ProfilesSidebar = () => {
 		<>
 			<div className="profiles-sidebar">
 				<div className="sidebar-header lead text-primary">
-					Actions 1
+					Some Actions
 				</div>
 				<ul>
-					<li>Item 1</li>
-					<li>Item 2</li>
-					<li>Item 3</li>
+					<li>
+						<div className="fs-1">Lorem ipsum dolor sit</div>
+						<div className="text-muted">Item 1</div>
+					</li>
+					<li>
+						<div className="fs-1">Lorem ipsum dolor sit </div>
+						<div className="text-muted">Item 1</div>
+					</li>
+					<li>
+						<div className="fs-1">Lorem ipsum dolor sit </div>
+						<div className="text-muted">Item 1</div>
+					</li>
 				</ul>
 			</div>
 
@@ -20,12 +29,21 @@ const ProfilesSidebar = () => {
 
 			<div className="profiles-sidebar">
 				<div className="sidebar-header lead text-primary">
-					Actions 2
+					More Actions
 				</div>
 				<ul>
-					<li>Item 1</li>
-					<li>Item 2</li>
-					<li>Item 3</li>
+					<li>
+						<div className="fs-1">Lorem ipsum dolor sit</div>
+						<div className="text-muted">Item 1</div>
+					</li>
+					<li>
+						<div className="fs-1">Lorem ipsum dolor sit </div>
+						<div className="text-muted">Item 1</div>
+					</li>
+					<li>
+						<div className="fs-1">Lorem ipsum dolor sit </div>
+						<div className="text-muted">Item 1</div>
+					</li>
 				</ul>
 			</div>
 		</>
