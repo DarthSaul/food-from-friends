@@ -40,7 +40,10 @@ const Register = ({ login }) => {
 	return (
 		<div>
 			<div className="x-large text-dark mb-1">Join Us</div>
-			<form className="form register-form" onSubmit={handleSubmit}>
+			<form
+				className="form register-form"
+				onSubmit={handleSubmit}
+			>
 				<div className="form-group">
 					<input
 						type="text"
@@ -85,7 +88,7 @@ const Register = ({ login }) => {
 				<div className="submit-register">
 					<input
 						type="submit"
-						className="btn btn-primary"
+						className="btn btn-primary mr-1"
 						value="Register"
 					/>
 					<p>

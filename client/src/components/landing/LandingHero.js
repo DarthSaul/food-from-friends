@@ -26,24 +26,38 @@ const LandingHero = () => {
 			<div className="landing-left">
 				{tab === 'main' && (
 					<>
-						<h1 className="mb-2">Curated food recs from friends</h1>
+						<h1 className="mb-2">
+							Curated food recs from
+							friends
+						</h1>
 						<div>
 							<p className="text-muted fw-light mb-1">
-								Food From Friends is a community for friends to
-								share and explore curated lists of where to eat
-								in any given city.
+								Food From
+								Friends is a
+								community for
+								friends to share
+								and explore
+								curated lists of
+								where to eat in
+								any given city.
 							</p>
-							{!isAuthenticated && !loading ? (
+							{!isAuthenticated &&
+							!loading ? (
 								<>
 									<div
 										className="btn btn-primary btn-round mr"
-										onClick={signUp}
+										onClick={
+											signUp
+										}
 									>
-										Sign Up
+										Sign
+										Up
 									</div>
 									<div
 										className="btn btn-light btn-round"
-										onClick={login}
+										onClick={
+											login
+										}
 									>
 										Login
 									</div>
@@ -54,14 +68,17 @@ const LandingHero = () => {
 										to="/dashboard"
 										className="btn btn-primary mt-1 cursor-pointer"
 									>
-										My Dashboard
+										My
+										Dashboard
 									</Link>
 								</>
 							)}
 						</div>
 					</>
 				)}
-				{tab === 'register' && <Register login={login} />}
+				{tab === 'register' && (
+					<Register login={login} />
+				)}
 				{tab === 'login' && <Login signUp={signUp} />}
 			</div>
 			<div className="landing-right">
